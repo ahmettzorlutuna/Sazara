@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 36" fill="currentColor">
+  <rect x="2" y="9" width="3" height="18"/>
+  <rect x="8" y="9" width="3" height="18"/>
+  <rect x="14" y="9" width="3" height="18"/>
+  <rect x="20" y="9" width="3" height="18"/>
+  <text x="32" y="25" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.4">uniview</text>
+</svg>

@@ -1,0 +1,143 @@
+/*
+ * Sazara design tokens — single source of truth.
+ * Modern Cinematic White: paper + ink + electric cobalt + Geist.
+ */
+
+:root {
+	/* Color */
+	--ink:        oklch(13% 0.005 260);
+	--ink-2:      oklch(28% 0.006 260);
+	--ink-soft:   oklch(48% 0.008 260);
+	--ink-mute:   oklch(65% 0.005 260);
+	--paper:      oklch(99% 0 0);
+	--canvas:     oklch(97% 0.002 260);
+	--canvas-2:   oklch(94% 0.003 260);
+	--rule:       oklch(91% 0.004 260);
+	--rule-soft:  oklch(95% 0.003 260);
+	--accent:      oklch(52% 0.22 260);
+	--accent-deep: oklch(42% 0.20 260);
+	--accent-tint: oklch(96% 0.04 260);
+
+	/* Type */
+	--font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+	--text-xs:      0.75rem;
+	--text-sm:      0.875rem;
+	--text-body:    1.0625rem;
+	--text-lead:    1.25rem;
+	--text-h4:      1.375rem;
+	--text-h3:      clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+	--text-h2:      clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+	--text-h1:      clamp(2.75rem, 1.5rem + 4.5vw, 5.75rem);
+	--text-display: clamp(3.5rem, 1.5rem + 6vw, 8rem);
+
+	/* Spacing */
+	--space-3xs: 0.25rem;
+	--space-2xs: 0.5rem;
+	--space-xs:  0.75rem;
+	--space-sm:  1rem;
+	--space-md:  clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+	--space-lg:  clamp(2.5rem, 1.5rem + 2.5vw, 4rem);
+	--space-xl:  clamp(4rem, 2.5rem + 4vw, 7rem);
+	--space-section: clamp(5rem, 3rem + 6vw, 9rem);
+	--space-gutter:  clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
+
+	/* Layout */
+	--measure: 1280px;
+	--measure-prose: 62ch;
+
+	/* Radius */
+	--radius-sm:   6px;
+	--radius-md:   12px;
+	--radius-lg:   18px;
+	--radius-xl:   24px;
+	--radius-pill: 999px;
+
+	/* Motion */
+	--ease:      cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+	--dur-fast:  160ms;
+	--dur:       340ms;
+	--dur-slow:  720ms;
+
+	/* Z-index */
+	--z-nav:    50;
+	--z-modal:  1000;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	scroll-behavior: smooth;
+	font-feature-settings: "ss01", "ss03", "cv11";
+}
+body {
+	min-height: 100svh;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-sans);
+	font-size: var(--text-body);
+	line-height: 1.55;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+
+::selection { background: var(--accent); color: var(--paper); }
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* ─── Layout ─── */
+.wrap {
+	width: 100%;
+	max-width: var(--measure);
+	margin-inline: auto;
+	padding-inline: var(--space-gutter);
+}
+
+.skip-link {
+	position: absolute;
+	top: var(--space-2xs);
+	left: var(--space-2xs);
+	padding: var(--space-2xs) var(--space-sm);
+	background: var(--ink);
+	color: var(--paper);
+	z-index: var(--z-modal);
+	transform: translateY(-200%);
+	border-radius: 8px;
+	transition: transform var(--dur-fast) var(--ease);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+/* ─── Reveal-on-scroll ─── */
+.reveal {
+	opacity: 0;
+	transform: translateY(28px);
+	transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+}
+.reveal.in {
+	opacity: 1;
+	transform: none;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+	.reveal { opacity: 1; transform: none; }
+}

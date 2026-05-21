@@ -1,0 +1,21 @@
+/* Sazara critical CSS — inlined in <head>, ~5kb gzipped target.
+   Sadece nav + hero base above-the-fold için. main.css async yüklenir. */
+
+:root{--ink:oklch(13% 0.005 260);--ink-2:oklch(28% 0.006 260);--ink-soft:oklch(48% 0.008 260);--paper:oklch(99% 0 0);--canvas:oklch(97% 0.002 260);--rule:oklch(91% 0.004 260);--accent:oklch(52% 0.22 260);--font-sans:"Geist",ui-sans-serif,system-ui,sans-serif;--font-mono:"Geist Mono",ui-monospace,Menlo,monospace;--text-display:clamp(3.5rem,1.5rem + 6vw,8rem);--measure:1280px;--space-gutter:clamp(1.25rem,.75rem + 1.5vw,2rem);--ease:cubic-bezier(.16,1,.3,1);--dur:340ms}
+
+*,*::before,*::after{box-sizing:border-box}html,body{margin:0;padding:0}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;font-feature-settings:"ss01","ss03","cv11";scroll-behavior:smooth}body{min-height:100svh;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:1.0625rem;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img,svg{display:block;max-width:100%;height:auto}a{color:inherit;text-decoration:none}::selection{background:var(--accent);color:var(--paper)}
+
+.skip-link{position:absolute;top:.5rem;left:.5rem;padding:.5rem 1rem;background:var(--ink);color:var(--paper);z-index:1000;transform:translateY(-200%);border-radius:8px}
+.skip-link:focus-visible{transform:translateY(0)}
+
+.wrap{width:100%;max-width:var(--measure);margin-inline:auto;padding-inline:var(--space-gutter)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-block:1.1rem;background:oklch(99% 0 0 / .72);backdrop-filter:saturate(160%) blur(18px);-webkit-backdrop-filter:saturate(160%) blur(18px);border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:clamp(1.5rem,1rem + 1.5vw,2.5rem)}
+.nav__brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;font-size:1.125rem;letter-spacing:-.025em;color:var(--ink)}
+.nav__brand-mark{display:grid;place-items:center;width:1.65rem;height:1.65rem;background:var(--ink);color:var(--paper);border-radius:7px;font-family:var(--font-mono);font-size:.78rem;font-weight:600}
+
+.hero{position:relative;min-height:100svh;overflow:hidden;color:var(--paper);isolation:isolate;margin-top:-4.5rem}
+.hero__title{font-family:var(--font-sans);font-size:var(--text-display);font-weight:500;line-height:.96;letter-spacing:-.04em;max-width:14ch;text-wrap:balance;color:var(--paper)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}

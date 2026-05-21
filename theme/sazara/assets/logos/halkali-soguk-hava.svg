@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40">
+  <rect x="0.5" y="2.5" width="179" height="35" fill="none" stroke="currentColor" stroke-width="1"/>
+  <text x="8" y="17" font-family="Geist Mono, ui-monospace, monospace" font-weight="600" font-size="11" letter-spacing="1" fill="currentColor">HALKALI</text>
+  <line x1="68" y1="9" x2="68" y2="32" stroke="currentColor" stroke-width="0.5"/>
+  <text x="74" y="14" font-family="Geist Mono, ui-monospace, monospace" font-size="6" letter-spacing="0.5" fill="currentColor">SOĞUK HAVA</text>
+  <text x="74" y="22" font-family="Geist Mono, ui-monospace, monospace" font-size="6" letter-spacing="0.5" fill="currentColor">−18°C → +4°C</text>
+  <text x="74" y="30" font-family="Geist Mono, ui-monospace, monospace" font-size="5" letter-spacing="1" fill="currentColor">COLD CHAIN LOGISTICS</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 36" fill="currentColor">
+  <path d="M3 28 L13 6 L23 28 Z"/>
+  <rect x="9" y="22" width="8" height="2.5"/>
+  <text x="32" y="25" font-family="Geist, ui-sans-serif, system-ui, sans-serif" font-weight="800" font-size="20" letter-spacing="3.5">AJAX</text>
+</svg>

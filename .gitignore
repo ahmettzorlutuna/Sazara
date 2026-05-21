@@ -1,0 +1,39 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# Docker volumes / runtime
+db/dump.sql
+db/*.sql
+
+# uploads/: WP'nin otomatik ürettiği medya (2026/, wc-logs/, woocommerce_uploads/,
+# woocommerce-placeholder*.webp) ignore — ama tema-kritik asset klasörleri
+# (site görselleri) repoda KALMALI, yoksa klon/deploy'da site görselsiz olur.
+uploads/*
+!uploads/.gitkeep
+!uploads/photos/
+!uploads/partner-logos/
+!uploads/customer-logos/
+!uploads/brand/
+!uploads/ajax/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Build artifacts
+node_modules/
+vendor/
+*.log
+
+# WordPress fallback (if anything ever leaks out of the container)
+wp-config.php
+wp-content/debug.log
+
+# Terk edilmiş eski FSE block teması (classic theme'e pivot edildi).
+theme/sazara-old/

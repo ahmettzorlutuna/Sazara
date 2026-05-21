@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="currentColor">
+  <text x="0" y="20" font-family="ui-serif, Georgia, Cambria, serif" font-weight="500" font-size="17">Kuyumcular</text>
+  <text x="0" y="35" font-family="ui-serif, Georgia, Cambria, serif" font-style="italic" font-weight="400" font-size="15">Çarşısı</text>
+  <line x1="100" y1="15" x2="100" y2="35" stroke="currentColor" stroke-width="1"/>
+  <text x="108" y="22" font-family="Geist Mono, ui-monospace, monospace" font-size="6" letter-spacing="2">İSTANBUL</text>
+  <text x="108" y="32" font-family="Geist Mono, ui-monospace, monospace" font-size="6" letter-spacing="2">1463 — bugün</text>
+</svg>

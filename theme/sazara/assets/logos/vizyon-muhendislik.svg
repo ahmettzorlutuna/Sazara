@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40">
+  <circle cx="14" cy="20" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <circle cx="14" cy="20" r="3.5" fill="currentColor"/>
+  <text x="32" y="22" font-family="Geist, ui-sans-serif, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="currentColor">Vizyon</text>
+  <text x="32" y="35" font-family="Geist Mono, ui-monospace, monospace" font-size="7" letter-spacing="2.5" fill="currentColor">MÜHENDİSLİK</text>
+</svg>
