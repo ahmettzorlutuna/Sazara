@@ -1,0 +1,36 @@
+name: Deploy to Production
+
+  on:
+    push:
+      branches: [main]
+    workflow_dispatch:
+
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      timeout-minutes: 5
+
+      steps:
+        - name: Deploy via SSH
+          uses: appleboy/ssh-action@v1.0.3
+          with:
+            host: ${{ secrets.VPS_HOST }}
+            port: ${{ secrets.VPS_PORT }}
+            username: ${{ secrets.VPS_USER }}
+            key: ${{ secrets.VPS_SSH_KEY }}
+            script_stop: true
+            script: |
+              set -e
+              cd /opt/sazara/site
+              echo "== Current commit =="
+              git rev-parse --short HEAD
+              echo "== Fetching =="
+              git fetch origin main
+              echo "== Resetting to origin/main =="
+              git reset --hard origin/main
+              echo "== New commit =="
+              git rev-parse --short HEAD
+              echo "== Resetting OPcache =="
+              docker exec -u www-data sazara-wp wp eval 'if (function_exists("opcache_reset")) { opcache_reset(); echo "OPcache reset\n"; } else { echo
+  "OPcache not available\n"; }' --path=/var/www/html
+              echo "== Done =="
