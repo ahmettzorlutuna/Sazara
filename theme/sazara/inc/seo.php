@@ -1,7 +1,6 @@
 <?php
 /**
- * Light SEO — Rank Math veya Yoast yoksa fallback olarak çalışır.
- * Plugin varsa onu rahatsız etmez (priority 1, plugin priority 10+).
+ * Light SEO — meta description + Rank Math JSON-LD augmentations.
  *
  * @package Sazara
  */
@@ -35,7 +34,6 @@ add_action(
             $desc = get_bloginfo( 'description' );
         }
 
-        // Rank Math kendi description bastiysa bizimkini bastırma.
         $skip_desc = false;
         if ( class_exists( 'RankMath' ) && is_singular() && ! ( is_front_page() || is_home() ) ) {
             $rm_desc   = get_post_meta( get_the_ID(), 'rank_math_description', true );
@@ -46,12 +44,10 @@ add_action(
             printf( '<meta name="description" content="%s">' . "\n", esc_attr( $desc ) );
         }
 
-        // Rank Math veya Yoast varsa OG tags'i kendileri yonetir.
         if ( class_exists( 'RankMath' ) || defined( 'WPSEO_VERSION' ) ) {
             return;
         }
 
-        // Fallback OG tags.
         $title = wp_get_document_title();
         $desc  = is_singular() ? wp_strip_all_tags( get_the_excerpt() ) : get_bloginfo( 'description' );
 
@@ -70,4 +66,61 @@ add_action(
         }
     },
     3
+);
+
+/**
+ * Rank Math JSON-LD enrichment — sameAs, founder, areaServed, knowsAbout.
+ */
+add_filter(
+    'rank_math/json_ld',
+    static function ( $data, $jsonld ) {
+        if ( ! isset( $data['organization'] ) ) {
+            return $data;
+        }
+
+        $org = &$data['organization'];
+
+        $org['sameAs'] = array(
+            'https://www.linkedin.com/company/sazara-teknoloji/',
+        );
+
+        $org['founder'] = array(
+            '@type' => 'Person',
+            'name'  => 'Ahmet Zorlutuna',
+            'sameAs' => array(
+                'https://www.linkedin.com/in/ahmetzorlutuna/',
+            ),
+        );
+
+        $org['foundingDate'] = '2026-05-01';
+
+        $org['areaServed'] = array(
+            array( '@type' => 'AdministrativeArea', 'name' => 'İstanbul Avrupa' ),
+            array( '@type' => 'AdministrativeArea', 'name' => 'İstanbul Anadolu' ),
+            array( '@type' => 'AdministrativeArea', 'name' => 'Tekirdağ' ),
+            array( '@type' => 'AdministrativeArea', 'name' => 'Çorlu' ),
+            array( '@type' => 'AdministrativeArea', 'name' => 'Kocaeli' ),
+        );
+
+        $org['knowsAbout'] = array(
+            'Güvenlik Kamerası Sistemleri',
+            'CCTV',
+            'Network Altyapısı',
+            'Yapısal Kablolama',
+            'Ajax Kablosuz Alarm',
+            'Hırsız Alarmı',
+            'Yangın Alarmı',
+            'Geçiş Kontrol Sistemleri',
+            'Wi-Fi Altyapısı',
+            'Sunucu Kurulumu',
+            'Yazılım Geliştirme',
+            'Web Çözümleri',
+            'Teknik Servis',
+            'Veri Yedekleme',
+        );
+
+        return $data;
+    },
+    99,
+    2
 );
