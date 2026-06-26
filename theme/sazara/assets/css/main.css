@@ -3518,3 +3518,189 @@ body { padding-top: 0; }
 		transition: none;
 	}
 }
+
+/* ═══════════════════ AJAX CONTENT HUB ═══════════════════ */
+
+/* Dar gövde — single yazı içeriği için okunabilir genişlik. */
+.wrap--narrow {
+	max-width: 72ch;
+	margin-inline: auto;
+}
+
+/* Konu filtresi pill bandı — arşiv üstünde sticky değil, normal akış. */
+.ajax-hub-filter-section {
+	padding-block: var(--space-md);
+}
+
+.ajax-hub-filter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs);
+	align-items: center;
+}
+
+.ajax-hub-filter__pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.5rem 0.9rem;
+	border: 1px solid var(--ink-border, oklch(85% 0.01 250));
+	border-radius: 999px;
+	background: var(--surface, #fff);
+	color: var(--ink, oklch(18% 0.01 250));
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.ajax-hub-filter__pill:hover {
+	border-color: var(--accent, oklch(55% 0.18 255));
+	color: var(--accent, oklch(55% 0.18 255));
+}
+
+.ajax-hub-filter__pill.is-active {
+	background: var(--ink, oklch(18% 0.01 250));
+	border-color: var(--ink, oklch(18% 0.01 250));
+	color: #fff;
+}
+
+.ajax-hub-filter__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.5rem;
+	height: 1.25rem;
+	padding-inline: 0.4rem;
+	border-radius: 999px;
+	background: oklch(95% 0.005 250 / 0.6);
+	color: inherit;
+	font-size: 0.75rem;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+.ajax-hub-filter__pill.is-active .ajax-hub-filter__count {
+	background: oklch(100% 0 0 / 0.15);
+}
+
+/* Yazı grid'i — case-grid temelli; ek bir hover detayı. */
+.ajax-hub-grid .case-card:hover .case-card__title a {
+	color: var(--accent, oklch(55% 0.18 255));
+}
+
+/* Boş arşiv durumu. */
+.ajax-hub-empty {
+	padding-block: var(--space-lg);
+	color: var(--ink-soft, oklch(45% 0.005 250));
+	font-size: 1.0625rem;
+	text-align: center;
+}
+
+/* Single — breadcrumb stili. */
+.ajax-hub-single__crumb {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 1px;
+}
+
+.ajax-hub-single__crumb:hover {
+	border-bottom-style: dashed;
+}
+
+.ajax-hub-single__meta {
+	margin-top: var(--space-xs);
+	color: oklch(100% 0 0 / 0.7);
+	font-size: 0.875rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.ajax-hub-single__body {
+	padding-block: var(--space-xl);
+}
+
+/* Article gövdesi — uzun-form okunabilirlik. */
+.ajax-hub-article {
+	font-size: 1.0625rem;
+	line-height: 1.7;
+	color: var(--ink, oklch(18% 0.01 250));
+}
+
+.ajax-hub-article > * + * {
+	margin-top: 1.25em;
+}
+
+.ajax-hub-article h2 {
+	margin-top: 2em;
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+	line-height: 1.25;
+	letter-spacing: -0.01em;
+}
+
+.ajax-hub-article h3 {
+	margin-top: 1.75em;
+	font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+	line-height: 1.3;
+}
+
+.ajax-hub-article ul,
+.ajax-hub-article ol {
+	padding-left: 1.5em;
+}
+
+.ajax-hub-article li + li {
+	margin-top: 0.5em;
+}
+
+.ajax-hub-article blockquote {
+	margin-inline: 0;
+	padding: var(--space-sm) var(--space-md);
+	border-left: 3px solid var(--accent, oklch(55% 0.18 255));
+	background: oklch(98% 0.005 250);
+	color: var(--ink-soft, oklch(35% 0.005 250));
+	font-style: italic;
+}
+
+.ajax-hub-article img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 6px;
+}
+
+.ajax-hub-article code {
+	padding: 0.15em 0.4em;
+	background: oklch(95% 0.005 250);
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+.ajax-hub-article pre {
+	padding: var(--space-sm);
+	background: oklch(18% 0.01 250);
+	color: oklch(95% 0.005 250);
+	border-radius: 6px;
+	overflow-x: auto;
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.ajax-hub-article pre code {
+	padding: 0;
+	background: transparent;
+	color: inherit;
+}
+
+@media (max-width: 640px) {
+	.ajax-hub-filter {
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		padding-bottom: 0.5rem;
+		scrollbar-width: thin;
+	}
+
+	.ajax-hub-filter__pill {
+		flex-shrink: 0;
+	}
+}
+

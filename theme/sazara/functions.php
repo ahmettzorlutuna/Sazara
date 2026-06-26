@@ -35,6 +35,7 @@ $sazara_modules = [
 	'inc/dev-mail.php',
 	'inc/perf.php',
 	'inc/seo.php',
+	'inc/post-types/ajax-content.php',
 ];
 
 foreach ( $sazara_modules as $module ) {
