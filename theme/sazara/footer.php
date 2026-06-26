@@ -40,7 +40,6 @@ defined( 'ABSPATH' ) || exit;
 				<ul>
 					<li><a href="<?php echo esc_url( home_url( '/hakkimizda/' ) ); ?>"><?php esc_html_e( 'Hakkımızda', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/referanslar/' ) ); ?>"><?php esc_html_e( 'Referanslar', 'sazara' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/urunler/' ) ); ?>"><?php esc_html_e( 'Ürünler', 'sazara' ); ?></a></li>
 				</ul>
 			</div>
 
