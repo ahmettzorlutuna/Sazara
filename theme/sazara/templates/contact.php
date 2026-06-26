@@ -28,17 +28,17 @@ $map_embed_url = 'https://maps.google.com/maps?q=Aykosan+Sanayi+Sitesi,+Ba%C5%9F
 $channels = [
 	[
 		'label' => __( 'E-posta', 'sazara' ),
-		'value' => 'hello@sazara.com.tr',
-		'href'  => 'mailto:hello@sazara.com.tr',
+		'value' => 'info@sazara.com.tr',
+		'href'  => 'mailto:info@sazara.com.tr',
 	],
 	[
 		'label' => __( 'WhatsApp', 'sazara' ),
-		'value' => '+90 555 555 5555',
+		'value' => '+90 531 850 37 52',
 		'href'  => 'https://wa.me/905555555555',
 	],
 	[
 		'label' => __( 'Telefon', 'sazara' ),
-		'value' => '+90 212 000 00 00',
+		'value' => '+90 212 671 98 51',
 		'href'  => 'tel:+902120000000',
 	],
 	[
@@ -48,7 +48,7 @@ $channels = [
 	],
 	[
 		'label' => __( 'Çalışma saatleri', 'sazara' ),
-		'value' => 'Pzt–Cum · 09:00–18:00',
+		'value' => 'Pzt–Cum 08:30–18:00 · Cmt 08:30–13:00',
 		'href'  => '',
 	],
 ];
@@ -241,7 +241,7 @@ get_header();
 						<span>WhatsApp ile yaz</span>
 						<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 					</a>
-					<a href="mailto:hello@sazara.com.tr" class="btn btn--ghost">hello@sazara.com.tr</a>
+					<a href="mailto:info@sazara.com.tr" class="btn btn--ghost">info@sazara.com.tr</a>
 				</div>
 			</div>
 		</div>

@@ -20,9 +20,6 @@ defined( 'ABSPATH' ) || exit;
  * (16:10) önerilir.
  */
 $gallery_images = [
-	[ 'url' => '/wp-content/uploads/2026/05/network-1.jpg', 'alt' => 'CCTV kurulum sahası', 'caption' => 'Aykosan tesis kurulumu' ],
-	[ 'url' => '/wp-content/uploads/2026/05/network-2.jpg', 'alt' => 'Ekip', 'caption' => 'Devreye alma' ],
-	[ 'url' => '/wp-content/uploads/2026/05/ajax-install-1.jpg', 'alt' => 'Ajax kurulumu', 'caption' => 'Ajax kurulumu' ],
 ];
 
 /**

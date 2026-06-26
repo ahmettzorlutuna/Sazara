@@ -113,7 +113,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<li class="service-card reveal">
 					<a href="<?php echo esc_url( home_url( '/hizmetler/kamera-sistemleri/' ) ); ?>" class="service-card__media">
 						<span class="service-card__tag">CCTV · 4K · IR</span>
-						<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2026/05/Uniview-4MP-Turrets-mounted-on-red-brick-wall.webp' ) ); ?>" alt="<?php esc_attr_e( 'Uniview 4MP turret IP kameralar — kırmızı tuğla cephe montajı', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
+						<img src="<?php echo esc_url( home_url( '/wp-content/uploads/photos/photo-1557597774-9d273605dfa9.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Uniview 4MP turret IP kameralar — kırmızı tuğla cephe montajı', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
 					</a>
 					<div class="service-card__body">
 						<span class="service-card__num">01 / Kamera</span>
