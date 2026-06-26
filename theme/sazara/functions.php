@@ -44,11 +44,4 @@ foreach ( $sazara_modules as $module ) {
 	}
 }
 
-if ( class_exists( 'WooCommerce' ) ) {
-	$wc_path = SAZARA_DIR . '/inc/woocommerce/catalog-mode.php';
-	if ( file_exists( $wc_path ) ) {
-		require_once $wc_path;
-	}
-}
-
 unset( $sazara_modules, $module, $path );
