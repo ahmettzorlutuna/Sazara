@@ -37,12 +37,6 @@ add_action(
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'responsive-embeds' );
 
-		// WooCommerce.
-		add_theme_support( 'woocommerce' );
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
-
 		// Custom image sizes — editorial layouts.
 		add_image_size( 'sazara-hero', 1920, 1080, true );           // 16:9 anasayfa hero
 		add_image_size( 'sazara-portrait', 1200, 1500, true );       // 4:5 ürün/portrait
