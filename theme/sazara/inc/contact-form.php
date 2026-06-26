@@ -12,7 +12,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const SAZARA_CONTACT_TO    = 'ahmettayyip3439@gmail.com';
+const SAZARA_CONTACT_TO    = 'info@sazara.com.tr';
 const SAZARA_CONTACT_NONCE = 'sazara_contact_nonce';
 
 /**
