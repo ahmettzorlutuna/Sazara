@@ -1,6 +1,6 @@
 <?php
 /**
- * Light SEO — meta description + Rank Math JSON-LD augmentations.
+ * Light SEO — meta description + Rank Math JSON-LD + GA4 form tracking.
  *
  * @package Sazara
  */
@@ -15,8 +15,7 @@ add_action(
 
         $desc = '';
         if ( is_front_page() || is_home() ) {
-            $desc = 'Sazara Teknoloji — İstanbul İkitelli Aykosan merkezli güvenlik kamerası (CCTV), network altyapısı, Ajax kablosuz alarm ve B2B
-  yazılım çözümleri.';
+            $desc = 'Sazara Teknoloji — İstanbul İkitelli Aykosan merkezli güvenlik kamerası (CCTV), network altyapısı, Ajax kablosuz alarm ve B2B yazılım çözümleri.';
         } elseif ( is_singular() ) {
             $desc = wp_strip_all_tags( get_the_excerpt() );
             if ( empty( $desc ) ) {
@@ -39,9 +38,6 @@ add_action(
     3
 );
 
-/**
- * Rank Math JSON-LD enrichment — type-based detection.
- */
 add_filter(
     'rank_math/json_ld',
     static function ( $data, $jsonld ) {
@@ -54,23 +50,15 @@ add_filter(
                 break;
             }
         }
-
-        if ( '' === $org_key ) {
-            return $data;
-        }
-
+        if ( '' === $org_key ) { return $data; }
         $org = &$data[ $org_key ];
-
         $org['sameAs'] = array( 'https://www.linkedin.com/company/sazara-teknoloji/' );
-
         $org['founder'] = array(
             '@type'  => 'Person',
             'name'   => 'Ahmet Zorlutuna',
             'sameAs' => array( 'https://www.linkedin.com/in/ahmetzorlutuna/' ),
         );
-
         $org['foundingDate'] = '2026-05-01';
-
         $org['areaServed'] = array(
             array( '@type' => 'AdministrativeArea', 'name' => 'İstanbul Avrupa' ),
             array( '@type' => 'AdministrativeArea', 'name' => 'İstanbul Anadolu' ),
@@ -78,15 +66,29 @@ add_filter(
             array( '@type' => 'AdministrativeArea', 'name' => 'Çorlu' ),
             array( '@type' => 'AdministrativeArea', 'name' => 'Kocaeli' ),
         );
-
         $org['knowsAbout'] = array(
             'Güvenlik Kamerası Sistemleri', 'CCTV', 'Network Altyapısı', 'Yapısal Kablolama',
             'Ajax Kablosuz Alarm', 'Hırsız Alarmı', 'Yangın Alarmı', 'Geçiş Kontrol Sistemleri',
             'Wi-Fi Altyapısı', 'Sunucu Kurulumu', 'Yazılım Geliştirme', 'Teknik Servis',
         );
-
         return $data;
     },
     99,
     2
+);
+
+add_action(
+    'wp_footer',
+    static function () {
+        echo "<script>\n";
+        echo <<<'JS'
+(function(){
+function fire(p){if(typeof gtag==="function"){gtag("event","generate_lead",p);}}
+document.addEventListener("fluentform_submission_success",function(e){fire({form_id:(e&&e.detail&&e.detail.formId)?e.detail.formId:"unknown"});});
+if(window.jQuery){jQuery(document).on("fluentform_submission_success",function(e,d){fire({form_id:d&&d.formId?d.formId:"unknown"});});}
+})();
+JS;
+        echo "\n</script>\n";
+    },
+    99
 );
