@@ -34,6 +34,9 @@ get_header();
 					<span><?php esc_html_e( 'Ajax kurulumu için teklif al', 'sazara' ); ?></span>
 					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 				</a>
+				<a href="<?php echo esc_url( home_url( '/ajax-alarm/' ) ); ?>" class="btn btn--ghost">
+					<span><?php esc_html_e( 'Bilgi Merkezi', 'sazara' ); ?></span>
+				</a>
 			</div>
 		</div>
 	</section>
@@ -231,6 +234,62 @@ get_header();
 						<p class="faq__a"><?php echo esc_html( $item['a'] ); ?></p>
 					</details>
 				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
+
+	<!-- ════════ 09 — BİLGİ MERKEZİ ════════ -->
+	<?php
+	$ajax_topics = get_terms(
+		[
+			'taxonomy'   => 'ajax_topic',
+			'hide_empty' => false,
+			'orderby'    => 'name',
+			'order'      => 'ASC',
+		]
+	);
+	if ( ! is_wp_error( $ajax_topics ) && ! empty( $ajax_topics ) ) :
+		?>
+	<section class="section">
+		<div class="wrap">
+			<header class="section__head reveal">
+				<span class="section__num"><?php esc_html_e( '09 — Bilgi Merkezi', 'sazara' ); ?></span>
+				<h2 class="section__title"><?php esc_html_e( 'Ürünün ötesinde: kılavuzlar, senaryolar, kıyaslar.', 'sazara' ); ?></h2>
+				<p class="section__lead"><?php esc_html_e( 'Saha tecrübemizden çıkardığımız notları konularına göre topluyoruz. Ajax\'ı tanımak, doğru kurmak ve sistemi yaşatmak için referans kaynak.', 'sazara' ); ?></p>
+			</header>
+
+			<ul class="ajax-hub-topics reveal" role="list">
+				<?php foreach ( $ajax_topics as $topic ) : ?>
+					<li class="ajax-hub-topic">
+						<a href="<?php echo esc_url( get_term_link( $topic ) ); ?>" class="ajax-hub-topic__link">
+							<span class="ajax-hub-topic__name"><?php echo esc_html( $topic->name ); ?></span>
+							<?php if ( (int) $topic->count > 0 ) : ?>
+								<span class="ajax-hub-topic__count">
+									<?php
+									printf(
+										/* translators: %d: post count */
+										esc_html( _n( '%d içerik', '%d içerik', (int) $topic->count, 'sazara' ) ),
+										(int) $topic->count
+									);
+									?>
+								</span>
+							<?php else : ?>
+								<span class="ajax-hub-topic__count ajax-hub-topic__count--soon"><?php esc_html_e( 'yakında', 'sazara' ); ?></span>
+							<?php endif; ?>
+							<span class="ajax-hub-topic__arrow" aria-hidden="true">
+								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+							</span>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+
+			<div class="ajax-hub-cta reveal">
+				<a href="<?php echo esc_url( home_url( '/ajax-alarm/' ) ); ?>" class="btn btn--primary">
+					<span><?php esc_html_e( 'Bilgi Merkezi\'ne git', 'sazara' ); ?></span>
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+				</a>
 			</div>
 		</div>
 	</section>

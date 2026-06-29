@@ -36,10 +36,18 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 
 			<div class="footer__col">
+				<h4><?php esc_html_e( 'Bilgi', 'sazara' ); ?></h4>
+				<ul>
+					<li><a href="<?php echo esc_url( home_url( '/ajax/' ) ); ?>"><?php esc_html_e( 'Ajax Systems', 'sazara' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/ajax-alarm/' ) ); ?>"><?php esc_html_e( 'Ajax Bilgi Merkezi', 'sazara' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/referanslar/' ) ); ?>"><?php esc_html_e( 'Referanslar', 'sazara' ); ?></a></li>
+				</ul>
+			</div>
+
+			<div class="footer__col">
 				<h4><?php esc_html_e( 'Şirket', 'sazara' ); ?></h4>
 				<ul>
 					<li><a href="<?php echo esc_url( home_url( '/hakkimizda/' ) ); ?>"><?php esc_html_e( 'Hakkımızda', 'sazara' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/referanslar/' ) ); ?>"><?php esc_html_e( 'Referanslar', 'sazara' ); ?></a></li>
 				</ul>
 			</div>
 
