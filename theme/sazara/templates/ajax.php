@@ -34,10 +34,29 @@ get_header();
 					<span><?php esc_html_e( 'Ajax kurulumu için teklif al', 'sazara' ); ?></span>
 					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 				</a>
-				<a href="<?php echo esc_url( home_url( '/ajax-alarm/' ) ); ?>" class="btn btn--ghost">
-					<span><?php esc_html_e( 'Bilgi Merkezi', 'sazara' ); ?></span>
+				<a href="<?php echo esc_url( home_url( '/ajax-alarm/' ) ); ?>" class="btn btn--accent">
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+					<span><?php esc_html_e( 'Ajax Bilgi Merkezi\'ne git', 'sazara' ); ?></span>
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 				</a>
 			</div>
+		</div>
+	</section>
+
+	<!-- ════════ HUB TEASER BAR ════════ -->
+	<section class="ajax-hub-teaser">
+		<div class="wrap ajax-hub-teaser__inner">
+			<div class="ajax-hub-teaser__copy">
+				<span class="ajax-hub-teaser__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
+				<p class="ajax-hub-teaser__text">
+					<strong><?php esc_html_e( 'Ajax Bilgi Merkezi açıldı.', 'sazara' ); ?></strong>
+					<?php esc_html_e( 'Ürün kılavuzları, kurulum senaryoları, karşılaştırmalar ve sık sorulanlar — saha tecrübemizden notlar.', 'sazara' ); ?>
+				</p>
+			</div>
+			<a href="<?php echo esc_url( home_url( '/ajax-alarm/' ) ); ?>" class="ajax-hub-teaser__link">
+				<span><?php esc_html_e( 'Bilgi Merkezi\'ne git', 'sazara' ); ?></span>
+				<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+			</a>
 		</div>
 	</section>
 
