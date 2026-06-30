@@ -55,6 +55,11 @@ get_header();
 			<?php endif; ?>
 		</div>
 		<div class="wrap hero__content hero__content--compact">
+			<?php if ( ! empty( $case['is_example'] ) ) : ?>
+				<p class="case-example-badge" aria-label="<?php esc_attr_e( 'Bu vaka örnek içeriktir', 'sazara' ); ?>">
+					<?php esc_html_e( 'Örnek vaka — placeholder içerik', 'sazara' ); ?>
+				</p>
+			<?php endif; ?>
 			<p class="hero__eyebrow">
 				<?php echo esc_html( $case['sector'] ); ?>
 				<span aria-hidden="true">·</span>
@@ -313,7 +318,6 @@ get_header();
 	<?php endif; ?>
 
 	<!-- ════════ GALERİ ════════ -->
-	<?php if ( ! empty( $case['gallery'] ) ) : ?>
 	<section class="section section--canvas">
 		<div class="wrap">
 			<header class="section__head reveal">
@@ -321,28 +325,39 @@ get_header();
 				<h2 class="section__title"><?php esc_html_e( 'Fotoğraflar.', 'sazara' ); ?></h2>
 			</header>
 
-			<div class="case-gallery reveal" data-lightbox="case-gallery">
-				<?php foreach ( $case['gallery'] as $img ) : ?>
-					<?php
-					$src = $img['src'] ?? '';
-					$alt = $img['alt'] ?? '';
-					if ( ! $src ) {
-						continue;
-					}
-					?>
-					<button type="button" class="case-gallery__item"
-					        data-src="<?php echo esc_url( $src ); ?>"
-					        data-alt="<?php echo esc_attr( $alt ); ?>"
-					        aria-label="<?php esc_attr_e( 'Görseli büyüt', 'sazara' ); ?>">
-						<img src="<?php echo esc_url( $src ); ?>"
-						     alt="<?php echo esc_attr( $alt ); ?>"
-						     loading="lazy">
-					</button>
-				<?php endforeach; ?>
-			</div>
+			<?php if ( ! empty( $case['gallery'] ) ) : ?>
+				<div class="case-gallery reveal" data-lightbox="case-gallery">
+					<?php foreach ( $case['gallery'] as $img ) : ?>
+						<?php
+						$src     = $img['src'] ?? '';
+						$alt     = $img['alt'] ?? '';
+						$caption = $img['caption'] ?? '';
+						if ( ! $src ) {
+							continue;
+						}
+						?>
+						<figure class="case-gallery__item-wrap">
+							<button type="button" class="case-gallery__item"
+							        data-src="<?php echo esc_url( $src ); ?>"
+							        data-alt="<?php echo esc_attr( $alt ); ?>"
+							        aria-label="<?php esc_attr_e( 'Görseli büyüt', 'sazara' ); ?>">
+								<img src="<?php echo esc_url( $src ); ?>"
+								     alt="<?php echo esc_attr( $alt ); ?>"
+								     loading="lazy">
+							</button>
+							<?php if ( $caption ) : ?>
+								<figcaption class="case-gallery__caption"><?php echo esc_html( $caption ); ?></figcaption>
+							<?php endif; ?>
+						</figure>
+					<?php endforeach; ?>
+				</div>
+			<?php else : ?>
+				<p class="case-gallery__empty reveal">
+					<?php esc_html_e( 'Bu projenin saha fotoğrafları yakında eklenecek.', 'sazara' ); ?>
+				</p>
+			<?php endif; ?>
 		</div>
 	</section>
-	<?php endif; ?>
 
 	<!-- ════════ İLGİLİ İŞLER ════════ -->
 	<?php if ( ! empty( $related ) ) : ?>

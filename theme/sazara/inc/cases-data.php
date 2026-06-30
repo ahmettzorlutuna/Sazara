@@ -52,11 +52,19 @@
  *     - brands[] : kullanılan marka etiketleri
  *
  *   GALERİ (opsiyonel):
- *     - gallery[] : [ src, alt ]
+ *     - gallery[] : [ src, alt, caption? ]
+ *       src     : görsel URL'i (/wp-content/uploads/cases/<slug>/01.jpg önerilir)
+ *       alt     : erişilebilirlik metni — ekran okuyucu için kısa açıklama
+ *       caption : opsiyonel — görselin altında gösterilen metin
+ *
+ *   ÖRNEK İŞARETİ (opsiyonel — placeholder için):
+ *     - is_example : true ise hero'da ve arşiv kartında "Örnek" badge'i gösterilir
+ *                    Gerçek vakaları eklerken bu satırı KOYMA ya da false yap.
  *
  * ─── YENİ CASE EKLEMEK ────────────────────────────────────────────
  * 1. Aşağıdaki array'e yeni slug ile yeni satır ekle.
  * 2. Tema dosyalarına dokunduğunda routes.php init otomatik child page yaratır.
+ * 3. Detaylı rehber için: docs/vaka-ekleme.md
  *
  * @package Sazara
  */
@@ -69,6 +77,7 @@ return [
 	// CASE 01 — Lojistik depo perimeter (kapsamlı)
 	// ═══════════════════════════════════════════════════════════
 	'ikitelli-lojistik-perimeter' => [
+		'is_example' => true,
 		'title'      => 'İkitelli Lojistik Üssü — Perimeter Güvenliği',
 		'client'     => 'Atlas Lojistik A.Ş.',
 		'sector'     => 'Lojistik',
@@ -143,7 +152,23 @@ return [
 
 		'gallery' => [
 			// Yer tutucu — gerçek saha fotoğraflarıyla değiştir.
-			// Format: [ 'src' => 'https://.../foto.jpg', 'alt' => 'Açıklama' ]
+			// Şema:
+			//   src     : '/wp-content/uploads/cases/<slug>/01.jpg' önerilir
+			//   alt     : ekran okuyucu için kısa açıklama
+			//   caption : opsiyonel — görselin altında gösterilen metin
+			//
+			// Aşağıdaki örnek satırlar comment'li — silebilir veya doldurabilirsin.
+			//
+			// [
+			//     'src'     => '/wp-content/uploads/cases/ikitelli-lojistik-perimeter/01-perimeter-genel.jpg',
+			//     'alt'     => 'Depo çevresi panoramik kamera açısı',
+			//     'caption' => 'Kuzey cephe perimeter — 4 sabit kamera + 1 PTZ',
+			// ],
+			// [
+			//     'src'     => '/wp-content/uploads/cases/ikitelli-lojistik-perimeter/02-nvr-rack.jpg',
+			//     'alt'     => 'NVR ve switch rack kurulumu',
+			//     'caption' => 'Sunucu odası — Cisco CBS350 omurga + Hikvision NVR',
+			// ],
 		],
 	],
 
@@ -151,6 +176,7 @@ return [
 	// CASE 02 — Fabrika içi görüntüleme + network (kapsamlı)
 	// ═══════════════════════════════════════════════════════════
 	'mercan-tekstil-fabrika' => [
+		'is_example' => true,
 		'title'      => 'Mercan Tekstil — Fabrika İçi Görüntüleme + Network',
 		'client'     => 'Mercan Tekstil',
 		'sector'     => 'Üretim',
@@ -227,6 +253,7 @@ return [
 	// CASE 03 — Kuyumcu çarşısı Ajax kablosuz alarm (kapsamlı)
 	// ═══════════════════════════════════════════════════════════
 	'kuyumcular-carsi-ajax' => [
+		'is_example' => true,
 		'title'      => 'Kuyumcu Çarşısı — Ajax Kablosuz Alarm + Görüntü Doğrulama',
 		'client'     => 'Kuyumcular Çarşısı (12 dükkân ortak proje)',
 		'sector'     => 'Perakende',
