@@ -3873,3 +3873,71 @@ body { padding-top: 0; }
 	}
 }
 
+/* ═══════════════════ CASE GALLERY + ÖRNEK BADGE ═══════════════════ */
+
+/* Gallery item'ı sarmalayan figure (caption desteği için) */
+.case-gallery__item-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin: 0;
+}
+
+.case-gallery__caption {
+	color: var(--ink-soft, oklch(45% 0.005 250));
+	font-size: 0.8125rem;
+	line-height: 1.4;
+}
+
+/* Boş gallery durumu — gerçek vakaya görsel yüklenmeden önce nazik mesaj */
+.case-gallery__empty {
+	padding: var(--space-md);
+	border: 1px dashed var(--rule, oklch(85% 0.01 250));
+	border-radius: var(--radius-sm, 6px);
+	color: var(--ink-soft, oklch(45% 0.005 250));
+	font-style: italic;
+	text-align: center;
+	margin: var(--space-md) 0 0;
+}
+
+/* Örnek vaka göstergeleri — placeholder içerik kullanıcıya açıkça
+   sinyal eder, gerçek vakalar eklenince badge görünmez (is_example yok). */
+
+/* Tekil case hero'su altında uyarı şeridi */
+.case-example-badge {
+	display: inline-block;
+	padding: 0.35rem 0.75rem;
+	border-radius: 4px;
+	background: oklch(85% 0.15 80 / 0.18);
+	border: 1px solid oklch(75% 0.18 80 / 0.4);
+	color: oklch(40% 0.18 80);
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	margin: 0 0 0.5rem;
+	font-weight: 600;
+}
+
+/* Arşivdeki kart üstünde köşe badge'i */
+.case-card--example .case-card__media {
+	position: relative;
+}
+
+.case-card__example-badge {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	padding: 0.25rem 0.55rem;
+	border-radius: 4px;
+	background: oklch(75% 0.18 80);
+	color: oklch(15% 0.05 80);
+	font-family: var(--font-mono);
+	font-size: 0.6rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-weight: 700;
+	z-index: 2;
+	box-shadow: 0 2px 8px oklch(0% 0 0 / 0.15);
+}
+

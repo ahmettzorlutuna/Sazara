@@ -177,11 +177,14 @@ get_header();
 
 			<ul class="case-grid case-grid--3col" role="list">
 				<?php foreach ( $cases as $slug => $case ) : ?>
-					<li class="case-card reveal">
+					<li class="case-card reveal<?php echo ! empty( $case['is_example'] ) ? ' case-card--example' : ''; ?>">
 						<a href="<?php echo esc_url( home_url( '/referanslar/' . $slug . '/' ) ); ?>"
 						   class="case-card__media"
 						   aria-label="<?php echo esc_attr( $case['title'] ); ?>">
 							<span class="case-card__sector"><?php echo esc_html( $case['sector'] ); ?></span>
+							<?php if ( ! empty( $case['is_example'] ) ) : ?>
+								<span class="case-card__example-badge"><?php esc_html_e( 'Örnek', 'sazara' ); ?></span>
+							<?php endif; ?>
 							<?php if ( ! empty( $case['hero_image'] ) ) : ?>
 								<img src="<?php echo esc_url( $case['hero_image'] ); ?>" alt="" loading="lazy">
 							<?php endif; ?>
