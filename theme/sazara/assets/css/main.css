@@ -516,6 +516,21 @@ html {
 	transform: translateY(-2px);
 }
 
+/* Accent CTA — koyu hero üstünde cobalt fill, primary'den net ayrışır.
+   Çoğunlukla discovery/explore amaçlı ikinci buton için kullanılır. */
+.btn--accent {
+	background: var(--accent);
+	color: var(--paper);
+	border: 1px solid var(--accent);
+	box-shadow: 0 8px 20px -8px oklch(52% 0.22 260 / 0.55);
+}
+.btn--accent:hover {
+	background: var(--accent-deep);
+	border-color: var(--accent-deep);
+	transform: translateY(-2px);
+	box-shadow: 0 12px 28px -10px oklch(52% 0.22 260 / 0.7);
+}
+
 .btn svg { transition: transform var(--dur) var(--ease); }
 .btn:hover svg { transform: translateX(3px); }
 
@@ -1168,7 +1183,7 @@ html {
 
 @media (min-width: 48rem) {
 	.footer__top {
-		grid-template-columns: 1.5fr 1fr 1fr 1fr;
+		grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
 	}
 }
 
@@ -3766,5 +3781,95 @@ body { padding-top: 0; }
 .ajax-hub-cta {
 	margin-top: var(--space-md);
 	text-align: center;
+}
+
+/* Hero hemen altında dikkat çekici "Yeni: Bilgi Merkezi" şeridi.
+   /ajax/ sayfasında hero ile Section 01 arasında. Discoverability boost. */
+.ajax-hub-teaser {
+	background: linear-gradient(135deg, var(--accent-tint, oklch(96% 0.04 260)) 0%, oklch(99% 0 0) 100%);
+	border-block: 1px solid oklch(85% 0.04 260 / 0.4);
+	padding-block: var(--space-sm);
+}
+
+.ajax-hub-teaser__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-sm);
+}
+
+.ajax-hub-teaser__copy {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex: 1;
+	min-width: 0;
+}
+
+.ajax-hub-teaser__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.2rem 0.55rem;
+	border-radius: 999px;
+	background: var(--accent, oklch(52% 0.22 260));
+	color: var(--paper, #fff);
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-weight: 600;
+	flex-shrink: 0;
+}
+
+.ajax-hub-teaser__text {
+	margin: 0;
+	font-size: 0.9375rem;
+	color: var(--ink, oklch(13% 0.005 260));
+	line-height: 1.45;
+}
+
+.ajax-hub-teaser__text strong {
+	color: var(--accent-deep, oklch(42% 0.20 260));
+	font-weight: 600;
+}
+
+.ajax-hub-teaser__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.6rem 1rem;
+	border-radius: 6px;
+	background: var(--accent, oklch(52% 0.22 260));
+	color: var(--paper, #fff);
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	flex-shrink: 0;
+	transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.ajax-hub-teaser__link:hover {
+	background: var(--accent-deep, oklch(42% 0.20 260));
+	transform: translateY(-1px);
+}
+
+.ajax-hub-teaser__link svg {
+	transition: transform 150ms ease;
+}
+
+.ajax-hub-teaser__link:hover svg {
+	transform: translateX(2px);
+}
+
+@media (max-width: 640px) {
+	.ajax-hub-teaser__inner {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.ajax-hub-teaser__link {
+		justify-content: center;
+	}
 }
 
