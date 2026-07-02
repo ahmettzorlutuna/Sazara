@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
  * Default: Aykosan Sanayi Sitesi sorgusu. Kullanıcı kendi spesifik adresinin
  * iframe URL'ini Google Maps'ten alıp buraya yapıştırabilir.
  */
-$map_embed_url = 'https://maps.google.com/maps?q=Aykosan+Sanayi+Sitesi,+Ba%C5%9Fak%C5%9Fehir,+%C4%B0stanbul&output=embed';
+$map_embed_url = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.819915577578!2d28.79716227612518!3d41.072928915441366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa557419270ed%3A0x11164ac1b69c0cce!2sSazara%20Teknoloji!5e0!3m2!1str!2str!4v1783024162362!5m2!1str!2str';
 
 /**
  * İletişim kanalları.
