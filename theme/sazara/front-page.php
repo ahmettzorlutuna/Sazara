@@ -65,6 +65,29 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 		</div>
 	</section>
 
+	<!-- ════════ SHOP TEASER (dormant Bölüm B canlıya alınana kadar) ════════ -->
+	<?php if ( sazara_shop_can_render( 'hero_teaser' ) ) : ?>
+		<?php $shop_copy = sazara_shop_copy(); ?>
+		<section class="shop-teaser">
+			<div class="wrap shop-teaser__inner">
+				<div class="shop-teaser__copy">
+					<span class="shop-teaser__badge"><?php echo esc_html( $shop_copy['footer_heading'] ); ?></span>
+					<p class="shop-teaser__text">
+						<strong><?php echo esc_html( $shop_copy['hero_teaser'] ); ?></strong>
+						<?php echo esc_html( $shop_copy['footer_lead'] ); ?>
+					</p>
+				</div>
+				<a href="<?php echo esc_url( sazara_shop_url() ); ?>"
+				   class="shop-teaser__link"
+				   rel="noopener"
+				   target="_blank">
+					<span><?php echo esc_html( $shop_copy['hero_teaser_cta'] ); ?></span>
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+				</a>
+			</div>
+		</section>
+	<?php endif; ?>
+
 	<!-- ════════ HİZMET VERDİĞİMİZ FİRMALAR ════════ -->
 	<?php if ( ! empty( $homepage_customers ) ) : ?>
 	<section class="customer-strip">

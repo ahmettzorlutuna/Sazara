@@ -3941,3 +3941,214 @@ body { padding-top: 0; }
 	box-shadow: 0 2px 8px oklch(0% 0 0 / 0.15);
 }
 
+/* ═══════════════════ SHOP CROSS-SITE DISCOVERY ═══════════════════ */
+
+/* Tüm shop discovery noktaları SAZARA_SHOP_ENABLED=true olana kadar
+   render edilmez. Aşağıdaki stiller "canlıya alındığında hazır"
+   olması için var, dormant iken hiçbir markup üretilmiyor.
+   Renk paleti kasıtlı olarak ink-based (nötr) — Ajax hub teaser
+   (accent-tint / cobalt) ile karışmasın. */
+
+/* — Header: nav__actions wrap — sol tarafta Teklif al, sağda Mağaza */
+.nav__actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.nav__shop {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.5rem 0.95rem;
+	background: transparent;
+	color: var(--ink, oklch(13% 0.005 260));
+	border: 1px solid var(--ink, oklch(13% 0.005 260));
+	font-size: var(--text-sm);
+	font-weight: 500;
+	border-radius: var(--radius-pill);
+	text-decoration: none;
+	transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.nav__shop:hover {
+	background: var(--ink, oklch(13% 0.005 260));
+	color: var(--paper, oklch(99% 0 0));
+}
+
+/* Karanlık hero override — dark hero'da metin/border beyaz */
+.has-hero-image .nav:not(.is-scrolled) .nav__shop {
+	color: var(--paper);
+	border-color: oklch(99% 0 0 / 0.45);
+}
+
+.has-hero-image .nav:not(.is-scrolled) .nav__shop:hover {
+	background: oklch(99% 0 0 / 0.12);
+	color: var(--paper);
+	border-color: var(--paper);
+}
+
+/* — Footer shop banner — footer top border, koyu ink zemin */
+.footer__shop-banner {
+	background: var(--ink, oklch(13% 0.005 260));
+	color: var(--paper, oklch(99% 0 0));
+	padding-block: var(--space-md);
+}
+
+.footer__shop-banner__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-sm);
+}
+
+.footer__shop-banner__copy {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.footer__shop-banner__eyebrow {
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: oklch(99% 0 0 / 0.55);
+}
+
+.footer__shop-banner__lead {
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.45;
+	max-width: 60ch;
+}
+
+.footer__shop-banner__cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.65rem 1.1rem;
+	background: var(--paper);
+	color: var(--ink);
+	border-radius: var(--radius-pill);
+	font-size: var(--text-sm);
+	font-weight: 500;
+	text-decoration: none;
+	flex-shrink: 0;
+	transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.footer__shop-banner__cta:hover {
+	background: var(--accent, oklch(52% 0.22 260));
+	color: var(--paper);
+	transform: translateY(-1px);
+}
+
+.footer__shop-banner__cta svg {
+	transition: transform var(--dur) var(--ease);
+}
+
+.footer__shop-banner__cta:hover svg {
+	transform: translateX(3px);
+}
+
+/* — Anasayfa shop teaser — hero'nun hemen altında nötr band.
+   Ajax hub teaser'ından farklı olarak ink-tinted, accent değil. */
+.shop-teaser {
+	background: linear-gradient(180deg, oklch(97% 0.003 260) 0%, oklch(99% 0 0) 100%);
+	border-block: 1px solid oklch(88% 0.005 260);
+	padding-block: var(--space-sm);
+}
+
+.shop-teaser__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-sm);
+}
+
+.shop-teaser__copy {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex: 1;
+	min-width: 0;
+}
+
+.shop-teaser__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.2rem 0.55rem;
+	border-radius: 999px;
+	background: var(--ink, oklch(13% 0.005 260));
+	color: var(--paper, oklch(99% 0 0));
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-weight: 600;
+	flex-shrink: 0;
+}
+
+.shop-teaser__text {
+	margin: 0;
+	font-size: 0.9375rem;
+	color: var(--ink, oklch(13% 0.005 260));
+	line-height: 1.45;
+}
+
+.shop-teaser__text strong {
+	color: var(--ink, oklch(13% 0.005 260));
+	font-weight: 600;
+	margin-right: 0.35rem;
+}
+
+.shop-teaser__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.6rem 1rem;
+	border-radius: 6px;
+	background: var(--ink, oklch(13% 0.005 260));
+	color: var(--paper, oklch(99% 0 0));
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	flex-shrink: 0;
+	transition: background-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.shop-teaser__link:hover {
+	background: var(--accent, oklch(52% 0.22 260));
+	transform: translateY(-1px);
+}
+
+.shop-teaser__link svg {
+	transition: transform var(--dur) var(--ease);
+}
+
+.shop-teaser__link:hover svg {
+	transform: translateX(2px);
+}
+
+@media (max-width: 640px) {
+	.shop-teaser__inner,
+	.footer__shop-banner__inner {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.shop-teaser__link,
+	.footer__shop-banner__cta {
+		justify-content: center;
+	}
+
+	.nav__actions {
+		gap: 0.35rem;
+	}
+}
+

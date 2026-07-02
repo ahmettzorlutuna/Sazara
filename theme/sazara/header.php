@@ -63,10 +63,22 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 
-		<a href="<?php echo esc_url( home_url( '/iletisim/' ) ); ?>" class="nav__cta">
-			<span><?php esc_html_e( 'Teklif al', 'sazara' ); ?></span>
-			<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-		</a>
+		<div class="nav__actions">
+			<?php if ( sazara_shop_can_render( 'nav_cta' ) ) : ?>
+				<?php $shop_copy = sazara_shop_copy(); ?>
+				<a href="<?php echo esc_url( sazara_shop_url() ); ?>"
+				   class="nav__shop"
+				   rel="noopener"
+				   target="_blank">
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+					<span><?php echo esc_html( $shop_copy['nav_cta'] ); ?></span>
+				</a>
+			<?php endif; ?>
+			<a href="<?php echo esc_url( home_url( '/iletisim/' ) ); ?>" class="nav__cta">
+				<span><?php esc_html_e( 'Teklif al', 'sazara' ); ?></span>
+				<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+			</a>
+		</div>
 
 	</div>
 </nav>
