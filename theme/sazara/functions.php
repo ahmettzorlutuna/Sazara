@@ -29,6 +29,7 @@ define( 'SAZARA_URI', get_template_directory_uri() );
 $sazara_modules = [
 	'inc/setup.php',
 	'inc/helpers.php',
+	'inc/shop-config.php',
 	'inc/enqueue.php',
 	'inc/routes.php',
 	'inc/contact-form.php',
