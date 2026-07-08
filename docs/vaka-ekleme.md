@@ -262,7 +262,112 @@ A: 4 metrik en iyisi (4'lü grid'e ideal oturuyor). 3 de olabilir,
 5+ kalabalık görünür. Metrikler somut sayı olmalı: süre, alan,
 adet, oran, tasarruf rakamları.
 
-## 7. İyi bir vaka çalışmasının formülü
+## 7. Yeni Benzin İstasyonu Vakası — hızlı şablon
+
+Birden fazla istasyona hizmet verildiğinde her biri için ayrı bir vaka
+sayfası tutmak SEO için değerli. Aşağıdaki bloku olduğu gibi kopyala,
+`cases-data.php`'ye mevcut vakanın altına yapıştır, `[DOLDUR: ...]`
+alanlarını doldur, slug'ı benzersiz yap.
+
+**Slug adlandırma önerileri:**
+- `benzin-istasyonu-basaksehir` (lokasyona göre)
+- `benzin-istasyonu-opet-aslan` (bayi ismine göre)
+- `benzin-istasyonu-e5-catalca` (yol/lokasyon)
+
+Slug URL'e dönüşecek: `sazara.com.tr/referanslar/<slug>/`
+
+```php
+'benzin-istasyonu-XXXXX' => [
+	'title'      => '[Şirket ismi] — [İlçe] Benzin İstasyonu Güvenlik Sistemi',
+	'client'     => '[Müşteri firma adı, örn: OPET Bayii Aslan Akaryakıt]',
+	'sector'     => 'Akaryakıt',
+	'location'   => '[İlçe, İl — örn: Başakşehir, İstanbul]',
+	'duration'   => '[örn: 3 hafta]',
+	'scope'      => 'CCTV · Network · Alarm',
+	'year'       => '2026',
+	'team_size'  => '[örn: 3 kişilik saha ekibi]',
+	'completion' => '[Ay Yıl — örn: Nisan 2026]',
+	'hero_image' => '/wp-content/uploads/cases/benzin-istasyonu-XXXXX/hero.jpg',
+	'tagline'    => '[Tek cümle özet]',
+
+	'metrics' => [
+		[ 'value' => 'N',   'unit' => 'kamera', 'label' => 'Toplam kamera' ],
+		[ 'value' => 'N',   'unit' => 'ay',     'label' => 'Yedekleme süresi' ],
+		[ 'value' => '%N',  'unit' => '',       'label' => 'Kritik alan kapsaması' ],
+		[ 'value' => '24',  'unit' => 'saat',   'label' => 'Kesintisiz çalışma' ],
+	],
+
+	'durum_intro'       => '[Konum, trafik, güvenlik ihtiyacı bağlamı — 2-3 cümle]',
+	'durum_pain_points' => [
+		'[Sorun 1]',
+		'[Sorun 2]',
+		'[Sorun 3]',
+	],
+
+	'yaklasim' => '[Saha keşfi, risk analizi, çözüm kriterleri — 1-2 paragraf]',
+
+	'cozum_paragraphs' => [
+		'[Pompa alanı + tanklar çözümü]',
+		'[Kasa/market içi çözümü]',
+		'[Ağ, kayıt, uzaktan erişim çözümü]',
+	],
+
+	'equipment' => [
+		[ 'category' => 'Sabit Kamera', 'items' => '[Model × adet]' ],
+		[ 'category' => 'NVR',          'items' => '[Model]' ],
+		[ 'category' => 'Depolama',     'items' => '[Kapasite]' ],
+		[ 'category' => 'Switch / PoE', 'items' => '[Model]' ],
+		[ 'category' => 'UPS',          'items' => '[Model]' ],
+	],
+
+	'timeline' => [
+		[ 'phase' => 'Hafta 1', 'title' => 'Keşif ve tasarım',    'desc' => '[Detay]' ],
+		[ 'phase' => 'Hafta 2', 'title' => 'Kablolama',            'desc' => '[Detay]' ],
+		[ 'phase' => 'Hafta 3', 'title' => 'Cihaz montajı + test', 'desc' => '[Detay]' ],
+	],
+
+	'sonuc_intro'    => '[Devreye alma sonrası özet — 1-2 cümle]',
+	'sonuc_outcomes' => [
+		'[Sonuç 1]',
+		'[Sonuç 2]',
+		'[Sonuç 3]',
+	],
+
+	'quote' => [
+		'text'        => '[Müşteri sözü]',
+		'attribution' => '[İsim, Ünvan]',
+	],
+
+	'brands' => [ 'Hikvision' ],
+
+	'gallery' => [
+		[
+			'src'     => '/wp-content/uploads/cases/benzin-istasyonu-XXXXX/01-pompa-alani.jpg',
+			'alt'     => 'Pompa alanı kamera açısı',
+			'caption' => 'Pompa alanı — 4 sabit kamera',
+		],
+		// gerekli kadar ekle
+	],
+],
+```
+
+**Fotoğraf yükleme klasörü:**
+Her istasyon için ayrı klasör:
+```
+uploads/cases/
+├── benzin-istasyonu-basaksehir/
+│   ├── hero.jpg
+│   ├── 01-pompa-alani.jpg
+│   ├── 02-kasa.jpg
+│   └── ...
+├── benzin-istasyonu-catalca/
+│   ├── hero.jpg
+│   └── ...
+```
+
+Slug ile klasör adı **birebir aynı** olmalı ki `hero_image` ve `gallery` src'leri doğru çalışsın.
+
+## 8. İyi bir vaka çalışmasının formülü
 
 Başlık: ne, kim için, nerede → tek cümle  
 Tagline: o vakanın "wow factor"u → tek cümle  
