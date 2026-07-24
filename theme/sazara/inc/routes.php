@@ -53,6 +53,43 @@ const SAZARA_TEMPLATE_MAP = [
 ];
 
 /**
+ * Bir slug + parent kombinasyonu için sayfa mevcut mu?
+ *
+ * Neden `get_page_by_path` değil: hierarchical page'ler için WordPress
+ * `get_page_by_path('kamera-sistemleri')` çağrısında null döndürür
+ * çünkü page'in gerçek path'i `hizmetler/kamera-sistemleri`. Bu bug
+ * her deploy'da child page'lerin duplicate yaratılmasına yol açıyordu
+ * (routes flag hash değişince init tekrar çalışıyor, existence check
+ * yanlış negatif veriyor, WP slug'a `-2`, `-3` ekleyerek yeni sayfa
+ * oluşturuyor).
+ *
+ * `get_posts` ile hem slug hem parent_id filtresi çekiyoruz. Bir eşleşme
+ * yeter — çöp/taslak dahil hepsini yakalar (`post_status = any`).
+ *
+ * @param string $slug      Aranan slug.
+ * @param int    $parent_id Beklenen parent ID (0 = top-level).
+ * @return bool
+ */
+function sazara_page_exists( string $slug, int $parent_id = 0 ): bool {
+	$found = get_posts(
+		[
+			'name'                   => $slug,
+			'post_type'              => 'page',
+			'post_parent'            => $parent_id,
+			'post_status'            => 'any',
+			'posts_per_page'         => 1,
+			'fields'                 => 'ids',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+			'suppress_filters'       => true,
+		]
+	);
+
+	return ! empty( $found );
+}
+
+/**
  * Cases verisini cache'li olarak yükle. Birden fazla yerden okunur.
  *
  * @return array<string, array<string, mixed>> slug => case data
@@ -79,7 +116,7 @@ add_action(
 		$case_slugs = array_keys( $cases );
 
 		$flag_key   = 'sazara_pages_v1';
-		$flag_value = '3.1-' . md5( implode( ',', $case_slugs ) );
+		$flag_value = '3.2-parent-aware-' . md5( implode( ',', $case_slugs ) );
 
 		if ( get_option( $flag_key ) === $flag_value ) {
 			return;
@@ -87,16 +124,16 @@ add_action(
 
 		// ─── Statik sayfalar (SAZARA_PAGES) ───
 		foreach ( SAZARA_PAGES as $slug => $config ) {
-			if ( get_page_by_path( $slug ) ) {
-				continue;
-			}
-
 			$parent_id = 0;
 			if ( ! empty( $config['parent'] ) ) {
 				$parent_page = get_page_by_path( $config['parent'] );
 				if ( $parent_page ) {
 					$parent_id = $parent_page->ID;
 				}
+			}
+
+			if ( sazara_page_exists( $slug, $parent_id ) ) {
+				continue;
 			}
 
 			wp_insert_post(
@@ -118,7 +155,7 @@ add_action(
 		$referanslar_id   = $referanslar_page ? $referanslar_page->ID : 0;
 
 		foreach ( $cases as $slug => $case ) {
-			if ( get_page_by_path( $slug ) ) {
+			if ( sazara_page_exists( $slug, $referanslar_id ) ) {
 				continue;
 			}
 
