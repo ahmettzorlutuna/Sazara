@@ -61,6 +61,13 @@
  *     - is_example : true ise hero'da ve arşiv kartında "Örnek" badge'i gösterilir
  *                    Gerçek vakaları eklerken bu satırı KOYMA ya da false yap.
  *
+ *   AJAX PROJESİ İŞARETİ (opsiyonel):
+ *     - is_ajax_project : true ise vaka /ajax-alarm/ arşivinde "Ajax Vakaları"
+ *                         bölümünde de listelenir. Ajax markası ile yapılan
+ *                         gerçek projeler için kullan (Hikvision CCTV projelerinde
+ *                         set etme). Aynı vaka Referanslar'da da normal şekilde
+ *                         görünmeye devam eder — SEO için çift anchor sağlanır.
+ *
  * ─── YENİ CASE EKLEMEK ────────────────────────────────────────────
  * 1. Aşağıdaki array'e yeni slug ile yeni satır ekle.
  * 2. Tema dosyalarına dokunduğunda routes.php init otomatik child page yaratır.
