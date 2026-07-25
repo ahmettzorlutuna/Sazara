@@ -2439,6 +2439,24 @@ body { padding-top: 0; }
 	margin-top: var(--space-md);
 }
 
+/* LinkedIn-benzeri editorial layout — ilk (kapak) foto öne çıkar,
+   diğerleri altında düzenli grid. Explicit 3-col grid, ilk item 2 col
+   span alır. Mobil'de auto-fit devreye girer, tek kolon. */
+@media (min-width: 48rem) {
+	.case-gallery {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.case-gallery > .case-gallery__item-wrap:first-child {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	.case-gallery > .case-gallery__item-wrap:first-child .case-gallery__item {
+		aspect-ratio: 16 / 11;
+	}
+}
+
 .case-gallery__item {
 	all: unset;
 	cursor: zoom-in;
@@ -2448,6 +2466,8 @@ body { padding-top: 0; }
 	border: 1px solid var(--rule);
 	display: block;
 	transition: transform var(--dur) var(--ease), outline-offset var(--dur) var(--ease);
+	width: 100%;
+	height: 100%;
 }
 
 .case-gallery__item:hover {
