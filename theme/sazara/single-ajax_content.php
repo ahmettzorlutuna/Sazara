@@ -77,7 +77,7 @@ while ( have_posts() ) :
 		<!-- ════════ İÇERİK GÖVDESİ ════════ -->
 		<section class="section ajax-hub-single__body">
 			<div class="wrap wrap--narrow">
-				<article class="ajax-hub-article reveal">
+				<article class="ajax-hub-article">
 					<?php the_content(); ?>
 				</article>
 			</div>
