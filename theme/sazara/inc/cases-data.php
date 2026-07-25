@@ -221,4 +221,148 @@ return [
 		],
 	],
 
+	// ═══════════════════════════════════════════════════════════
+	// CASE 02 — Sarper Petrol A.Ş, Shell Levent İstanbul
+	// ═══════════════════════════════════════════════════════════
+	// İkinci gerçek vaka. İstanbul'un en hareketli noktalarından biri.
+	// ~60 kamera, server kabin yeniden düzenlendi, market içi
+	// müşteri TV'sinde pompa canlı yayını (unique). Ayrıca müdür
+	// odası TV feed'i. 13 saha fotoğrafı gallery'de.
+	// Fotoğraf klasörü: uploads/cases/shell-levent/
+	'shell-levent' => [
+		'title'      => 'Sarper Petrol A.Ş — Shell Levent İstasyonu IP Kamera ve Sistem Altyapısı',
+		'client'     => 'Sarper Petrol A.Ş — Shell Levent',
+		'sector'     => 'Akaryakıt',
+		'location'   => 'Levent, İstanbul',
+		'duration'   => '3 hafta',
+		'scope'      => 'CCTV · Server kabin · Market müşteri TV · Müdür ofis TV',
+		'year'       => '2026',
+		'team_size'  => 'Sazara saha ekibi',
+		'completion' => 'Ocak 2026',
+		'hero_image' => '/wp-content/uploads/cases/shell-levent/hero.jpg',
+		'tagline'    => 'İstanbul\'un en hareketli lokasyonlarından birinde ~60 kanallı Hikvision IP CCTV, yeniden düzenlenmiş server kabini ve müşterinin market içinden pompasını canlı izleyebildiği şeffaf hizmet sistemi.',
+
+		'metrics' => [
+			[ 'value' => '~60', 'unit' => 'kamera', 'label' => 'Toplam kanal' ],
+			[ 'value' => '64',  'unit' => 'kanal',  'label' => 'NVR kapasitesi' ],
+			[ 'value' => '16',  'unit' => 'TB',     'label' => 'Depolama' ],
+			[ 'value' => '3',   'unit' => 'hafta',  'label' => 'Devreye alma' ],
+		],
+
+		'durum_intro' => 'Sarper Petrol A.Ş, Levent gibi İstanbul\'un en yoğun trafiğine sahip lokasyonlarından birinde Shell markası altında bir istasyon işletiyor. Yoğun müşteri sirkülasyonu, bordro dışı 24 saatlik operasyon ve nakit + kart sirkülasyonu — istasyon bir bütün olarak izlenmesi gereken çok sahalı bir tesis. Mevcut altyapı hem kanal sayısı hem kayıt kalitesi hem de bakım kolaylığı açısından yeniden ele alınması gereken bir noktaya gelmişti.',
+
+		'durum_pain_points' => [
+			'Kanopi, pompa alanı, dış perimeter ve market içi için tam kapsamalı çözünürlüklü kayıt gerekiyordu.',
+			'Mevcut server kabini kablo kalabalığı ve etiketlenmemiş bağlantılar nedeniyle her müdahale saatler alıyordu — teknik bakım maliyetliydi.',
+			'Yoğun trafikte müşteriler market içindeyken pompadaki araçlarını göremiyor, güvenlik hissi düşüyordu.',
+			'Müdürün istasyonun operasyonel akışını kendi ofisinden takip edememesi karar hızını yavaşlatıyordu.',
+		],
+
+		'yaklasim' => 'Saha keşfini iki aşamada yaptık: birinci gün mevcut sistemin envanteri ve server kabin analizi, ikinci gün kanopi + perimeter + market + ofis için görüş açı testleri. Hikvision 4K IP kameralar üzerinde standardize olduk, tüm kameraları tek bir 64 kanal NVR üzerinde topladık. Server kabini tamamen söküldü, kablolar renkli etiketlerle yeniden çekildi, patch panel + kablo yönetimi ile "yıllarca bakım dostu" bir mimari kuruldu. Ayrıca iki farklı canlı görüntü çıkışı planladık: müdür ofisine operasyon takibi, market içine müşteri şeffaflığı.',
+
+		'cozum_paragraphs' => [
+			'Kanopi, pompa adaları, dış perimeter ve market dış cephesi için yaklaşık 60 kanal Hikvision IP kamera yerleştirildi. Gece görüş performansı, çözünürlük ve IP66 dış mekan standardı kritik seçim kriterleriydi. Her nokta, keşifte tespit edilen ölü açı analizine göre konumlandırıldı — kanal sayısı fazla değil, tam ihtiyaç kadar.',
+			'Sistemin kalbi olan server kabini tamamen yeniden inşa edildi: eski kablolar söküldü, patch panel + kablo yönetim aparatları eklendi, tüm bağlantılar renkli etiketlerle işaretlendi. Böylece ileride bir kamera bakımı veya kablo değişimi gerektiğinde teknisyen kablo takip etmek yerine etikete bakarak dakikalar içinde müdahale edebilir. Bu yapı hem müdahale hızını hem de sistemin uzun ömürlü çalışmasını garanti altına alıyor.',
+			'İki ayrı canlı görüntü çıkışı kuruldu. Birincisi müdür ofisi TV\'sine — istasyonun operasyonel akışını (kanopi, pompa, giriş-çıkış) müdür masasından takip ediyor. İkincisi ise market içindeki müşteri TV\'lerine — müşteri yakıt aldıktan sonra market içine geçtiğinde pompadaki aracını ve süreci canlı görebiliyor. Bu ikinci çıkış, güvenlik algısını güçlendirmenin ötesinde şeffaf bir hizmet ortamı sunuyor.',
+		],
+
+		'equipment' => [
+			[ 'category' => 'IP Kamera',          'items' => 'Hikvision 4K IP × ~60 — kanopi, pompa, perimeter, market dış' ],
+			[ 'category' => 'NVR',                'items' => 'Hikvision 64 kanal NVR' ],
+			[ 'category' => 'Depolama',           'items' => '16 TB — sürekli kayıt için ayrı disk mimarisi' ],
+			[ 'category' => 'Server Kabin',       'items' => 'Yeniden düzenlenmiş rack: patch panel, kablo yönetimi, renkli etiketleme' ],
+			[ 'category' => 'Ağ',                 'items' => 'PoE+ switch omurga, ayrı CCTV VLAN' ],
+			[ 'category' => 'Müdür Odası TV',     'items' => 'Operasyonel akış için canlı görüntü çıkışı' ],
+			[ 'category' => 'Market Müşteri TV',  'items' => 'Pompa alanı canlı yayını — müşteri şeffaflığı' ],
+		],
+
+		'timeline' => [
+			[ 'phase' => 'Hafta 1', 'title' => 'Keşif + envanter',        'desc' => 'Mevcut sistem envanteri, server kabin analizi, görüş açı testleri, malzeme onayı.' ],
+			[ 'phase' => 'Hafta 2', 'title' => 'Kablolama + kabin',       'desc' => 'Yeni kablo çekimi, kanal montajı, server kabinin sökülüp yeniden düzenlenmesi, patch panel + etiketleme.' ],
+			[ 'phase' => 'Hafta 3', 'title' => 'Montaj + devreye alma',   'desc' => 'Kamera montajları, NVR kurulumu, müdür + market TV entegrasyonu, kalibrasyon ve teslim.' ],
+		],
+
+		'sonuc_intro' => 'Devreye alma sonrası hem operasyonel görünürlük hem müşteri şeffaflığı hem de bakım kolaylığı belirgin biçimde arttı.',
+
+		'sonuc_outcomes' => [
+			'İstasyonun her noktası ~60 kanal 4K IP kamera ile tam kapsama alındı — ölü açı yok.',
+			'Server kabin bakım kolaylığı için standartlaştı — ileride teknik müdahale dakikalar içinde yapılabiliyor.',
+			'Müşteri market içindeyken pompadaki aracını canlı görebiliyor — şeffaf hizmet + güvenlik hissi.',
+			'Müdür istasyon operasyonunu kendi ofisinden takip edebiliyor — operasyonel karar hızı arttı.',
+		],
+
+		'brands' => [ 'Hikvision' ],
+
+		'gallery' => [
+			// 13 saha fotoğrafı — WP Media'ya yükledikten sonra bu URL'leri güncelle.
+			// Şu anki placeholder path'ler yer tutucu; asıl URL'ler prod uploads/2026/XX/
+			// altında olacak. İlk case (totalenergies) süreciyle aynı: yükle → URL kopyala → src güncelle.
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/01.jpg',
+				'alt'     => 'İstasyon dış perimeter — kanopi ve giriş genel görünüm',
+				'caption' => 'İstasyon dış görünüm',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/02.jpg',
+				'alt'     => 'Kanopi altı pompa alanı',
+				'caption' => 'Kanopi altı — pompa adaları',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/03.jpg',
+				'alt'     => 'Kanopi çelik yapısı ve üstten kapsama',
+				'caption' => 'Kanopi yapısı — üstten kapsama',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/04.jpg',
+				'alt'     => 'Dış mekan kamera montaj detayı',
+				'caption' => 'Dış mekan — kamera montajı',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/05.jpg',
+				'alt'     => 'Perimeter ve dış duvar kamera açısı',
+				'caption' => 'Perimeter — dış duvar açısı',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/06.jpg',
+				'alt'     => 'Pompa alanı yakın plan',
+				'caption' => 'Pompa alanı — yakın plan',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/07.jpg',
+				'alt'     => 'Market içi — raf ve müşteri alanı',
+				'caption' => 'Market içi — genel görünüm',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/08.jpg',
+				'alt'     => 'Market içi kasa bölgesi',
+				'caption' => 'Market — kasa bölgesi',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/09.jpg',
+				'alt'     => 'Server kabin — yeniden düzenlenmiş rack',
+				'caption' => 'Server kabin — yeniden düzenlendi',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/10.jpg',
+				'alt'     => 'Server kabin — patch panel ve etiketleme detayı',
+				'caption' => 'Kabin — patch panel + etiketleme',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/11.jpg',
+				'alt'     => 'NVR ve depolama sistemi',
+				'caption' => 'NVR — 64 kanal + 16 TB',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/12.jpg',
+				'alt'     => 'Müdür odasında canlı kamera görüntülerinin TV yansıması',
+				'caption' => 'Müdür odası TV — canlı akış',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/shell-levent/13.jpg',
+				'alt'     => 'Market içindeki müşteri TV\'sinde pompa alanının canlı yayını',
+				'caption' => 'Market müşteri TV — pompa canlı',
+			],
+		],
+	],
+
 ];
