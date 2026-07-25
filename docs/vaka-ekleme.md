@@ -189,12 +189,25 @@ ve o bölümü render etmez.
 
 ### `is_example` flag'i hakkında
 
-- Mevcut 3 placeholder vakası bu flag ile işaretli — sayfada
-  "Örnek vaka" badge'i gözükür
+- Placeholder vakalarını işaretlemek için — sayfada "Örnek vaka" badge'i gözükür
 - **Gerçek vakanı eklerken bu satırı koyma** veya `false` yap
-- Hazır olduğunda mevcut placeholder vakaları sil:
-  - Veriyi `cases-data.php`'den sil
-  - WP admin → Sayfalar → o slug'lı sayfayı bul → çöpe taşı
+
+### `is_ajax_project` flag'i hakkında
+
+Ajax markası ile yapılan gerçek bir proje eklerken bu flag'i ekle:
+
+```php
+'is_ajax_project' => true,
+```
+
+Ne yapar:
+- Vaka Referanslar sayfasında **normalde göründüğü gibi görünmeye devam eder**
+- Ek olarak `/ajax-alarm/` (Ajax Bilgi Merkezi) arşivinde de **"Ajax Vakaları"** bölümünde listelenir
+- SEO açısından çift anchor — hem `sazara.com.tr/referanslar/<slug>/` linki hem `/ajax-alarm/` linki bu vakayı işaret eder
+
+Ne zaman kullanma:
+- Sadece Hikvision CCTV ile yapılan projelerde (TotalEnergies, Shell Levent gibi) **kullanma**
+- Ajax markasıyla yapılan projelerde (villa alarm, işletme kablosuz alarm vb.) **kullan**
 
 ## 4. Lokal'de test et
 

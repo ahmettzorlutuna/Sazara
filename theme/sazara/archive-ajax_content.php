@@ -147,6 +147,72 @@ get_header();
 		</div>
 	</section>
 
+	<!-- ════════ AJAX VAKALARI ════════ -->
+	<?php
+	// Sadece ana arşiv view'de göster; taxonomy (konu) sayfalarında değil.
+	if ( ! $active_topic && function_exists( 'sazara_load_cases' ) ) :
+		$ajax_cases = array_filter(
+			sazara_load_cases(),
+			static fn( $case ) => ! empty( $case['is_ajax_project'] )
+		);
+		if ( ! empty( $ajax_cases ) ) :
+			?>
+		<section class="section">
+			<div class="wrap">
+				<header class="section__head reveal">
+					<span class="section__num"><?php esc_html_e( 'Ajax Vakaları', 'sazara' ); ?></span>
+					<h2 class="section__title"><?php esc_html_e( 'Sahadan gerçek Ajax uygulamaları.', 'sazara' ); ?></h2>
+					<p class="section__lead"><?php esc_html_e( 'Kılavuzlar ve senaryolar teoriyi anlatır; aşağıdaki projeler ise gerçek sahada Ajax\'ın nasıl çalıştığını gösterir. Kapsam, donanım seçimi ve sonuçlar tam olarak nasıl olduğuyla.', 'sazara' ); ?></p>
+				</header>
+
+				<ul class="case-grid case-grid--3col" role="list">
+					<?php foreach ( $ajax_cases as $slug => $case ) : ?>
+						<li class="case-card reveal">
+							<a href="<?php echo esc_url( home_url( '/referanslar/' . $slug . '/' ) ); ?>"
+							   class="case-card__media"
+							   aria-label="<?php echo esc_attr( $case['title'] ); ?>">
+								<?php if ( ! empty( $case['sector'] ) ) : ?>
+									<span class="case-card__sector"><?php echo esc_html( $case['sector'] ); ?></span>
+								<?php endif; ?>
+								<?php if ( ! empty( $case['hero_image'] ) ) : ?>
+									<img src="<?php echo esc_url( $case['hero_image'] ); ?>" alt="" loading="lazy">
+								<?php endif; ?>
+							</a>
+							<div class="case-card__body">
+								<span class="case-card__meta">
+									<?php if ( ! empty( $case['location'] ) ) : ?>
+										<?php echo esc_html( $case['location'] ); ?>
+									<?php endif; ?>
+									<?php if ( ! empty( $case['year'] ) ) : ?>
+										<span aria-hidden="true">·</span>
+										<?php echo esc_html( $case['year'] ); ?>
+									<?php endif; ?>
+								</span>
+								<h3 class="case-card__title">
+									<a href="<?php echo esc_url( home_url( '/referanslar/' . $slug . '/' ) ); ?>"><?php echo esc_html( $case['title'] ); ?></a>
+								</h3>
+								<?php if ( ! empty( $case['tagline'] ) ) : ?>
+									<p class="case-card__tagline"><?php echo esc_html( $case['tagline'] ); ?></p>
+								<?php endif; ?>
+								<div class="case-card__footer">
+									<?php if ( ! empty( $case['scope'] ) ) : ?>
+										<span class="case-card__scope"><?php echo esc_html( $case['scope'] ); ?></span>
+									<?php endif; ?>
+									<span class="case-card__arrow" aria-hidden="true">
+										<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+									</span>
+								</div>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</section>
+			<?php
+		endif;
+	endif;
+	?>
+
 	<!-- ════════ CTA ════════ -->
 	<section class="cta">
 		<div class="wrap">
