@@ -79,105 +79,145 @@ defined( 'ABSPATH' ) || exit;
 return [
 
 	// ═══════════════════════════════════════════════════════════
-	// CASE 01 — Benzin istasyonu güvenlik (kapsamlı)
+	// CASE 01 — TotalEnergies TSK Mehmetçik Vakfı, Başakşehir
 	// ═══════════════════════════════════════════════════════════
-	// İSKELET İÇERİK — sen bu alanları gerçek proje bilgileriyle
-	// dolduracaksın. Her alanın yanında "[DOLDUR: ...]" ipucu var.
-	// Fotoğrafları uploads/cases/benzin-istasyonu-guvenlik/ altına
-	// yükle, gallery[] içine ekle.
-	'benzin-istasyonu-guvenlik' => [
-		'title'      => '[DOLDUR: Şirket ismi] — Benzin İstasyonu Güvenlik Sistemi',
-		'client'     => '[DOLDUR: Müşteri firma adı, örn: OPET Bayii Aslan Akaryakıt]',
+	// İlk gerçek vaka. Kanopi + market + ofis kapsamı; market feed'i
+	// müdür ofis TV'sine canlı bağlandı. 13 saha fotoğrafı gallery'de.
+	// Fotoğraf klasörü: uploads/cases/totalenergies-basaksehir/
+	'totalenergies-basaksehir' => [
+		'title'      => 'TotalEnergies TSK Mehmetçik Vakfı — Başakşehir İstasyonu Güvenlik Sistemi',
+		'client'     => 'TotalEnergies TSK Mehmetçik Vakfı — Başakşehir Bayii',
 		'sector'     => 'Akaryakıt',
-		'location'   => '[DOLDUR: İlçe, İl — örn: Başakşehir, İstanbul]',
-		'duration'   => '[DOLDUR: Kaç haftada tamamlandı, örn: 3 hafta]',
-		'scope'      => 'CCTV · Network · Alarm',
+		'location'   => 'Başakşehir, İstanbul',
+		'duration'   => '2 hafta',
+		'scope'      => 'CCTV · Kanopi · Market · Ofis',
 		'year'       => '2026',
-		'team_size'  => '[DOLDUR: örn: 3 kişilik saha ekibi]',
-		'completion' => '[DOLDUR: Ay Yıl — örn: Nisan 2026]',
-		'hero_image' => '/wp-content/uploads/cases/benzin-istasyonu-guvenlik/hero.jpg',
-		'tagline'    => '[DOLDUR: Tek cümlelik özet — örn: 24/7 nakit sirkülasyonu olan istasyona 12 kanal 4K CCTV + akıllı olay tespiti.]',
+		'team_size'  => 'Sazara saha ekibi',
+		'completion' => 'Nisan 2026',
+		'hero_image' => '/wp-content/uploads/cases/totalenergies-basaksehir/hero.jpg',
+		'tagline'    => 'Kanopi, çevre, market ve ofis için 50 kanallı CCTV — market akışı müdür odası TV\'sine canlı yansıtıldı.',
 
 		'metrics' => [
-			[ 'value' => '[DOLDUR]', 'unit' => 'kamera',  'label' => 'Toplam kamera' ],
-			[ 'value' => '[DOLDUR]', 'unit' => 'ay',      'label' => 'Yedekleme süresi' ],
-			[ 'value' => '[DOLDUR]', 'unit' => '',        'label' => 'Kritik alan kapsaması' ],
-			[ 'value' => '[DOLDUR]', 'unit' => 'saat',    'label' => 'Kesintisiz çalışma' ],
+			[ 'value' => '~50', 'unit' => 'kamera', 'label' => 'Toplam kanal' ],
+			[ 'value' => '8',   'unit' => 'kamera', 'label' => 'Market içi' ],
+			[ 'value' => '2',   'unit' => 'hafta',  'label' => 'Devreye alma' ],
+			[ 'value' => '24',  'unit' => 'saat',   'label' => 'Kesintisiz kayıt' ],
 		],
 
-		'durum_intro' => '[DOLDUR: 2-3 cümle — istasyonun konumu, günlük müşteri trafiği, güvenlik ihtiyacının neden ortaya çıktığı. Nakit taşıma, gece vardiyası, akaryakıt hırsızlığı riski, sigorta talepleri gibi bağlam.]',
+		'durum_intro' => 'TotalEnergies TSK Mehmetçik Vakfı Başakşehir istasyonu 24 saat açık, market, ofis ve araç yıkama bölümüyle çok sahalı bir tesis. İşletme; kanopi altındaki pompa alanı, market içi, ofis ve dış perimeter için tek başlıktan izlenebilen bir güvenlik sistemi istedi. Öncelik netlik, kapsama alanı ve müdürün merkezi kontrol imkânıydı.',
 
 		'durum_pain_points' => [
-			'[DOLDUR: 1. sorun — örn: Gece vardiyalarında pompa üzerinde belirsiz olaylar yaşanıyordu ve mevcut kamera kaydı bulanık.]',
-			'[DOLDUR: 2. sorun — örn: Nakit kasa çevresinde güvenlik açığı ve kayıt kalitesi düşük.]',
-			'[DOLDUR: 3. sorun — örn: Plaka tanıma yoktu, tank sızıntısı veya araç ödemesiz çıkışı takip edilemiyordu.]',
-			'[DOLDUR: 4. sorun (opsiyonel) — örn: Sigorta şirketi HD kayıt zorunluluğu getirmişti.]',
+			'Kanopi ve pompa alanının çevre güvenliğinin gece dahil eksiksiz sağlanması gerekiyordu.',
+			'Market ve ofis içi güvenlik ayrı olarak takip edilmeliydi; müdürün ofisinden market akışını canlı görebilmesi istendi.',
+			'Araç yıkama bölümü mevcut sistemde net izlenemiyordu, olay sonrası kayıt kalitesi yetersizdi.',
+			'50 kanala yakın toplam kanal sayısı için kablolama, PoE ve NVR planlaması disiplinli yapılmalıydı.',
 		],
 
-		'yaklasim' => '[DOLDUR: 1-2 paragraf — Saha keşfini nasıl yaptığımız (kaç gün, hangi noktalar), risk analizi (pompa alanı, kasa, giriş-çıkış, depo, market içi), kameraların açı simülasyonunu nasıl planladığımız, gece görüş / IR / plaka okuma gereksinimleri hangi kriterlerle belirlendi.]',
+		'yaklasim' => 'Sahada iki aşamalı keşif yaptık: birinci gün kanopi + perimeter + araç yıkama için gündüz-gece açı testleri, ikinci gün market içi ve ofis için müşteri akışı ve kasa/ödeme noktası analizi. Kanopi altı için IP66 dış mekan kamera, market içi için diskret iç mekan modelleri seçildi. Müdür ofisinde 8 kanallı market akışının canlı TV yansımasını sağlayacak ayrı bir görüntü çıkış planı yaptık — böylece müdür günlük operasyonu ana kontrol panelinden değil kendi masasından takip edebilecek.',
 
 		'cozum_paragraphs' => [
-			'[DOLDUR: 1. paragraf — Pompa alanı + akaryakıt tankları için hangi kameralar, kaç noktaya, neden. IP66 / patlayıcı ortam standartı, gece görüş performansı. Plaka tanıma varsa nasıl konumlandırıldı.]',
-			'[DOLDUR: 2. paragraf — Kasa/market içi kameralar, ATM veya nakit çekmece varsa yakınına özel açılar. Ses kaydı yasal olarak alınıyorsa nerede, alınmıyorsa mikrofon devre dışı bırakma.]',
-			'[DOLDUR: 3. paragraf — Ağ altyapısı: NVR yerleşimi (kilitli oda?), yedekleme diski, uzaktan erişim (VPN? bulut?), sigorta denetimi için kaç günlük kayıt saklandığı, mobil uygulama üzerinden istasyon sahibinin erişimi.]',
+			'Kanopi ve dış perimeter için 4K çözünürlüklü, ColorVu / gece görüş performanslı Hikvision kameralar yerleştirdik. Pompa adaları, giriş-çıkış noktaları, araç yıkama bölümü ve dış perimeter tam kapsama alacak şekilde açılandırıldı. Toplam kanal sayısı yaklaşık 50 — bu yoğunlukta bir istasyon için tesadüfen değil, keşifte belirlenen ölü açı analiziyle bu sayıya ulaşıldı.',
+			'Market içi için 8 adet iç mekan kamerası kuruldu: kasa çevresi, raf koridorları, ürün girişi ve müşteri hareket alanları. Bu 8 kanalın canlı görüntüsü, müdür odasındaki TV\'ye ayrı bir monitör çıkışıyla verildi. Böylece müdür günün her saatinde market operasyonunu kendi ofisinden takip ediyor — kasa yoğunluğu, raf hizasında bir dikkat ihtiyacı veya müşteri sorunları anında görülüyor.',
+			'Ofis içi kameralar, ana kontrol ve NVR odası kilitli bir alana yerleştirildi. Tüm kanallar sürekli kayıt altında, uzun süreli depolama için ayrı bir disk mimarisi kuruldu. Ağ trafiği CCTV VLAN\'ı üzerinden ayrıldı; istasyonun POS/ödeme trafiğiyle karışmıyor.',
 		],
 
 		'equipment' => [
-			[ 'category' => 'Sabit Kamera',   'items' => '[DOLDUR: örn: Hikvision DS-2CD2087G2-L × 8 (4K ColorVu, 30m IR)]' ],
-			[ 'category' => 'Plaka Tanıma',   'items' => '[DOLDUR: opsiyonel — plaka kamerası kullanıldıysa]' ],
-			[ 'category' => 'NVR',            'items' => '[DOLDUR: örn: Hikvision DS-7716NI-K4 (16 kanal, 4×HDD yuvası)]' ],
-			[ 'category' => 'Depolama',       'items' => '[DOLDUR: örn: 4×8TB Seagate SkyHawk (RAID-5)]' ],
-			[ 'category' => 'Switch / PoE',   'items' => '[DOLDUR: örn: TP-Link TL-SG1218MPE (16 port PoE+)]' ],
-			[ 'category' => 'UPS',            'items' => '[DOLDUR: örn: APC Smart-UPS 1500VA — 45 dk kesintisiz]' ],
-			[ 'category' => 'Alarm (varsa)',  'items' => '[DOLDUR: opsiyonel — Ajax veya benzeri kablosuz alarm sistemi eklendiyse]' ],
+			[ 'category' => 'Dış Mekan Kamera', 'items' => 'Hikvision ColorVu / 4K IR — kanopi, pompa, perimeter, araç yıkama' ],
+			[ 'category' => 'Market İçi Kamera', 'items' => 'Hikvision iç mekan × 8 — kasa, raf, giriş' ],
+			[ 'category' => 'Ofis Kamera',       'items' => 'Hikvision iç mekan — ofis + kontrol odası' ],
+			[ 'category' => 'NVR',               'items' => 'Hikvision 64 kanal NVR + yüksek kapasite HDD' ],
+			[ 'category' => 'Ağ',                'items' => 'PoE+ switch omurga, ayrı CCTV VLAN' ],
+			[ 'category' => 'Müdür Odası TV',    'items' => 'Market akışı için 8 kanallı canlı görüntü çıkışı' ],
 		],
 
 		'timeline' => [
-			[ 'phase' => 'Hafta 1',   'title' => 'Keşif ve tasarım',      'desc' => '[DOLDUR: Saha keşfi, kamera açı simülasyonu, malzeme onayı.]' ],
-			[ 'phase' => 'Hafta 2',   'title' => 'Kablolama',              'desc' => '[DOLDUR: Cat6 çekimi, kanal montajı, NVR odası hazırlığı.]' ],
-			[ 'phase' => 'Hafta 3',   'title' => 'Cihaz montajı + test',   'desc' => '[DOLDUR: Kamera montajları, kalibrasyon, gece testleri, müşteri eğitimi ve teslim.]' ],
+			[ 'phase' => 'Hafta 1', 'title' => 'Keşif + kablolama',       'desc' => 'İki aşamalı saha keşfi (gündüz-gece), kamera açı simülasyonu, kablolama ve kanal montajı.' ],
+			[ 'phase' => 'Hafta 2', 'title' => 'Montaj + devreye alma',   'desc' => 'Kamera montajları, NVR ve switch kurulumu, müdür odası TV entegrasyonu, kalibrasyon ve teslim.' ],
 		],
 
-		'sonuc_intro' => '[DOLDUR: 1-2 cümle — Devreye alma sonrası ilk hafta/ay değerlendirmesi. Müşteri nasıl adapte oldu, hangi olaylar erken tespit edildi.]',
+		'sonuc_intro' => 'Devreye alma sonrası müşteri geri bildirimi netti: görüntü kalitesi ve alan kapsaması ciddi biçimde arttı, müdür artık market operasyonunu kendi masasından takip edebiliyor.',
 
 		'sonuc_outcomes' => [
-			'[DOLDUR: 1. somut sonuç — örn: Gece vardiyasında bir müşteri kartsız ödeme yapmaya çalıştı, kayıt sayesinde 20 dakika içinde tespit edildi.]',
-			'[DOLDUR: 2. sonuç — örn: Sigorta şirketi HD kayıt sistemi nedeniyle prim %12 düşürdü.]',
-			'[DOLDUR: 3. sonuç — örn: Sahibi telefondan istasyonu izleyebiliyor, ayda 2 gün fiziksel ziyaret azaldı.]',
+			'Görüntüler önceki sistemle kıyaslanmayacak ölçüde net — gece dahil olaylar detaylı izlenebiliyor.',
+			'Kanopi + perimeter + market + ofis tek bir sistem çatısı altında toplandı; hiçbir ölü açı bırakılmadı.',
+			'Araç yıkama bölümü artık net izleniyor, sonraki olay incelemeleri için kayıt kalitesi yeterli.',
+			'Müdür, market akışını ofis TV\'sinden canlı görebiliyor — operasyonel karar hızlanıyor.',
 		],
 
-		'quote' => [
-			'text'        => '[DOLDUR: Müşteri sözü — 1-2 cümle, gerçek sözcük tercih edilir. Aşırı süslü değil, samimi olsun.]',
-			'attribution' => '[DOLDUR: İsim, Ünvan / Konum — örn: Aslan Bey, İstasyon Sahibi]',
-		],
+		// Müşteri sözü için: elimize gelirse ekleriz, şu an içerikten çıkarıyoruz
+		// (template bu bölümü boşsa gizler).
 
 		'brands' => [ 'Hikvision' ],
-		// [DOLDUR: kullanılan diğer markaları ekle, örn: 'Ajax Systems', 'TP-Link', 'APC'
 
 		'gallery' => [
-			// Yer tutucu — sen bu satırları düzenleyeceksin.
-			// Şema:
-			//   src     : '/wp-content/uploads/cases/benzin-istasyonu-guvenlik/01.jpg'
-			//   alt     : ekran okuyucu için kısa açıklama
-			//   caption : opsiyonel — görselin altında gösterilen metin
-			//
-			// Örnek yapı (comment'li — açmak için baştaki // işaretlerini sil):
-			//
-			// [
-			//     'src'     => '/wp-content/uploads/cases/benzin-istasyonu-guvenlik/01-pompa-alani.jpg',
-			//     'alt'     => 'İstasyon pompa alanı gece görüntüsü',
-			//     'caption' => 'Pompa alanı — 4 sabit kamera ColorVu ile gece bile renkli görüntü',
-			// ],
-			// [
-			//     'src'     => '/wp-content/uploads/cases/benzin-istasyonu-guvenlik/02-kasa-bolgesi.jpg',
-			//     'alt'     => 'Kasa bölgesi kamera açısı',
-			//     'caption' => 'Kasa ve nakit çekmece — yakın plan',
-			// ],
-			// [
-			//     'src'     => '/wp-content/uploads/cases/benzin-istasyonu-guvenlik/03-nvr-rack.jpg',
-			//     'alt'     => 'NVR ve switch rack kurulumu',
-			//     'caption' => 'Sunucu odası — kilitli kabinet içinde NVR + switch + UPS',
-			// ],
+			// 13 saha fotoğrafı — dosyaları uploads/cases/totalenergies-basaksehir/ altına
+			// 01.jpg ... 13.jpg olarak yükle. Caption'ları senin LinkedIn post'undan / gerçek
+			// bağlamdan sonradan zenginleştirebilirsin — şu anki caption'lar genel amaçlı.
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/01.jpg',
+				'alt'     => 'Kanopi altı pompa alanı kamera açısı',
+				'caption' => 'Kanopi altı — pompa adaları tam kapsama',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/02.jpg',
+				'alt'     => 'İstasyon dış perimeter görünümü',
+				'caption' => 'Perimeter — giriş çıkış noktası',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/03.jpg',
+				'alt'     => 'Araç yıkama bölümü kamera açısı',
+				'caption' => 'Araç yıkama — net izlenebilir hale getirildi',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/04.jpg',
+				'alt'     => 'Market içi kasa çevresi kamera açısı',
+				'caption' => 'Market — kasa bölgesi',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/05.jpg',
+				'alt'     => 'Market içi raf koridoru kamera açısı',
+				'caption' => 'Market — raf koridoru',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/06.jpg',
+				'alt'     => 'Market girişi kamera açısı',
+				'caption' => 'Market — giriş',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/07.jpg',
+				'alt'     => 'Ofis içi kamera açısı',
+				'caption' => 'Ofis içi',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/08.jpg',
+				'alt'     => 'Müdür odasında market akışının canlı TV yansıması',
+				'caption' => 'Müdür odası — market akışı canlı TV',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/09.jpg',
+				'alt'     => 'Kontrol odası ve NVR rack',
+				'caption' => 'Kontrol odası — NVR + switch rack',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/10.jpg',
+				'alt'     => 'Kanopi kirişine monte edilmiş kamera',
+				'caption' => 'Kanopi kiriş montajı — açı ayarı',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/11.jpg',
+				'alt'     => 'Dış mekan kamera detay',
+				'caption' => 'Dış mekan — IP66 muhafaza',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/12.jpg',
+				'alt'     => 'Kablolama ve kanal detay',
+				'caption' => 'Kablolama — düzenli kanal işçiliği',
+			],
+			[
+				'src'     => '/wp-content/uploads/cases/totalenergies-basaksehir/13.jpg',
+				'alt'     => 'Devreye alma sonrası panoramik görünüm',
+				'caption' => 'Devreye alma sonrası — tam sistem çalışırken',
+			],
 		],
 	],
 
