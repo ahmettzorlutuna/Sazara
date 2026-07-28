@@ -83,6 +83,32 @@ add_action(
 );
 
 /**
+ * Force taxonomy URLs to match before CPT single-post URLs.
+ *
+ * Why: taxonomy slug 'ajax-alarm/konu' is nested inside the CPT slug
+ * 'ajax-alarm'. WordPress registers CPT single-post rewrite first, so
+ * a request like /ajax-alarm/konu/kurulum/ gets matched as
+ * "ajax_content with post_name=konu/kurulum" → 404. Registering the
+ * taxonomy rules with 'top' priority forces them to match first.
+ */
+add_action(
+	'init',
+	static function (): void {
+		add_rewrite_rule(
+			'^ajax-alarm/konu/([^/]+)/?$',
+			'index.php?ajax_topic=$matches[1]',
+			'top'
+		);
+		add_rewrite_rule(
+			'^ajax-alarm/konu/([^/]+)/page/([0-9]+)/?$',
+			'index.php?ajax_topic=$matches[1]&paged=$matches[2]',
+			'top'
+		);
+	},
+	15
+);
+
+/**
  * Seed default topics on first init.
  * Idempotent — uses option flag, only inserts missing terms.
  */
