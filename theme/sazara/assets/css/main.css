@@ -257,7 +257,8 @@ html {
 		opacity: 0;
 		transform: translateY(-12px);
 		transition: visibility 0s linear var(--dur), opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-		z-index: 49;
+		z-index: 60;
+		overflow-y: auto;
 	}
 
 	.nav__menu.is-open {
@@ -278,6 +279,23 @@ html {
 		font-weight: 500;
 		letter-spacing: -0.02em;
 		color: var(--ink);
+	}
+
+	/* Hero'lu sayfalarda .has-hero-image .nav__list a beyaz text override yapıyor.
+	   Mobil menü açıldığında solid beyaz arka plana çıktığımız için text KOYU olmalı
+	   — hero override'ını burada net yeniyoruz. Aynı şekilde arka plan solid kalır. */
+	.has-hero-image .nav__menu {
+		background: var(--paper);
+	}
+
+	.has-hero-image .nav__menu .nav__list a,
+	.has-hero-image .nav__menu .nav__list .menu-item a {
+		color: var(--ink);
+	}
+
+	.has-hero-image .nav__menu .nav__list a:hover,
+	.has-hero-image .nav__menu .nav__list .menu-item a:hover {
+		color: var(--accent);
 	}
 }
 
