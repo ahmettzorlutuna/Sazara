@@ -252,7 +252,7 @@ html {
 		position: fixed;
 		inset: 4.5rem 0 0 0;
 		background: var(--paper);
-		padding: var(--space-lg) var(--space-gutter);
+		padding: var(--space-md) var(--space-gutter);
 		visibility: hidden;
 		opacity: 0;
 		transform: translateY(-12px);
@@ -308,7 +308,7 @@ html {
 		display: flex !important;
 		flex-direction: column !important;
 		align-items: flex-start !important;
-		gap: 1.5rem !important;
+		gap: 0.5rem !important;
 		list-style: none !important;
 		margin: 0 !important;
 		padding: 0 !important;
@@ -329,8 +329,10 @@ html {
 		visibility: visible !important;
 		opacity: 1 !important;
 		color: oklch(13% 0.005 260) !important;
-		font-size: 1.5rem !important;
+		font-size: 1.15rem !important;
+		line-height: 1.4 !important;
 		font-weight: 500 !important;
+		padding-block: 0.5rem !important;
 		text-decoration: none !important;
 	}
 
