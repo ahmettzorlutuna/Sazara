@@ -66,12 +66,18 @@ add_action(
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
+		// Asset versiyonu: dosya değişimi başına otomatik cache-bust.
+		// filemtime() prod'da da çalışır — versiyon bump beklemeye gerek yok.
+		$tokens_ver = @filemtime( SAZARA_DIR . '/assets/css/tokens.css' ) ?: SAZARA_VERSION;
+		$main_ver   = @filemtime( SAZARA_DIR . '/assets/css/main.css' ) ?: SAZARA_VERSION;
+		$js_ver     = @filemtime( SAZARA_DIR . '/assets/js/main.js' ) ?: SAZARA_VERSION;
+
 		// Tokens (custom properties). Inline render-blocking — first paint için.
 		wp_enqueue_style(
 			'sazara-tokens',
 			SAZARA_URI . '/assets/css/tokens.css',
 			[],
-			SAZARA_VERSION
+			$tokens_ver
 		);
 
 		// Main stylesheet — tüm component CSS'leri tek dosyada.
@@ -79,7 +85,7 @@ add_action(
 			'sazara-main',
 			SAZARA_URI . '/assets/css/main.css',
 			[ 'sazara-tokens' ],
-			SAZARA_VERSION
+			$main_ver
 		);
 
 		// Vanilla JS — reveal observer + nav scroll-state + mobile drawer.
@@ -87,7 +93,7 @@ add_action(
 			'sazara-main',
 			SAZARA_URI . '/assets/js/main.js',
 			[],
-			SAZARA_VERSION,
+			$js_ver,
 			[ 'in_footer' => true, 'strategy' => 'defer' ]
 		);
 	}
