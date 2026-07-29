@@ -25,7 +25,11 @@
  *     - is_custom     : true ise fiyat/cihaz gizli, "teklif al" odaklı
  *
  *   İÇERİK:
- *     - devices[]      : [ label, note ]  (paket içindeki cihazlar)
+ *     - devices[]      : [ label, note, image? ]  (paket içindeki cihazlar)
+ *                        image opsiyonel — set edilirse detay sayfasında büyük
+ *                        kart grid'de ürün render'ı gösterilir. Yoksa fallback
+ *                        ikon ile kompakt liste görünümüne düşer.
+ *                        Görsel yolu: /wp-content/uploads/products/<slug>.png
  *     - included[]     : dahil olanlar (bullet listesi)
  *     - not_included[] : dahil değil olanlar (bullet listesi)
  *     - ideal_for[]    : kime uygun (bullet listesi)
@@ -51,8 +55,8 @@ return [
 	'baslangic' => [
 		'title'        => 'Başlangıç Paketi',
 		'subtitle'     => 'Daire / küçük ofis',
-		'tagline'      => 'Ajax alarm sistemine hızlı ve minimal başlangıç. 2+1/3+1 daire, tek katlı ofis veya küçük mağaza için ideal.',
-		'price'        => '[FİYAT: 15.000 TL]',
+		'tagline'      => 'Ajax\'ın resmi StarterKit içeriği + dış mekan sireni. Kablosuz alarm sistemine hızlı ve tam kapsamlı bir başlangıç — daire, küçük ofis veya küçük mağaza için ideal.',
+		'price'        => '[FİYAT: TL]',
 		'price_prefix' => "'den başlayan fiyatlarla",
 		'duration'     => 'yarım gün',
 		'target'       => '2+1 / 3+1 daire, tek katlı ofis, küçük mağaza',
@@ -61,11 +65,31 @@ return [
 		'hero_image'   => '/wp-content/uploads/packages/baslangic.jpg',
 
 		'devices' => [
-			[ 'label' => 'Ajax Hub',                'note' => 'Ethernet + Wi-Fi bağlantı' ],
-			[ 'label' => 'MotionProtect × 1',       'note' => 'Salon hareket dedektörü' ],
-			[ 'label' => 'DoorProtect × 2',         'note' => 'Ana giriş + arka kapı sensörü' ],
-			[ 'label' => 'KeyPad × 1',              'note' => 'Kurma/silme tuş takımı' ],
-			[ 'label' => 'HomeSiren × 1',           'note' => 'İç mekan siren' ],
+			[
+				'label' => 'Ajax Hub',
+				'note'  => 'Sistemin beyni. Ethernet ve Wi-Fi ile ağa bağlanır, tüm sensörleri şifreli kablosuz iletişimle yönetir.',
+				'image' => '/wp-content/uploads/products/ajax-hub.png',
+			],
+			[
+				'label' => 'MotionProtect Jeweller',
+				'note'  => 'İç mekan kızılötesi hareket dedektörü. 12m menzil, 88° yatay açı; 20 kg\'a kadar evcil hayvan bağışıklığı.',
+				'image' => '/wp-content/uploads/products/motionprotect-jeweller.png',
+			],
+			[
+				'label' => 'DoorProtect Jeweller',
+				'note'  => 'Manyetik kapı/pencere açılma dedektörü. Kapı veya pencere açıldığında anında bildirim.',
+				'image' => '/wp-content/uploads/products/doorprotect-jeweller.png',
+			],
+			[
+				'label' => 'SpaceControl Jeweller',
+				'note'  => 'Cepte veya anahtarlıkta taşınan kablosuz kumanda. Sistemi tek tuşla kur/sil, panik butonu dahil.',
+				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
+			],
+			[
+				'label' => 'StreetSiren Jeweller',
+				'note'  => 'Dış mekan siren — Sazara farkı olarak pakete dahil. Yüksek desibel caydırıcılık, evin dışından duyulur.',
+				'image' => '/wp-content/uploads/products/streetsiren-jeweller.png',
+			],
 		],
 
 		'included' => [
@@ -77,8 +101,8 @@ return [
 		],
 
 		'not_included' => [
-			'Dış mekan siren (StreetSiren ayrıca satın alınır)',
-			'MotionCam fotoğraflı doğrulama',
+			'KeyPad tuş takımı (isteğe bağlı ek, sonradan eklenebilir)',
+			'MotionCam fotoğraflı doğrulama (isteğe bağlı ek modül)',
 			'İzleme merkezi hizmeti (3. taraf, aylık ücretli)',
 		],
 
@@ -86,6 +110,7 @@ return [
 			'Küçük daire güvenliği isteyen bireysel kullanıcı',
 			'Tek katlı ofis',
 			'Sisteme yeni başlayan işletme (ileride büyütme opsiyonu)',
+			'Dış mekan caydırıcılığını da isteyen kullanıcı',
 		],
 	],
 
