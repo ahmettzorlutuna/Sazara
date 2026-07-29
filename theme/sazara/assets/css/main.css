@@ -283,22 +283,19 @@ html {
 
 	/* Hero'lu sayfalarda .has-hero-image .nav__list a beyaz text override yapıyor.
 	   Mobil menü açıldığında solid beyaz arka plana çıktığımız için text KOYU olmalı
-	   — hero override'ını burada net yeniyoruz. Aynı şekilde arka plan solid kalır.
-	   !important defensively uygulanıyor çünkü mobil menü açık iken hiçbir tema
-	   override'ı beyaz-üstü-beyaz text sorununu yeniden yaratmamalı. */
-	.nav__menu.is-open {
-		background: var(--paper) !important;
+	   — hero override'ını burada net yeniyoruz. Aynı şekilde arka plan solid kalır. */
+	.has-hero-image .nav__menu {
+		background: var(--paper);
 	}
 
-	.nav__menu.is-open .nav__list a,
-	.nav__menu.is-open .nav__list .menu-item a,
-	.nav__menu.is-open .nav__list a.nav__link--ajax {
-		color: var(--ink) !important;
+	.has-hero-image .nav__menu .nav__list a,
+	.has-hero-image .nav__menu .nav__list .menu-item a {
+		color: var(--ink);
 	}
 
-	.nav__menu.is-open .nav__list a:hover,
-	.nav__menu.is-open .nav__list .menu-item a:hover {
-		color: var(--accent) !important;
+	.has-hero-image .nav__menu .nav__list a:hover,
+	.has-hero-image .nav__menu .nav__list .menu-item a:hover {
+		color: var(--accent);
 	}
 }
 
