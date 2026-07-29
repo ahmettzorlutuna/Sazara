@@ -106,7 +106,19 @@ get_header();
 	<?php endif; ?>
 
 	<!-- ════════ CİHAZLAR ════════ -->
-	<?php if ( ! empty( $package['devices'] ) && empty( $package['is_custom'] ) ) : ?>
+	<?php
+	if ( ! empty( $package['devices'] ) && empty( $package['is_custom'] ) ) :
+		// Herhangi bir cihazda 'image' varsa büyük kart grid'i kullan;
+		// yoksa mevcut kompakt liste görünümüne fallback.
+		$has_images = false;
+		foreach ( $package['devices'] as $d ) {
+			if ( ! empty( $d['image'] ) ) {
+				$has_images = true;
+				break;
+			}
+		}
+		$list_classes = $has_images ? 'package-devices package-devices--grid' : 'package-devices';
+		?>
 	<section class="section">
 		<div class="wrap">
 			<header class="section__head reveal">
@@ -115,19 +127,39 @@ get_header();
 				<p class="section__lead"><?php esc_html_e( 'Sazara olarak sistemi yerine kuruyor, kalibre ediyor ve devreye alıyoruz. Cihazlar kutusundan çıkmış Ajax orijinal ürünlerdir; sertifika kurulum sonrası tarafımızca verilir.', 'sazara' ); ?></p>
 			</header>
 
-			<ul class="package-devices" role="list">
+			<ul class="<?php echo esc_attr( $list_classes ); ?>" role="list">
 				<?php foreach ( $package['devices'] as $device ) : ?>
-					<li class="package-devices__item reveal">
-						<div class="package-devices__icon" aria-hidden="true">
-							<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>
-						</div>
-						<div class="package-devices__body">
-							<span class="package-devices__label"><?php echo esc_html( $device['label'] ); ?></span>
-							<?php if ( ! empty( $device['note'] ) ) : ?>
-								<span class="package-devices__note"><?php echo esc_html( $device['note'] ); ?></span>
-							<?php endif; ?>
-						</div>
-					</li>
+					<?php if ( $has_images ) : ?>
+						<li class="package-devices__card reveal">
+							<div class="package-devices__image">
+								<?php if ( ! empty( $device['image'] ) ) : ?>
+									<img src="<?php echo esc_url( $device['image'] ); ?>"
+									     alt="<?php echo esc_attr( $device['label'] ); ?>"
+									     loading="lazy" decoding="async">
+								<?php else : ?>
+									<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12l3 3 5-6"/></svg>
+								<?php endif; ?>
+							</div>
+							<div class="package-devices__card-body">
+								<h3 class="package-devices__card-label"><?php echo esc_html( $device['label'] ); ?></h3>
+								<?php if ( ! empty( $device['note'] ) ) : ?>
+									<p class="package-devices__card-note"><?php echo esc_html( $device['note'] ); ?></p>
+								<?php endif; ?>
+							</div>
+						</li>
+					<?php else : ?>
+						<li class="package-devices__item reveal">
+							<div class="package-devices__icon" aria-hidden="true">
+								<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>
+							</div>
+							<div class="package-devices__body">
+								<span class="package-devices__label"><?php echo esc_html( $device['label'] ); ?></span>
+								<?php if ( ! empty( $device['note'] ) ) : ?>
+									<span class="package-devices__note"><?php echo esc_html( $device['note'] ); ?></span>
+								<?php endif; ?>
+							</div>
+						</li>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</ul>
 		</div>

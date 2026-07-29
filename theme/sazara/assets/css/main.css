@@ -4658,6 +4658,85 @@ body { padding-top: 0; }
 	line-height: 1.4;
 }
 
+/* Cihaz kart grid varyantı — .image alanı olan paketlerde büyük ürün kartları
+   (Ajax'ın kendi ürün sayfası hissiyatı). Compact liste .package-devices
+   base class'ı olduğu gibi kalır; grid variant ek olarak gelir. */
+.package-devices--grid {
+	grid-template-columns: 1fr;
+	gap: var(--space-md);
+}
+
+@media (min-width: 40rem) {
+	.package-devices--grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 60rem) {
+	.package-devices--grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.package-devices__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: var(--space-md);
+	background: var(--paper, oklch(99% 0 0));
+	border: 1px solid var(--rule, oklch(90% 0.005 260));
+	border-radius: 12px;
+	transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.package-devices__card:hover {
+	border-color: var(--ink, oklch(13% 0.005 260));
+	transform: translateY(-2px);
+	box-shadow: 0 12px 28px oklch(0% 0 0 / 0.08);
+}
+
+.package-devices__image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	aspect-ratio: 1;
+	max-height: 220px;
+	background: linear-gradient(160deg, oklch(97% 0.003 260) 0%, oklch(99% 0 0) 100%);
+	border-radius: 10px;
+	padding: var(--space-sm);
+	color: var(--ink-mute, oklch(65% 0.005 260));
+}
+
+.package-devices__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.package-devices__card-body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.package-devices__card-label {
+	margin: 0;
+	font-size: 1.0625rem;
+	font-weight: 600;
+	color: var(--ink, oklch(13% 0.005 260));
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+
+.package-devices__card-note {
+	margin: 0;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+}
+
 /* Kapsam (Ne dahil / Ne dahil değil) — 2 kolon */
 .package-scope {
 	display: grid;
