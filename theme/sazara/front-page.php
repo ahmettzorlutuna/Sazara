@@ -340,11 +340,11 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<h2 class="cta__title"><?php esc_html_e( 'Bir projeyi konuşalım.', 'sazara' ); ?></h2>
 				<p class="cta__lead"><?php esc_html_e( 'Aklındaki sorunu yaz, kahve eşliğinde mühendisliğe çevirelim.', 'sazara' ); ?></p>
 				<div class="cta__row">
-					<a href="https://wa.me/905555555555" class="btn btn--primary">
+					<a href="https://wa.me/905318503752" class="btn btn--primary">
 						<span>WhatsApp</span>
 						<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 					</a>
-					<a href="mailto:hello@sazara.com.tr" class="btn btn--ghost">hello@sazara.com.tr</a>
+					<a href="mailto:info@sazara.com.tr" class="btn btn--ghost">info@sazara.com.tr</a>
 				</div>
 			</div>
 		</div>

@@ -224,7 +224,7 @@ get_header();
 						<span><?php esc_html_e( 'Teklif al', 'sazara' ); ?></span>
 						<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 					</a>
-					<a href="https://wa.me/905555555555" class="btn btn--ghost">WhatsApp</a>
+					<a href="https://wa.me/905318503752" class="btn btn--ghost">WhatsApp</a>
 				</div>
 			</div>
 		</div>

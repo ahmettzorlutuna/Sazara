@@ -76,8 +76,8 @@ defined( 'ABSPATH' ) || exit;
 			<div class="footer__col">
 				<h4><?php esc_html_e( 'İletişim', 'sazara' ); ?></h4>
 				<ul>
-					<li><a href="mailto:hello@sazara.com.tr">hello@sazara.com.tr</a></li>
-					<li><a href="https://wa.me/905555555555">WhatsApp</a></li>
+					<li><a href="mailto:info@sazara.com.tr">info@sazara.com.tr</a></li>
+					<li><a href="https://wa.me/905318503752">WhatsApp</a></li>
 					<li><a href="<?php echo esc_url( home_url( '/iletisim/' ) ); ?>"><?php esc_html_e( 'İletişim formu', 'sazara' ); ?></a></li>
 				</ul>
 			</div>

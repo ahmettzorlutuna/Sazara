@@ -34,12 +34,12 @@ $channels = [
 	[
 		'label' => __( 'WhatsApp', 'sazara' ),
 		'value' => '+90 531 850 37 52',
-		'href'  => 'https://wa.me/905555555555',
+		'href'  => 'https://wa.me/905318503752',
 	],
 	[
 		'label' => __( 'Telefon', 'sazara' ),
 		'value' => '+90 212 671 98 51',
-		'href'  => 'tel:+902120000000',
+		'href'  => 'tel:+902126719851',
 	],
 	[
 		'label' => __( 'Adres', 'sazara' ),
@@ -237,7 +237,7 @@ get_header();
 				<h2 class="cta__title"><?php esc_html_e( 'Hızlı bir soru mu?', 'sazara' ); ?></h2>
 				<p class="cta__lead"><?php esc_html_e( 'Form yerine WhatsApp\'tan tek mesaj at, 5 dakika içinde dönüyoruz.', 'sazara' ); ?></p>
 				<div class="cta__row">
-					<a href="https://wa.me/905555555555" class="btn btn--primary">
+					<a href="https://wa.me/905318503752" class="btn btn--primary">
 						<span>WhatsApp ile yaz</span>
 						<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 					</a>
