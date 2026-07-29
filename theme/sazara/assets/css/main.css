@@ -297,6 +297,46 @@ html {
 	.has-hero-image .nav__menu .nav__list .menu-item a:hover {
 		color: var(--accent);
 	}
+
+	/* Guaranteed-visible mobile drawer — no theme cascade can hide items */
+	.nav__menu.is-open {
+		background: oklch(99% 0 0) !important;
+		display: block !important;
+	}
+
+	.nav__menu.is-open .nav__list {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		gap: 1.5rem !important;
+		list-style: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.nav__menu.is-open .nav__list li {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		height: auto !important;
+		width: 100% !important;
+		list-style: none !important;
+		margin: 0 !important;
+	}
+
+	.nav__menu.is-open .nav__list li a {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		color: oklch(13% 0.005 260) !important;
+		font-size: 1.5rem !important;
+		font-weight: 500 !important;
+		text-decoration: none !important;
+	}
+
+	.nav__menu.is-open .nav__list li a:hover {
+		color: oklch(52% 0.22 260) !important;
+	}
 }
 
 /* ═══════════════════ HERO ═══════════════════ */
