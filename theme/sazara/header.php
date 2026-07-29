@@ -54,6 +54,7 @@ defined( 'ABSPATH' ) || exit;
 				<ul class="nav__list">
 					<li><a href="<?php echo esc_url( home_url( '/hizmetler/' ) ); ?>"><?php esc_html_e( 'Hizmetler', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/ajax/' ) ); ?>" class="nav__link--ajax"><?php esc_html_e( 'Ajax', 'sazara' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/paketler/' ) ); ?>" class="nav__link--paketler"><?php esc_html_e( 'Paketler', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/referanslar/' ) ); ?>"><?php esc_html_e( 'Referanslar', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/hakkimizda/' ) ); ?>"><?php esc_html_e( 'Hakkımızda', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/iletisim/' ) ); ?>"><?php esc_html_e( 'İletişim', 'sazara' ); ?></a></li>

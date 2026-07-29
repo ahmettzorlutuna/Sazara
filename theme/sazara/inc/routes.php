@@ -25,6 +25,7 @@ const SAZARA_PAGES = [
 	'hizmetler'   => [ 'title' => 'Hizmetler' ],
 	'referanslar' => [ 'title' => 'Referanslar' ],
 	'ajax'        => [ 'title' => 'Ajax Güvenlik' ],
+	'paketler'    => [ 'title' => 'Paketler' ],
 
 	// Hizmetler altındaki child page'ler
 	'kamera-sistemleri'   => [ 'title' => 'Kamera Sistemleri ve Güvenlik', 'parent' => 'hizmetler' ],
@@ -44,6 +45,7 @@ const SAZARA_TEMPLATE_MAP = [
 	'hizmetler'   => 'templates/services-archive.php',
 	'referanslar' => 'templates/cases-archive.php',
 	'ajax'        => 'templates/ajax.php',
+	'paketler'    => 'templates/packages-archive.php',
 
 	// 4 hizmet aynı template'i kullanır, içerik slug bazlı services-data.php'den gelir
 	'kamera-sistemleri'   => 'templates/service.php',
@@ -104,6 +106,21 @@ function sazara_load_cases() {
 }
 
 /**
+ * Paket verisini cache'li olarak yükle. Archive + detail template'i + auto-create init'inde okunur.
+ *
+ * @return array<string, array<string, mixed>> slug => package data
+ */
+function sazara_load_packages() {
+	static $cache = null;
+	if ( null !== $cache ) {
+		return $cache;
+	}
+	$path  = SAZARA_DIR . '/inc/packages-data.php';
+	$cache = file_exists( $path ) ? require $path : [];
+	return is_array( $cache ) ? $cache : [];
+}
+
+/**
  * Eksik page'leri yarat (init'te, idempotent).
  *
  * Versiyon hash'i case slug'larını da içerir — yeni case eklendiğinde
@@ -112,11 +129,13 @@ function sazara_load_cases() {
 add_action(
 	'init',
 	static function () {
-		$cases      = sazara_load_cases();
-		$case_slugs = array_keys( $cases );
+		$cases         = sazara_load_cases();
+		$case_slugs    = array_keys( $cases );
+		$packages      = sazara_load_packages();
+		$package_slugs = array_keys( $packages );
 
 		$flag_key   = 'sazara_pages_v1';
-		$flag_value = '3.2-parent-aware-' . md5( implode( ',', $case_slugs ) );
+		$flag_value = '3.3-with-packages-' . md5( implode( ',', $case_slugs ) . '|' . implode( ',', $package_slugs ) );
 
 		if ( get_option( $flag_key ) === $flag_value ) {
 			return;
@@ -173,6 +192,29 @@ add_action(
 			);
 		}
 
+		// ─── Package child sayfaları (parent = 'paketler') ───
+		$paketler_page = get_page_by_path( 'paketler' );
+		$paketler_id   = $paketler_page ? $paketler_page->ID : 0;
+
+		foreach ( $packages as $slug => $package ) {
+			if ( sazara_page_exists( $slug, $paketler_id ) ) {
+				continue;
+			}
+
+			wp_insert_post(
+				[
+					'post_title'     => $package['title'] ?? ucfirst( $slug ),
+					'post_name'      => $slug,
+					'post_content'   => '',
+					'post_status'    => 'publish',
+					'post_type'      => 'page',
+					'post_parent'    => $paketler_id,
+					'comment_status' => 'closed',
+					'ping_status'    => 'closed',
+				]
+			);
+		}
+
 		update_option( $flag_key, $flag_value );
 		flush_rewrite_rules( false );
 	}
@@ -183,7 +225,8 @@ add_action(
  *
  * 1) Statik map'te varsa onu kullan.
  * 2) Case slug'ı ise templates/case.php'yi kullan.
- * 3) Aksi halde varsayılan template.
+ * 3) Package slug'ı ise templates/package.php'yi kullan.
+ * 4) Aksi halde varsayılan template.
  */
 add_filter(
 	'template_include',
@@ -209,6 +252,15 @@ add_filter(
 		$cases = sazara_load_cases();
 		if ( isset( $cases[ $slug ] ) ) {
 			$custom = SAZARA_DIR . '/templates/case.php';
+			if ( file_exists( $custom ) ) {
+				return $custom;
+			}
+		}
+
+		// 3) Package slug'ı kontrolü → templates/package.php
+		$packages = sazara_load_packages();
+		if ( isset( $packages[ $slug ] ) ) {
+			$custom = SAZARA_DIR . '/templates/package.php';
 			if ( file_exists( $custom ) ) {
 				return $custom;
 			}

@@ -4249,3 +4249,517 @@ body { padding-top: 0; }
 	}
 }
 
+/* ═══════════════════ PAKETLER ═══════════════════ */
+
+/* Nav'da "Paketler" linkine hafif accent — Ajax link'i gibi göze çarpması için.
+   Küçük accent dot sağ üstte, discovery için. */
+.nav__link--paketler {
+	position: relative;
+}
+
+.nav__link--paketler::after {
+	content: "";
+	position: absolute;
+	top: -0.15rem;
+	right: -0.55rem;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: oklch(70% 0.18 145);
+}
+
+/* Paket kartı grid — 4 kart yan yana desktop, mobilde 1 kolon */
+.package-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-md);
+	margin-top: var(--space-md);
+	list-style: none;
+	padding: 0;
+}
+
+@media (min-width: 48rem) {
+	.package-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 68rem) {
+	.package-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* Paket kartı — case-card benzeri ama fiyat odaklı */
+.package-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background: var(--paper, oklch(99% 0 0));
+	border: 1px solid var(--rule, oklch(85% 0.005 260));
+	border-radius: 12px;
+	padding: var(--space-md);
+	transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.package-card:hover {
+	border-color: var(--ink, oklch(13% 0.005 260));
+	transform: translateY(-3px);
+	box-shadow: 0 12px 32px oklch(0% 0 0 / 0.08);
+}
+
+/* Öne çıkan paket — accent border + slight elevation */
+.package-card--featured {
+	border-color: var(--accent, oklch(52% 0.22 260));
+	border-width: 2px;
+	box-shadow: 0 8px 24px oklch(52% 0.22 260 / 0.12);
+}
+
+.package-card--featured:hover {
+	border-color: var(--accent, oklch(52% 0.22 260));
+	transform: translateY(-4px);
+	box-shadow: 0 16px 36px oklch(52% 0.22 260 / 0.2);
+}
+
+/* Özel proje kartı — nötr, ink-tinted */
+.package-card--custom {
+	background: oklch(97% 0.003 260);
+	border-style: dashed;
+}
+
+/* En popüler badge'i öne çıkan kartın üstünde */
+.package-card__badge {
+	position: absolute;
+	top: -0.7rem;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--accent, oklch(52% 0.22 260));
+	color: var(--paper, oklch(99% 0 0));
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: 0.35rem 0.75rem;
+	border-radius: 999px;
+	box-shadow: 0 4px 12px oklch(52% 0.22 260 / 0.3);
+	white-space: nowrap;
+}
+
+.package-card__head {
+	margin-bottom: var(--space-sm);
+}
+
+.package-card__eyebrow {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--ink-mute, oklch(65% 0.005 260));
+	margin-bottom: 0.4rem;
+}
+
+.package-card__title {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+.package-card__title a {
+	color: var(--ink, oklch(13% 0.005 260));
+	text-decoration: none;
+}
+
+.package-card__title a:hover {
+	color: var(--accent, oklch(52% 0.22 260));
+}
+
+.package-card__tagline {
+	margin: 0;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+}
+
+.package-card__price {
+	margin: var(--space-sm) 0;
+	padding-block: var(--space-sm);
+	border-block: 1px solid var(--rule, oklch(90% 0.005 260));
+}
+
+.package-card__price-value {
+	display: block;
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+	font-weight: 700;
+	color: var(--ink, oklch(13% 0.005 260));
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+}
+
+.package-card__price-value--custom {
+	font-size: clamp(1.15rem, 1rem + 0.5vw, 1.5rem);
+	color: var(--ink-2, oklch(28% 0.006 260));
+}
+
+.package-card__price-suffix {
+	display: block;
+	font-size: 0.75rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+	margin-top: 0.25rem;
+}
+
+.package-card__meta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0 0 var(--space-sm);
+	font-size: 0.8125rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+}
+
+.package-card__devices {
+	list-style: none;
+	margin: 0 0 var(--space-md);
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	flex: 1;
+}
+
+.package-card__devices li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	font-size: 0.8125rem;
+	color: var(--ink-2, oklch(28% 0.006 260));
+	line-height: 1.4;
+}
+
+.package-card__devices li svg {
+	flex-shrink: 0;
+	margin-top: 0.15rem;
+	color: var(--accent, oklch(52% 0.22 260));
+}
+
+.package-card__devices-more {
+	font-style: italic;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+	padding-left: 1rem;
+}
+
+.package-card__cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	padding: 0.65rem 1rem;
+	background: var(--ink, oklch(13% 0.005 260));
+	color: var(--paper, oklch(99% 0 0));
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	margin-top: auto;
+	transition: background var(--dur) var(--ease);
+}
+
+.package-card__cta:hover {
+	background: var(--accent, oklch(52% 0.22 260));
+	color: var(--paper);
+}
+
+.package-card__cta svg {
+	transition: transform var(--dur) var(--ease);
+}
+
+.package-card__cta:hover svg {
+	transform: translateX(2px);
+}
+
+/* Öne çıkan kartta CTA da accent olsun */
+.package-card--featured .package-card__cta {
+	background: var(--accent, oklch(52% 0.22 260));
+}
+
+.package-card--featured .package-card__cta:hover {
+	background: var(--accent-deep, oklch(42% 0.20 260));
+}
+
+/* Karşılaştırma tablosu */
+.package-comparison {
+	overflow-x: auto;
+	margin-top: var(--space-md);
+	border-radius: 10px;
+	border: 1px solid var(--rule, oklch(85% 0.005 260));
+	background: var(--paper, oklch(99% 0 0));
+}
+
+.package-comparison table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.875rem;
+}
+
+.package-comparison thead th {
+	padding: 0.75rem 1rem;
+	background: oklch(98% 0.005 260);
+	border-bottom: 2px solid var(--rule, oklch(85% 0.005 260));
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--ink-2, oklch(28% 0.006 260));
+	text-align: left;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.package-comparison thead th:first-child {
+	background: transparent;
+}
+
+.package-comparison tbody th {
+	padding: 0.75rem 1rem;
+	text-align: left;
+	font-weight: 500;
+	color: var(--ink, oklch(13% 0.005 260));
+	background: oklch(99% 0.002 260);
+	border-bottom: 1px solid var(--rule, oklch(90% 0.005 260));
+	white-space: nowrap;
+}
+
+.package-comparison tbody td {
+	padding: 0.75rem 1rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+	border-bottom: 1px solid var(--rule, oklch(92% 0.005 260));
+	border-left: 1px solid var(--rule, oklch(92% 0.005 260));
+	text-align: center;
+	vertical-align: middle;
+}
+
+.package-comparison tbody tr:last-child td,
+.package-comparison tbody tr:last-child th {
+	border-bottom: 0;
+}
+
+.package-comparison__yes {
+	color: oklch(55% 0.15 145) !important;
+	font-weight: 700;
+	font-size: 1rem;
+}
+
+.package-comparison__no {
+	color: var(--ink-mute, oklch(70% 0.005 260)) !important;
+}
+
+/* Paket detay sayfası — hero + fiyat + cihazlar + kapsam */
+.package-hero__crumb {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 1px;
+}
+
+.package-hero__crumb:hover {
+	border-bottom-style: dashed;
+}
+
+.package-hero__price {
+	margin-top: var(--space-sm);
+	padding: 0.75rem 1.25rem;
+	background: oklch(99% 0 0 / 0.15);
+	border-radius: 8px;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	backdrop-filter: blur(8px);
+}
+
+.package-hero__price-value {
+	font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+	font-weight: 700;
+	color: var(--paper);
+	line-height: 1;
+	letter-spacing: -0.02em;
+}
+
+.package-hero__price-value--custom {
+	font-size: clamp(1.25rem, 1.05rem + 0.75vw, 1.75rem);
+	font-weight: 600;
+}
+
+.package-hero__price-suffix {
+	font-size: 0.8125rem;
+	color: oklch(99% 0 0 / 0.8);
+}
+
+/* Paket cihaz listesi (detay sayfası) */
+.package-devices {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.75rem;
+	list-style: none;
+	padding: 0;
+	margin: var(--space-md) 0 0;
+}
+
+@media (min-width: 48rem) {
+	.package-devices {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.package-devices__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	padding: 1rem;
+	background: var(--paper, oklch(99% 0 0));
+	border: 1px solid var(--rule, oklch(90% 0.005 260));
+	border-radius: 8px;
+	transition: border-color var(--dur) var(--ease);
+}
+
+.package-devices__item:hover {
+	border-color: var(--accent, oklch(52% 0.22 260));
+}
+
+.package-devices__icon {
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: oklch(96% 0.03 145);
+	color: oklch(45% 0.15 145);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.package-devices__body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+}
+
+.package-devices__label {
+	font-weight: 600;
+	color: var(--ink, oklch(13% 0.005 260));
+	font-size: 0.9375rem;
+}
+
+.package-devices__note {
+	font-size: 0.8125rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+	line-height: 1.4;
+}
+
+/* Kapsam (Ne dahil / Ne dahil değil) — 2 kolon */
+.package-scope {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-md);
+	margin-top: var(--space-md);
+}
+
+@media (min-width: 48rem) {
+	.package-scope {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.package-scope__col {
+	padding: var(--space-md);
+	border-radius: 10px;
+	background: var(--paper, oklch(99% 0 0));
+	border: 1px solid var(--rule, oklch(90% 0.005 260));
+}
+
+.package-scope__col--included {
+	border-left: 3px solid oklch(55% 0.15 145);
+}
+
+.package-scope__col--excluded {
+	border-left: 3px solid oklch(65% 0.005 260);
+}
+
+.package-scope__title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0 0 var(--space-sm);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--ink, oklch(13% 0.005 260));
+}
+
+.package-scope__col--included .package-scope__title svg {
+	color: oklch(55% 0.15 145);
+}
+
+.package-scope__col--excluded .package-scope__title svg {
+	color: var(--ink-mute, oklch(65% 0.005 260));
+}
+
+.package-scope__col ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.package-scope__col li {
+	position: relative;
+	padding-left: 1.25rem;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--ink-2, oklch(28% 0.006 260));
+}
+
+.package-scope__col li::before {
+	content: "•";
+	position: absolute;
+	left: 0.35rem;
+	color: var(--ink-mute, oklch(65% 0.005 260));
+}
+
+/* Kimin için ideal listesi (detay sayfası) */
+.package-ideal {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.5rem;
+	list-style: none;
+	padding: 0;
+	margin: var(--space-md) 0 0;
+}
+
+@media (min-width: 48rem) {
+	.package-ideal {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.package-ideal li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6rem;
+	padding: 0.75rem 1rem;
+	background: oklch(98% 0.005 260);
+	border-radius: 6px;
+	font-size: 0.9375rem;
+	color: var(--ink-2, oklch(28% 0.006 260));
+	line-height: 1.4;
+}
+
+.package-ideal li svg {
+	flex-shrink: 0;
+	margin-top: 0.15rem;
+	color: oklch(55% 0.15 145);
+}
+
