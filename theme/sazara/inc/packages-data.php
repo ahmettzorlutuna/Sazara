@@ -73,8 +73,8 @@ return [
 
 		'devices' => [
 			[
-				'label' => 'Ajax Hub',
-				'note'  => 'Sistemin beyni. Ethernet ve Wi-Fi ile ağa bağlanır, tüm sensörleri şifreli kablosuz iletişimle yönetir.',
+				'label' => 'Ajax Hub 4G',
+				'note'  => 'Sistemin beyni. Ethernet + 4G SIM ile ağa bağlanır; internet kesildiğinde iletişim SIM üzerinden sürer. Tüm sensörleri şifreli kablosuz Jeweller protokolüyle yönetir.',
 				'image' => '/wp-content/uploads/2026/07/ajax-hub.png',
 			],
 			[
@@ -128,11 +128,13 @@ return [
 	// ═══════════════════════════════════════════════════════════
 	// PAKET 02 — Standart (villa / orta ölçekli işletme) — EN POPÜLER
 	// ═══════════════════════════════════════════════════════════
+	// Temel: Ajax StarterKit Plus (Hub Plus + MotionProtect + DoorProtect + SpaceControl)
+	// Sazara farkı: HomeSiren + Relay (otomasyon) + ek MotionProtect + ek DoorProtect
 	'standart' => [
 		'title'        => 'Standart Paketi',
 		'subtitle'     => 'Villa / orta ölçekli işletme',
-		'tagline'      => 'Villa, restoran, market veya orta ofis için tam kapsamlı Ajax çözümü. 4G yedek iletişim ve dış mekan siren dahil.',
-		'price'        => '[FİYAT: 40.000 TL]',
+		'tagline'      => 'Ajax StarterKit Plus üzerine kurulmuş, çift SIM yedek iletişim + otomasyon uyumlu kablosuz alarm paketi. Villa, restoran, market veya orta ofis için tam kapsamlı çözüm.',
+		'price_usd'    => 999,
 		'price_prefix' => "'den başlayan fiyatlarla",
 		'duration'     => '1 gün',
 		'target'       => '4+1 daire, villa, restoran, market, orta ölçekli ofis',
@@ -141,88 +143,172 @@ return [
 		'hero_image'   => '/wp-content/uploads/packages/standart.jpg',
 
 		'devices' => [
-			[ 'label' => 'Ajax Hub 2 Plus',         'note' => 'Ethernet + Wi-Fi + 2 SIM 4G yedek' ],
-			[ 'label' => 'MotionProtect × 3',       'note' => 'İç mekan hareket dedektörleri' ],
-			[ 'label' => 'DoorProtect × 4',         'note' => 'Kapı ve pencere sensörleri' ],
-			[ 'label' => 'GlassProtect × 1',        'note' => 'Vitrin / büyük pencere için cam kırılma dedektörü' ],
-			[ 'label' => 'KeyPad Plus × 1',         'note' => 'Kart destekli tuş takımı' ],
-			[ 'label' => 'StreetSiren × 1',         'note' => 'Dış mekan siren (caydırıcı)' ],
-			[ 'label' => 'HomeSiren × 1',           'note' => 'İç mekan siren' ],
+			[
+				'label' => 'Ajax Hub Plus',
+				'note'  => 'Gelişmiş kontrol paneli. Ethernet + Wi-Fi + 2 SIM (2G/3G) — dört farklı iletişim kanalı ile yedekli haberleşme.',
+				'image' => '/wp-content/uploads/products/ajax-hub-plus.png',
+			],
+			[
+				'label' => 'MotionProtect Jeweller × 2',
+				'note'  => 'İç mekan hareket dedektörleri (salon + koridor). PIR sensör, evcil hayvan bağışıklığı.',
+				'image' => '/wp-content/uploads/products/motionprotect-jeweller.png',
+			],
+			[
+				'label' => 'DoorProtect Jeweller × 2',
+				'note'  => 'Ana giriş + arka kapı için manyetik açılma dedektörü.',
+				'image' => '/wp-content/uploads/products/doorprotect-jeweller.png',
+			],
+			[
+				'label' => 'SpaceControl Jeweller',
+				'note'  => 'Kablosuz anahtarlık kumanda. Sistemi tek tuşla kur/sil, panik butonu dahil.',
+				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
+			],
+			[
+				'label' => 'HomeSiren Jeweller',
+				'note'  => 'İç mekan siren. Alarm anında yüksek desibel uyarı — hem ev içinden hem çevreden duyulur.',
+				'image' => '/wp-content/uploads/products/homesiren-jeweller.png',
+			],
+			[
+				'label' => 'Relay Jeweller',
+				'note'  => 'Kablosuz kuru kontak röle — otomasyon senaryoları için. Alarm ışıkları, otomatik kilit ve zamanlı cihaz kontrolü sağlar.',
+				'image' => '/wp-content/uploads/products/relay-jeweller.png',
+			],
 		],
 
 		'included' => [
 			'Ücretsiz saha keşfi (İstanbul içi)',
 			'Kablolama, montaj ve tüm aparatlar',
-			'4G SIM kart kurulumu ve yedek iletişim ayarı',
+			'2 SIM yedek iletişim ayarı (Hub Plus kurulumu)',
+			'Otomasyon senaryosu tasarımı (Relay ile)',
 			'Kurulum, devreye alma ve sistem testi',
-			'Kullanıcı eğitimi',
+			'Kullanıcı eğitimi (mobil uygulama + senaryolar)',
 			'Sertifikalı kurulum belgesi',
-			'İlk 3 ay uzaktan destek',
+			'KDV dahil, İstanbul içi kurulum + eğitim dahil',
 		],
 
 		'not_included' => [
-			'MotionCam fotoğraflı doğrulama (isteğe bağlı ek modül)',
-			'İzleme merkezi hizmeti (3. taraf, aylık ücretli)',
-			'Yıllık bakım anlaşması (ayrı fiyatlandırılır)',
+			'MotionCam fotoğraflı doğrulama (Premium pakette dahil)',
+			'Dış mekan siren (StreetSiren — Premium\'da dahil, ek olarak alınabilir)',
+			'Yangın ve su kaçağı dedektörleri (Premium\'da dahil, ek olarak alınabilir)',
+			'SIM kart ve AHM yıllık abonelikleri (aşağıda ayrı olarak sunulmaktadır)',
 		],
 
 		'ideal_for' => [
 			'Villa sahibi (bahçeli müstakil ev)',
 			'Restoran ve orta ölçekli mağaza',
 			'Orta ofis (5-15 çalışan)',
-			'Yüksek trafikli işletme',
+			'Otomasyon senaryolarını sisteme dahil etmek isteyen kullanıcı',
+		],
+
+		'application_areas' => [
+			[ 'icon' => 'home',     'label' => 'Villa',             'note' => 'bahçeli müstakil ev' ],
+			[ 'icon' => 'utensils', 'label' => 'Restoran',          'note' => 'orta ölçek' ],
+			[ 'icon' => 'store',    'label' => 'Market / mağaza',   'note' => 'orta trafik' ],
+			[ 'icon' => 'building', 'label' => 'Orta ofis',         'note' => '5-15 çalışan' ],
 		],
 	],
 
 	// ═══════════════════════════════════════════════════════════
 	// PAKET 03 — Premium (büyük villa / yüksek risk işletme)
 	// ═══════════════════════════════════════════════════════════
+	// Temel: Ajax StarterKit Cam (Hub 2 (2G) + MotionCam + DoorProtect + SpaceControl)
+	// Sazara farkı: StreetSiren + FireProtect + LeaksProtect + Relay + ek MotionProtect + 2 ek DoorProtect
+	// Yaşam güvenliği (yangın + su) + fotoğraflı doğrulama + dış caydırıcılık dahil.
 	'premium' => [
 		'title'        => 'Premium Paketi',
 		'subtitle'     => 'Büyük villa / yüksek risk işletme',
-		'tagline'      => 'Kuyumcu, döviz büfesi, büyük villa ve yüksek risk mekanlar için MotionCam fotoğraflı doğrulama ve izleme merkezi entegrasyonu ile.',
-		'price'        => '[FİYAT: 85.000 TL]',
+		'tagline'      => 'Ajax StarterKit Cam üzerine kurulmuş, fotoğraflı doğrulama + yaşam güvenliği (yangın, su) + dış mekan caydırıcılık + otomasyon dahil premium paket. Kuyumcu, döviz büfesi, büyük villa gibi yüksek risk mekanlar için.',
+		'price_usd'    => 1449,
 		'price_prefix' => "'den başlayan fiyatlarla",
 		'duration'     => '1-2 gün',
-		'target'       => '200+ m² villa, kuyumcu, döviz büfesi, banka bayii, büyük mağaza',
+		'target'       => 'Büyük villa, kuyumcu, döviz büfesi, banka bayii, yüksek değerli mağaza',
 		'is_featured'  => false,
 		'is_custom'    => false,
 		'hero_image'   => '/wp-content/uploads/packages/premium.jpg',
 
 		'devices' => [
-			[ 'label' => 'Ajax Hub 2 Plus',            'note' => 'Ethernet + Wi-Fi + 2 SIM 4G yedek' ],
-			[ 'label' => 'MotionCam × 2',              'note' => 'Fotoğraflı doğrulama dedektörü' ],
-			[ 'label' => 'MotionProtect × 4',          'note' => 'İç mekan hareket dedektörleri' ],
-			[ 'label' => 'DoorProtect × 6',            'note' => 'Kapı ve pencere sensörleri' ],
-			[ 'label' => 'GlassProtect × 2',           'note' => 'Cam kırılma dedektörleri' ],
-			[ 'label' => 'MotionProtect Outdoor × 1',  'note' => 'Dış mekan hareket dedektörü' ],
-			[ 'label' => 'KeyPad Plus × 2',            'note' => 'Kart destekli tuş takımları' ],
-			[ 'label' => 'StreetSiren × 2',            'note' => 'Dış mekan sirenler' ],
-			[ 'label' => 'Panik butonu × 2',           'note' => 'Yatak başucu / kasa altı' ],
+			[
+				'label' => 'Ajax Hub 2',
+				'note'  => 'Fotoğraflı doğrulama destekli kontrol paneli. Ethernet + SIM iletişim; MotionCam görüntülerini uygulamaya iletir.',
+				'image' => '/wp-content/uploads/products/ajax-hub-2.png',
+			],
+			[
+				'label' => 'MotionCam Jeweller',
+				'note'  => 'Alarm anında fotoğraf çeken hareket dedektörü. "Gerçek alarm mı, yanlış alarm mı?" sorusunu saniyeler içinde cevaplar.',
+				'image' => '/wp-content/uploads/products/motioncam-jeweller.png',
+			],
+			[
+				'label' => 'MotionProtect Jeweller',
+				'note'  => 'Ek iç mekan hareket dedektörü — MotionCam\'in kapsamadığı ikinci iç zon için.',
+				'image' => '/wp-content/uploads/products/motionprotect-jeweller.png',
+			],
+			[
+				'label' => 'DoorProtect Jeweller × 3',
+				'note'  => 'Ana giriş + arka kapı + iç kritik kapı için manyetik açılma dedektörleri.',
+				'image' => '/wp-content/uploads/products/doorprotect-jeweller.png',
+			],
+			[
+				'label' => 'SpaceControl Jeweller',
+				'note'  => 'Kablosuz anahtarlık kumanda. Kur/sil + panik butonu.',
+				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
+			],
+			[
+				'label' => 'StreetSiren Jeweller',
+				'note'  => 'Dış mekan siren. Yüksek desibel caydırıcılık — evin dışından duyulur, komşu duyar.',
+				'image' => '/wp-content/uploads/products/streetsiren-jeweller.png',
+			],
+			[
+				'label' => 'FireProtect Jeweller',
+				'note'  => 'Yangın (ısı + duman) dedektörü. Yaşam güvenliği katmanı — özellikle depo, mutfak, kritik alanlar için.',
+				'image' => '/wp-content/uploads/products/fireprotect-jeweller.png',
+			],
+			[
+				'label' => 'LeaksProtect Jeweller',
+				'note'  => 'Su baskın dedektörü. Sunucu odası, depo, bulaşık makinesi altı için — erken uyarıyla ciddi hasar önlenir.',
+				'image' => '/wp-content/uploads/products/leaksprotect-jeweller.png',
+			],
+			[
+				'label' => 'Relay Jeweller',
+				'note'  => 'Kablosuz kuru kontak röle. Otomasyon senaryoları: alarm ışıkları, otomatik kilit, akıllı ev entegrasyonu.',
+				'image' => '/wp-content/uploads/products/relay-jeweller.png',
+			],
 		],
 
 		'included' => [
 			'Ücretsiz saha keşfi (İstanbul içi)',
 			'Kablolama, montaj ve tüm aparatlar',
-			'4G SIM kart kurulumu ve yedek iletişim ayarı',
-			'İzleme merkezi entegrasyonu hazırlığı',
+			'MotionCam ve fotoğraflı doğrulama kalibrasyonu',
+			'Yangın + su kaçağı dedektörü kurulumu ve testi',
+			'Otomasyon senaryosu tasarımı (Relay ile)',
+			'AHM entegrasyon hazırlığı (aboneliği ayrıdır)',
 			'Grup modu ve kullanıcı yetkilendirmeleri',
-			'Kurulum, devreye alma, senaryo testleri',
+			'Kurulum, devreye alma ve senaryo testleri',
 			'Kullanıcı eğitimi (yönetim + günlük kullanım)',
 			'Sertifikalı kurulum belgesi',
 			'1 yıl uzaktan destek',
+			'KDV dahil, İstanbul içi kurulum + eğitim dahil',
 		],
 
 		'not_included' => [
-			'İzleme merkezi aylık hizmet bedeli (3. taraf güvenlik firmasıyla anlaşma)',
+			'AHM (izleme merkezi) yıllık hizmet bedeli — aşağıda ayrı olarak sunulmaktadır',
+			'SIM kart yıllık aboneliği — aşağıda ayrı olarak sunulmaktadır',
+			'KeyPad Plus tuş takımı (isteğe bağlı ek)',
 			'Yıllık bakım anlaşması (ayrı fiyatlandırılır)',
 		],
 
 		'ideal_for' => [
-			'Büyük villa (200+ m², bahçeli, çoklu kat)',
+			'Büyük villa (bahçeli, çoklu kat, yüksek değerli eşya)',
 			'Kuyumcu, döviz büfesi, banka bayii',
 			'Yüksek değerli mal içeren mağaza veya depo',
-			'İzleme merkezi bağlantısı isteyen işletme',
+			'AHM entegrasyonlu profesyonel izleme isteyen işletme',
+			'Yaşam güvenliği (yangın + su) katmanı isteyen kullanıcı',
+		],
+
+		'application_areas' => [
+			[ 'icon' => 'home',     'label' => 'Büyük villa',     'note' => 'yüksek değerli eşya' ],
+			[ 'icon' => 'gem',      'label' => 'Kuyumcu',          'note' => 'yüksek risk' ],
+			[ 'icon' => 'banknote', 'label' => 'Döviz büfesi',     'note' => 'nakit odaklı' ],
+			[ 'icon' => 'store',    'label' => 'Değerli mağaza',   'note' => 'yüksek trafik' ],
 		],
 	],
 
