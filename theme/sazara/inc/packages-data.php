@@ -69,7 +69,7 @@ return [
 		'target'       => '2+1 / 3+1 daire, tek katlı ofis, küçük mağaza',
 		'is_featured'  => false,
 		'is_custom'    => false,
-		'hero_image'   => '/wp-content/uploads/packages/baslangic.jpg',
+		'hero_image'   => '/wp-content/uploads/2026/07/ajax-starterkit-black.jpg',
 
 		'devices' => [
 			[
