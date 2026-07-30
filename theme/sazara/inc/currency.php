@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  * Aksi halde buradaki varsayılan devreye girer.
  */
 if ( ! defined( 'SAZARA_USD_TRY' ) ) {
-	define( 'SAZARA_USD_TRY', 42.5 );
+	define( 'SAZARA_USD_TRY', 47.3 );
 }
 
 /**
