@@ -73,9 +73,16 @@ get_header();
 
 						<div class="package-card__price">
 							<?php if ( ! empty( $package['is_custom'] ) ) : ?>
-								<span class="package-card__price-value package-card__price-value--custom"><?php echo esc_html( $package['price'] ); ?></span>
+								<span class="package-card__price-value package-card__price-value--custom">
+									<?php echo esc_html( $package['price'] ?? 'Teklif bazında' ); ?>
+								</span>
+							<?php elseif ( isset( $package['price_usd'] ) && function_exists( 'sazara_format_usd' ) ) : ?>
+								<span class="package-card__price-value">
+									<?php echo esc_html( sazara_format_usd( (float) $package['price_usd'] ) ); ?>
+								</span>
+								<span class="package-card__price-suffix"><?php esc_html_e( 'KDV dahil', 'sazara' ); ?></span>
 							<?php else : ?>
-								<span class="package-card__price-value"><?php echo esc_html( $package['price'] ); ?></span>
+								<span class="package-card__price-value"><?php echo esc_html( $package['price'] ?? '' ); ?></span>
 								<?php if ( ! empty( $package['price_prefix'] ) ) : ?>
 									<span class="package-card__price-suffix"><?php echo esc_html( $package['price_prefix'] ); ?></span>
 								<?php endif; ?>
@@ -156,9 +163,19 @@ get_header();
 							<?php endforeach; ?>
 						</tr>
 						<tr>
-							<th scope="row"><?php esc_html_e( 'Fiyat', 'sazara' ); ?></th>
+							<th scope="row"><?php esc_html_e( 'Fiyat (KDV dahil)', 'sazara' ); ?></th>
 							<?php foreach ( $packages as $slug => $package ) : ?>
-								<td><?php echo esc_html( $package['price'] ?? '—' ); ?></td>
+								<td>
+									<?php
+									if ( isset( $package['price_usd'] ) && function_exists( 'sazara_format_usd' ) ) {
+										echo esc_html( sazara_format_usd( (float) $package['price_usd'] ) );
+									} elseif ( ! empty( $package['price'] ) ) {
+										echo esc_html( $package['price'] );
+									} else {
+										echo '—';
+									}
+									?>
+								</td>
 							<?php endforeach; ?>
 						</tr>
 						<tr>

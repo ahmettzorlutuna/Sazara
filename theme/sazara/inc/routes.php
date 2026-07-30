@@ -121,6 +121,21 @@ function sazara_load_packages() {
 }
 
 /**
+ * Sürekli hizmet abonelikleri (SIM + AHM) — paket detay sayfalarında yıllık opsiyoneller.
+ *
+ * @return array<string, array<string, mixed>> slug => subscription data
+ */
+function sazara_load_subscriptions() {
+	static $cache = null;
+	if ( null !== $cache ) {
+		return $cache;
+	}
+	$path  = SAZARA_DIR . '/inc/subscriptions-data.php';
+	$cache = file_exists( $path ) ? require $path : [];
+	return is_array( $cache ) ? $cache : [];
+}
+
+/**
  * Eksik page'leri yarat (init'te, idempotent).
  *
  * Versiyon hash'i case slug'larını da içerir — yeni case eklendiğinde

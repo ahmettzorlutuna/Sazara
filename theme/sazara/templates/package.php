@@ -52,9 +52,37 @@ get_header();
 
 			<div class="package-hero__price">
 				<?php if ( ! empty( $package['is_custom'] ) ) : ?>
-					<span class="package-hero__price-value package-hero__price-value--custom"><?php echo esc_html( $package['price'] ); ?></span>
+					<span class="package-hero__price-value package-hero__price-value--custom">
+						<?php echo esc_html( $package['price'] ?? 'Teklif bazında' ); ?>
+					</span>
+				<?php elseif ( isset( $package['price_usd'] ) && function_exists( 'sazara_format_usd' ) ) : ?>
+					<?php
+					$usd_incl        = (float) $package['price_usd'];
+					$try_incl        = sazara_usd_to_try( $usd_incl );
+					$usd_excl        = sazara_price_excluding_kdv( $usd_incl );
+					?>
+					<span class="package-hero__price-value"><?php echo esc_html( sazara_format_usd( $usd_incl ) ); ?></span>
+					<span class="package-hero__price-suffix"><?php esc_html_e( 'KDV dahil · İstanbul içi kurulum, eğitim, sertifika dahil', 'sazara' ); ?></span>
+					<span class="package-hero__price-try">
+						<?php
+						printf(
+							/* translators: %s: TL karşılığı */
+							esc_html__( '≈ %s (bugünkü kur)', 'sazara' ),
+							esc_html( sazara_format_try( $try_incl ) )
+						);
+						?>
+					</span>
+					<span class="package-hero__price-corporate">
+						<?php
+						printf(
+							/* translators: %s: KDV hariç fiyat */
+							esc_html__( 'Kurumsal fatura: %s + KDV', 'sazara' ),
+							esc_html( sazara_format_usd( $usd_excl ) )
+						);
+						?>
+					</span>
 				<?php else : ?>
-					<span class="package-hero__price-value"><?php echo esc_html( $package['price'] ); ?></span>
+					<span class="package-hero__price-value"><?php echo esc_html( $package['price'] ?? '' ); ?></span>
 					<?php if ( ! empty( $package['price_prefix'] ) ) : ?>
 						<span class="package-hero__price-suffix"><?php echo esc_html( $package['price_prefix'] ); ?></span>
 					<?php endif; ?>
@@ -209,12 +237,94 @@ get_header();
 	</section>
 	<?php endif; ?>
 
-	<!-- ════════ KİMİN İÇİN İDEAL ════════ -->
-	<?php if ( ! empty( $package['ideal_for'] ) ) : ?>
+	<!-- ════════ SÜREKLİ HİZMETLER (SIM + AHM) ════════ -->
+	<?php
+	if ( function_exists( 'sazara_load_subscriptions' ) ) :
+		$subscriptions = sazara_load_subscriptions();
+		if ( ! empty( $subscriptions ) ) :
+			?>
 	<section class="section">
 		<div class="wrap">
 			<header class="section__head reveal">
-				<span class="section__num"><?php esc_html_e( '03 — İdeal profil', 'sazara' ); ?></span>
+				<span class="section__num"><?php esc_html_e( '03 — Sürekli Hizmetler', 'sazara' ); ?></span>
+				<h2 class="section__title"><?php esc_html_e( 'Yıllık abonelikler — opsiyonel.', 'sazara' ); ?></h2>
+				<p class="section__lead"><?php esc_html_e( 'Ajax sistemi paket teslim sonrası tek başına tam işlevli çalışır. Aşağıdaki hizmetler profesyonel koruma seviyesini bir üst basamağa çıkarmak isteyenler için opsiyoneldir. Paket fiyatına dahil değildir; şeffaflık için burada net olarak sunuluyor.', 'sazara' ); ?></p>
+			</header>
+
+			<ul class="package-subscriptions" role="list">
+				<?php foreach ( $subscriptions as $sub_slug => $sub ) : ?>
+					<li class="package-subscription reveal">
+						<div class="package-subscription__head">
+							<?php if ( ! empty( $sub['icon'] ) ) : ?>
+								<span class="package-subscription__icon" aria-hidden="true">
+									<?php echo sazara_inline_svg( 'assets/icons/' . $sub['icon'] . '.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								</span>
+							<?php endif; ?>
+							<h3 class="package-subscription__title"><?php echo esc_html( $sub['title'] ); ?></h3>
+						</div>
+
+						<div class="package-subscription__price">
+							<span class="package-subscription__price-value">
+								<?php echo esc_html( sazara_format_usd( (float) $sub['price_usd'] ) ); ?>
+							</span>
+							<span class="package-subscription__price-period">
+								/ <?php echo esc_html( $sub['period'] ?? 'yıl' ); ?> · <?php esc_html_e( 'KDV dahil', 'sazara' ); ?>
+							</span>
+						</div>
+
+						<?php if ( ! empty( $sub['description'] ) ) : ?>
+							<p class="package-subscription__desc"><?php echo esc_html( $sub['description'] ); ?></p>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $sub['why_needed'] ) ) : ?>
+							<p class="package-subscription__why">
+								<strong><?php esc_html_e( 'Neden gerekli:', 'sazara' ); ?></strong>
+								<?php echo esc_html( $sub['why_needed'] ); ?>
+							</p>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $sub['audience'] ) ) : ?>
+							<p class="package-subscription__audience"><?php echo esc_html( $sub['audience'] ); ?></p>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</section>
+			<?php
+		endif;
+	endif;
+	?>
+
+	<!-- ════════ KİMİN İÇİN UYGUN? ════════ -->
+	<?php if ( ! empty( $package['application_areas'] ) ) : ?>
+	<section class="section section--canvas">
+		<div class="wrap">
+			<header class="section__head reveal">
+				<span class="section__num"><?php esc_html_e( '04 — Kim için uygun?', 'sazara' ); ?></span>
+				<h2 class="section__title"><?php esc_html_e( 'Bu paketin doğal uygulama alanları.', 'sazara' ); ?></h2>
+			</header>
+
+			<ul class="package-areas" role="list">
+				<?php foreach ( $package['application_areas'] as $area ) : ?>
+					<li class="package-areas__item reveal">
+						<span class="package-areas__icon" aria-hidden="true">
+							<?php echo sazara_inline_svg( 'assets/icons/' . ( $area['icon'] ?? 'home' ) . '.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</span>
+						<span class="package-areas__label"><?php echo esc_html( $area['label'] ?? '' ); ?></span>
+						<?php if ( ! empty( $area['note'] ) ) : ?>
+							<span class="package-areas__note"><?php echo esc_html( $area['note'] ); ?></span>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</section>
+	<?php elseif ( ! empty( $package['ideal_for'] ) ) : ?>
+	<section class="section">
+		<div class="wrap">
+			<header class="section__head reveal">
+				<span class="section__num"><?php esc_html_e( '04 — İdeal profil', 'sazara' ); ?></span>
 				<h2 class="section__title"><?php esc_html_e( 'Kim için uygun?', 'sazara' ); ?></h2>
 			</header>
 

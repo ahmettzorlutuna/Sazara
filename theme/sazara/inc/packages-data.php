@@ -14,7 +14,11 @@
  *     - title         : paket adı
  *     - subtitle      : kısa hedef kitle
  *     - tagline       : tek cümlelik özet
- *     - price         : fiyat metni (örn: '15.000 TL' veya 'Teklif bazında')
+ *     - price_usd     : yeni USD fiyat (KDV dahil, integer). Template
+ *                       hem $ hem TL karşılığı hem "Kurumsal fatura"
+ *                       satırını üretir. Kur: SAZARA_USD_TRY sabiti.
+ *     - price         : eski string format (geri uyumluluk). price_usd
+ *                       set ise price yok sayılır.
  *     - price_prefix  : fiyat öncesi metin (örn: '\'den başlayan fiyatlarla')
  *     - duration      : kurulum süresi
  *     - target        : hedef kullanıcı tanımı
@@ -33,6 +37,9 @@
  *     - included[]     : dahil olanlar (bullet listesi)
  *     - not_included[] : dahil değil olanlar (bullet listesi)
  *     - ideal_for[]    : kime uygun (bullet listesi)
+ *     - application_areas[] : [ icon, label, note? ] uygulama alanları grid'i.
+ *                             icon: assets/icons/<name>.svg dosya adı
+ *                             (uzantısız). Örn: 'home', 'building', 'store'.
  *
  * ─── YENİ PAKET EKLEMEK ────────────────────────────────────────────
  * 1. Aşağıdaki array'e yeni slug ile yeni satır ekle.
@@ -55,8 +62,8 @@ return [
 	'baslangic' => [
 		'title'        => 'Başlangıç Paketi',
 		'subtitle'     => 'Daire / küçük ofis',
-		'tagline'      => 'Ajax\'ın resmi StarterKit içeriği + dış mekan sireni. Kablosuz alarm sistemine hızlı ve tam kapsamlı bir başlangıç — daire, küçük ofis veya küçük mağaza için ideal.',
-		'price'        => '[FİYAT: TL]',
+		'tagline'      => 'Ajax\'ın resmi StarterKit içeriği ile birebir hazırlanmış giriş paketi. Kablosuz alarm sistemine tam kapsamlı başlangıç — daire, küçük ofis veya küçük mağaza için ideal.',
+		'price_usd'    => 499,
 		'price_prefix' => "'den başlayan fiyatlarla",
 		'duration'     => 'yarım gün',
 		'target'       => '2+1 / 3+1 daire, tek katlı ofis, küçük mağaza',
@@ -85,11 +92,6 @@ return [
 				'note'  => 'Cepte veya anahtarlıkta taşınan kablosuz kumanda. Sistemi tek tuşla kur/sil, panik butonu dahil.',
 				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
 			],
-			[
-				'label' => 'StreetSiren Jeweller',
-				'note'  => 'Dış mekan siren — Sazara farkı olarak pakete dahil. Yüksek desibel caydırıcılık, evin dışından duyulur.',
-				'image' => '/wp-content/uploads/products/streetsiren-jeweller.png',
-			],
 		],
 
 		'included' => [
@@ -98,19 +100,28 @@ return [
 			'Kurulum ve devreye alma',
 			'Kullanıcı eğitimi (mobil uygulama + sistem kullanımı)',
 			'Sertifikalı kurulum belgesi',
+			'KDV dahil, İstanbul içi kurulum + eğitim dahil',
 		],
 
 		'not_included' => [
-			'KeyPad tuş takımı (isteğe bağlı ek, sonradan eklenebilir)',
+			'Dış mekan siren (StreetSiren — isteğe bağlı ek)',
+			'KeyPad tuş takımı (isteğe bağlı ek)',
 			'MotionCam fotoğraflı doğrulama (isteğe bağlı ek modül)',
-			'İzleme merkezi hizmeti (3. taraf, aylık ücretli)',
+			'SIM kart ve AHM yıllık abonelikleri (aşağıda ayrı olarak sunulmaktadır)',
 		],
 
 		'ideal_for' => [
 			'Küçük daire güvenliği isteyen bireysel kullanıcı',
 			'Tek katlı ofis',
 			'Sisteme yeni başlayan işletme (ileride büyütme opsiyonu)',
-			'Dış mekan caydırıcılığını da isteyen kullanıcı',
+			'Sadeliği ve resmi Ajax setini tercih eden kullanıcı',
+		],
+
+		'application_areas' => [
+			[ 'icon' => 'home',     'label' => 'Küçük daire',     'note' => '2+1 · 3+1' ],
+			[ 'icon' => 'building', 'label' => 'Tek katlı ofis',   'note' => '' ],
+			[ 'icon' => 'store',    'label' => 'Küçük mağaza',     'note' => '' ],
+			[ 'icon' => 'key',      'label' => 'Kiralık konut',    'note' => 'söküp götürülebilir' ],
 		],
 	],
 
