@@ -4597,6 +4597,21 @@ body { padding-top: 0; }
 	color: oklch(99% 0 0 / 0.8);
 }
 
+.package-hero__price-try {
+	font-size: 0.8125rem;
+	color: oklch(99% 0 0 / 0.75);
+	margin-top: 0.25rem;
+}
+
+.package-hero__price-corporate {
+	font-size: 0.75rem;
+	color: oklch(99% 0 0 / 0.65);
+	padding-top: 0.5rem;
+	margin-top: 0.35rem;
+	border-top: 1px solid oklch(99% 0 0 / 0.15);
+	font-family: var(--font-mono);
+}
+
 /* Paket cihaz listesi (detay sayfası) */
 .package-devices {
 	display: grid;
@@ -4840,5 +4855,190 @@ body { padding-top: 0; }
 	flex-shrink: 0;
 	margin-top: 0.15rem;
 	color: oklch(55% 0.15 145);
+}
+
+/* ─── Sürekli Hizmetler (SIM + AHM abonelik kartları) ─── */
+.package-subscriptions {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-md);
+	list-style: none;
+	padding: 0;
+	margin: var(--space-md) 0 0;
+}
+
+@media (min-width: 48rem) {
+	.package-subscriptions {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.package-subscription {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: var(--space-md);
+	background: var(--paper, oklch(99% 0 0));
+	border: 1px solid var(--rule, oklch(90% 0.005 260));
+	border-radius: 12px;
+	transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.package-subscription:hover {
+	border-color: var(--accent, oklch(52% 0.22 260));
+	transform: translateY(-2px);
+	box-shadow: 0 12px 28px oklch(0% 0 0 / 0.08);
+}
+
+.package-subscription__head {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.package-subscription__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: oklch(96% 0.03 260);
+	color: var(--accent, oklch(52% 0.22 260));
+	flex-shrink: 0;
+}
+
+.package-subscription__icon svg {
+	width: 22px;
+	height: 22px;
+}
+
+.package-subscription__title {
+	margin: 0;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--ink, oklch(13% 0.005 260));
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+
+.package-subscription__price {
+	display: flex;
+	align-items: baseline;
+	gap: 0.4rem;
+	padding-block: 0.5rem;
+	border-block: 1px solid var(--rule, oklch(92% 0.005 260));
+}
+
+.package-subscription__price-value {
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--ink, oklch(13% 0.005 260));
+	letter-spacing: -0.02em;
+	line-height: 1;
+}
+
+.package-subscription__price-period {
+	font-size: 0.8125rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+}
+
+.package-subscription__desc {
+	margin: 0;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: var(--ink-2, oklch(28% 0.006 260));
+}
+
+.package-subscription__why {
+	margin: 0;
+	padding: 0.75rem;
+	background: oklch(97% 0.005 260);
+	border-radius: 6px;
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	color: var(--ink-2, oklch(28% 0.006 260));
+}
+
+.package-subscription__why strong {
+	color: var(--accent-deep, oklch(42% 0.20 260));
+	font-weight: 600;
+}
+
+.package-subscription__audience {
+	margin: 0;
+	font-size: 0.75rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+	font-style: italic;
+}
+
+/* ─── Kim İçin Uygun? — Uygulama alanları ikon grid ─── */
+.package-areas {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-sm);
+	list-style: none;
+	padding: 0;
+	margin: var(--space-md) 0 0;
+}
+
+@media (min-width: 40rem) {
+	.package-areas {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (min-width: 60rem) {
+	.package-areas {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.package-areas__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 0.5rem;
+	padding: var(--space-md) var(--space-sm);
+	background: var(--paper, oklch(99% 0 0));
+	border: 1px solid var(--rule, oklch(90% 0.005 260));
+	border-radius: 10px;
+	transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.package-areas__item:hover {
+	border-color: var(--accent, oklch(52% 0.22 260));
+	transform: translateY(-2px);
+}
+
+.package-areas__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: oklch(96% 0.005 260);
+	color: var(--accent, oklch(52% 0.22 260));
+	margin-bottom: 0.25rem;
+}
+
+.package-areas__icon svg {
+	width: 28px;
+	height: 28px;
+}
+
+.package-areas__label {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--ink, oklch(13% 0.005 260));
+	line-height: 1.3;
+}
+
+.package-areas__note {
+	font-size: 0.75rem;
+	color: var(--ink-soft, oklch(48% 0.008 260));
+	line-height: 1.35;
 }
 
