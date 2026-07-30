@@ -26,7 +26,7 @@ return [
 
 	'sim' => [
 		'title'       => '4G SIM Kart — Yedek İletişim',
-		'price_usd'   => 60,
+		'price_usd'   => 39.90,
 		'period'      => 'yıl',
 		'icon'        => 'wifi',
 		'description' => 'Hub\'a takılan 4G SIM kart. İnternet kesildiğinde alarmların kesintisiz iletilmesini sağlar. Ajax Hub\'ın dört iletişim kanalından biri.',
@@ -36,7 +36,7 @@ return [
 
 	'ahm' => [
 		'title'       => '7/24 Alarm İzleme Merkezi (AHM)',
-		'price_usd'   => 180,
+		'price_usd'   => 99.90,
 		'period'      => 'yıl',
 		'icon'        => 'shield-check',
 		'description' => 'Alarm çaldığında profesyonel operatör önce sizi arar; gerçek alarmda güvenlik ekibi ve polis müdahalesi devreye girer. Sazara olarak Türkiye\'de lisanslı bir AHM sağlayıcısı ile ortaklık üzerinden entegre ediyoruz.',

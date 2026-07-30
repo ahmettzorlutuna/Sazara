@@ -75,17 +75,17 @@ return [
 			[
 				'label' => 'Ajax Hub',
 				'note'  => 'Sistemin beyni. Ethernet ve Wi-Fi ile ağa bağlanır, tüm sensörleri şifreli kablosuz iletişimle yönetir.',
-				'image' => '/wp-content/uploads/products/ajax-hub.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-hub.png',
 			],
 			[
 				'label' => 'MotionProtect Jeweller',
 				'note'  => 'İç mekan kızılötesi hareket dedektörü. 12m menzil, 88° yatay açı; 20 kg\'a kadar evcil hayvan bağışıklığı.',
-				'image' => '/wp-content/uploads/products/motionprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/motionprotect-jeweller.png',
 			],
 			[
 				'label' => 'DoorProtect Jeweller',
 				'note'  => 'Manyetik kapı/pencere açılma dedektörü. Kapı veya pencere açıldığında anında bildirim.',
-				'image' => '/wp-content/uploads/products/doorprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/doorprotect-jeweller.png',
 			],
 			[
 				'label' => 'SpaceControl Jeweller',
