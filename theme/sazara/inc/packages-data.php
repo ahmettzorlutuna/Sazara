@@ -90,7 +90,7 @@ return [
 			[
 				'label' => 'SpaceControl Jeweller',
 				'note'  => 'Cepte veya anahtarlıkta taşınan kablosuz kumanda. Sistemi tek tuşla kur/sil, panik butonu dahil.',
-				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/spacecontrol-jeweller.png',
 			],
 		],
 
