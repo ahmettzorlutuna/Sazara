@@ -140,38 +140,38 @@ return [
 		'target'       => '4+1 daire, villa, restoran, market, orta ölçekli ofis',
 		'is_featured'  => true,   // En popüler kart
 		'is_custom'    => false,
-		'hero_image'   => '/wp-content/uploads/packages/standart.jpg',
+		'hero_image'   => '/wp-content/uploads/2026/07/ajax-standart-hero.avif',
 
 		'devices' => [
 			[
 				'label' => 'Ajax Hub Plus',
 				'note'  => 'Gelişmiş kontrol paneli. Ethernet + Wi-Fi + 2 SIM (2G/3G) — dört farklı iletişim kanalı ile yedekli haberleşme.',
-				'image' => '/wp-content/uploads/products/ajax-hub-plus.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-hub-plus.png',
 			],
 			[
 				'label' => 'MotionProtect Jeweller × 2',
 				'note'  => 'İç mekan hareket dedektörleri (salon + koridor). PIR sensör, evcil hayvan bağışıklığı.',
-				'image' => '/wp-content/uploads/products/motionprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-motion-standart.png',
 			],
 			[
 				'label' => 'DoorProtect Jeweller × 2',
 				'note'  => 'Ana giriş + arka kapı için manyetik açılma dedektörü.',
-				'image' => '/wp-content/uploads/products/doorprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-door-protect-standart.png',
 			],
 			[
 				'label' => 'SpaceControl Jeweller',
 				'note'  => 'Kablosuz anahtarlık kumanda. Sistemi tek tuşla kur/sil, panik butonu dahil.',
-				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/spacecontrol-jeweller.png',
 			],
 			[
 				'label' => 'HomeSiren Jeweller',
 				'note'  => 'İç mekan siren. Alarm anında yüksek desibel uyarı — hem ev içinden hem çevreden duyulur.',
-				'image' => '/wp-content/uploads/products/homesiren-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-home-siren.png',
 			],
 			[
 				'label' => 'Relay Jeweller',
 				'note'  => 'Kablosuz kuru kontak röle — otomasyon senaryoları için. Alarm ışıkları, otomatik kilit ve zamanlı cihaz kontrolü sağlar.',
-				'image' => '/wp-content/uploads/products/relay-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-relay.png',
 			],
 		],
 
@@ -224,53 +224,53 @@ return [
 		'target'       => 'Büyük villa, kuyumcu, döviz büfesi, banka bayii, yüksek değerli mağaza',
 		'is_featured'  => false,
 		'is_custom'    => false,
-		'hero_image'   => '/wp-content/uploads/packages/premium.jpg',
+		'hero_image'   => '/wp-content/uploads/2026/07/ajax-premium-hero.avif',
 
 		'devices' => [
 			[
 				'label' => 'Ajax Hub 2',
 				'note'  => 'Fotoğraflı doğrulama destekli kontrol paneli. Ethernet + SIM iletişim; MotionCam görüntülerini uygulamaya iletir.',
-				'image' => '/wp-content/uploads/products/ajax-hub-2.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-hub-2.png',
 			],
 			[
 				'label' => 'MotionCam Jeweller',
 				'note'  => 'Alarm anında fotoğraf çeken hareket dedektörü. "Gerçek alarm mı, yanlış alarm mı?" sorusunu saniyeler içinde cevaplar.',
-				'image' => '/wp-content/uploads/products/motioncam-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-motion-cam.png',
 			],
 			[
 				'label' => 'MotionProtect Jeweller',
 				'note'  => 'Ek iç mekan hareket dedektörü — MotionCam\'in kapsamadığı ikinci iç zon için.',
-				'image' => '/wp-content/uploads/products/motionprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-motion-premium.png',
 			],
 			[
 				'label' => 'DoorProtect Jeweller × 3',
 				'note'  => 'Ana giriş + arka kapı + iç kritik kapı için manyetik açılma dedektörleri.',
-				'image' => '/wp-content/uploads/products/doorprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-door-protect-premium.png',
 			],
 			[
 				'label' => 'SpaceControl Jeweller',
 				'note'  => 'Kablosuz anahtarlık kumanda. Kur/sil + panik butonu.',
-				'image' => '/wp-content/uploads/products/spacecontrol-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/spacecontrol-jeweller.png',
 			],
 			[
 				'label' => 'StreetSiren Jeweller',
 				'note'  => 'Dış mekan siren. Yüksek desibel caydırıcılık — evin dışından duyulur, komşu duyar.',
-				'image' => '/wp-content/uploads/products/streetsiren-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-street-siren.png',
 			],
 			[
 				'label' => 'FireProtect Jeweller',
 				'note'  => 'Yangın (ısı + duman) dedektörü. Yaşam güvenliği katmanı — özellikle depo, mutfak, kritik alanlar için.',
-				'image' => '/wp-content/uploads/products/fireprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-fire-protect-standart.png',
 			],
 			[
 				'label' => 'LeaksProtect Jeweller',
 				'note'  => 'Su baskın dedektörü. Sunucu odası, depo, bulaşık makinesi altı için — erken uyarıyla ciddi hasar önlenir.',
-				'image' => '/wp-content/uploads/products/leaksprotect-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-leaks-protect-premium.png',
 			],
 			[
 				'label' => 'Relay Jeweller',
 				'note'  => 'Kablosuz kuru kontak röle. Otomasyon senaryoları: alarm ışıkları, otomatik kilit, akıllı ev entegrasyonu.',
-				'image' => '/wp-content/uploads/products/relay-jeweller.png',
+				'image' => '/wp-content/uploads/2026/07/ajax-relay.png',
 			],
 		],
 
