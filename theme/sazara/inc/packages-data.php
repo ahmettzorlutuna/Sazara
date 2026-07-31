@@ -57,16 +57,16 @@ defined( 'ABSPATH' ) || exit;
 return [
 
 	// ═══════════════════════════════════════════════════════════
-	// PAKET 01 — Başlangıç (daire / küçük ofis)
+	// PAKET 01 — Başlangıç (daire / ofis)
 	// ═══════════════════════════════════════════════════════════
 	'baslangic' => [
 		'title'        => 'Başlangıç Paketi',
-		'subtitle'     => 'Daire / küçük ofis',
-		'tagline'      => 'Ajax\'ın resmi StarterKit içeriği ile birebir hazırlanmış giriş paketi. Kablosuz alarm sistemine tam kapsamlı başlangıç — daire, küçük ofis veya küçük mağaza için ideal.',
+		'subtitle'     => 'Daire / ofis',
+		'tagline'      => 'Ajax\'ın resmi StarterKit içeriği ile birebir hazırlanmış giriş paketi. Kablosuz alarm sistemine tam kapsamlı başlangıç — daire, ofis veya mağaza için ideal.',
 		'price_usd'    => 499,
 		'price_prefix' => "'den başlayan fiyatlarla",
 		'duration'     => 'yarım gün',
-		'target'       => '2+1 / 3+1 daire, tek katlı ofis, küçük mağaza',
+		'target'       => '2+1 / 3+1 daire, tek katlı ofis, mağaza',
 		'is_featured'  => false,
 		'is_custom'    => false,
 		'hero_image'   => '/wp-content/uploads/2026/07/ajax-starterkit-black.jpg',
@@ -120,7 +120,7 @@ return [
 		'application_areas' => [
 			[ 'icon' => 'home',     'label' => 'Küçük daire',     'note' => '2+1 · 3+1' ],
 			[ 'icon' => 'building', 'label' => 'Tek katlı ofis',   'note' => '' ],
-			[ 'icon' => 'store',    'label' => 'Küçük mağaza',     'note' => '' ],
+			[ 'icon' => 'store',    'label' => 'mağaza',     'note' => '' ],
 			[ 'icon' => 'key',      'label' => 'Kiralık konut',    'note' => 'söküp götürülebilir' ],
 		],
 	],
