@@ -213,9 +213,22 @@ html {
 	display: block;
 }
 
-/* Çok dar ekranlarda hamburger ile çakışmasın — logo footer'da zaten var. */
-@media (max-width: 24rem) {
-	.nav__partner { display: none; }
+/* Dar ekranlarda gizlemek yerine küçült: 24rem eşiği 375/384px telefonlarda
+   (iPhone SE/mini, birçok Android) logoyu tamamen yok ediyordu. Boşlukları ve
+   logo boyunu kısarak 320px'de bile hamburger'la çakışmadan sığar. */
+@media (max-width: 26rem) {
+	.nav__brand-group {
+		gap: 0.55rem;
+		padding-inline-end: 0;
+	}
+
+	.nav__partner::before {
+		margin-inline-end: 0.55rem;
+	}
+
+	.nav__partner-logo {
+		height: 1rem;
+	}
 }
 
 .nav__list {

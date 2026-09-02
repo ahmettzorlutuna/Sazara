@@ -97,6 +97,24 @@ function sazara_resolve_upload_logo( $logo ) {
 const SAZARA_AJAX_OFFICIAL_URL = 'https://ajax.systems/tr/';
 
 /**
+ * Ajax logosunun URL'i — dosya değişimi başına cache-bust'lı.
+ *
+ * CSS/JS filemtime ile versiyonlanıyor (bkz. inc/enqueue.php) ama <img>
+ * src'leri versiyonsuzdu: logo dosyası değişince tarayıcı — özellikle
+ * mobil — eski kopyayı göstermeye devam ediyordu.
+ *
+ * @return string
+ */
+function sazara_ajax_logo_url() {
+	$relative = 'assets/logos/partners/ajax-official.png';
+	$version  = @filemtime( SAZARA_DIR . '/' . $relative );
+
+	$url = get_theme_file_uri( $relative );
+
+	return $version ? add_query_arg( 'v', $version, $url ) : $url;
+}
+
+/**
  * Ajax Systems resmi partner rozeti — logo + "PRO Installer" etiketi.
  *
  * Ajax'ın "nereden alınır" bayi listesine girme şartı olarak resmi logonun
@@ -107,7 +125,7 @@ const SAZARA_AJAX_OFFICIAL_URL = 'https://ajax.systems/tr/';
  * @return string HTML markup.
  */
 function sazara_ajax_partner_badge( $context = '' ) {
-	$logo_url = get_theme_file_uri( 'assets/logos/partners/ajax-official.png' );
+	$logo_url = sazara_ajax_logo_url();
 	$classes  = trim( 'ajax-badge ' . ( $context ? 'ajax-badge--' . sanitize_html_class( $context ) : '' ) );
 
 	$inner  = '<img src="' . esc_url( $logo_url ) . '" alt="Ajax Systems" class="ajax-badge__logo" loading="lazy" width="476" height="96">';

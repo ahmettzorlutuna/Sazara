@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 			   rel="noopener"
 			   target="_blank"
 			   aria-label="<?php esc_attr_e( 'Ajax Systems resmi sitesi — Sazara yetkili PRO Installer', 'sazara' ); ?>">
-				<img src="<?php echo esc_url( get_theme_file_uri( 'assets/logos/partners/ajax-official.png' ) ); ?>"
+				<img src="<?php echo esc_url( sazara_ajax_logo_url() ); ?>"
 				     alt="Ajax Systems"
 				     class="nav__partner-logo"
 				     width="476" height="96"
