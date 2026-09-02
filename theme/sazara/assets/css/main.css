@@ -1359,24 +1359,23 @@ html {
 }
 
 /* ─── Ajax partner rozeti — footer (Ajax Systems resmi bayi şartı) ───
-   Dikey dizilim: footer'ın ilk grid kolonu (1.5fr) viewport'a göre
-   ~230–290px. Logo tek başına ~120px (oran 4.96:1) + tek satır etiket
-   çerçeveyi taşırıyordu; alt alta dizilince her genişlikte içeride kalır.
-   align-self/width: kapsayıcı flex/grid ise stretch rozeti germesin. */
+   Kart sütunun tam genişliğini kaplar: sol/sağ kenarları üstündeki marka
+   metin bloğuyla birebir hizalanır. İçerik ortalanır; dikey dizilim, çünkü
+   logo tek başına ~119px ve sütun viewport'a göre ~167–290px arası. */
 .ajax-badge {
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	align-self: flex-start;
-	width: fit-content;
-	max-width: 100%;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 	gap: 0.45rem;
 	margin-top: 1.1rem;
-	padding: 0.7rem 0.9rem;
+	padding: 0.75rem 1rem;
 	border: 1px solid var(--rule);
 	border-radius: var(--radius-lg);
 	background: var(--paper);
 	box-shadow: 0 1px 2px oklch(13% 0 0 / 0.04);
+	text-align: center;
 	text-decoration: none;
 	box-sizing: border-box;
 	transition: border-color 0.2s ease, transform 0.2s ease;
