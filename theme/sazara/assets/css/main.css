@@ -1359,17 +1359,20 @@ html {
 }
 
 /* ─── Ajax partner rozeti — footer (Ajax Systems resmi bayi şartı) ───
-   align-self: flex-start + width: fit-content: kapsayıcı flex/grid ise
-   varsayılan stretch rozeti tam genişliğe zorlamasın. */
+   Dikey dizilim: footer'ın ilk grid kolonu (1.5fr) viewport'a göre
+   ~230–290px. Logo tek başına ~120px (oran 4.96:1) + tek satır etiket
+   çerçeveyi taşırıyordu; alt alta dizilince her genişlikte içeride kalır.
+   align-self/width: kapsayıcı flex/grid ise stretch rozeti germesin. */
 .ajax-badge {
 	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
 	align-self: flex-start;
 	width: fit-content;
 	max-width: 100%;
-	align-items: center;
-	gap: 0.6rem;
+	gap: 0.45rem;
 	margin-top: 1.1rem;
-	padding: 0.55rem 1rem;
+	padding: 0.7rem 0.9rem;
 	border: 1px solid var(--rule);
 	border-radius: var(--radius-lg);
 	background: var(--paper);
@@ -1386,25 +1389,20 @@ html {
 
 .ajax-badge__logo {
 	flex: 0 0 auto;
-	height: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem); /* 28px → 36px */
+	height: 1.5rem; /* 24px → ~119px genişlik */
 	width: auto;
+	max-width: 100%;
 	object-fit: contain;
 	display: block;
 }
 
 .ajax-badge__label {
 	font-family: var(--font-mono);
-	font-size: 0.68rem;
+	font-size: 0.66rem;
+	line-height: 1.3;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	color: var(--ink-soft);
-	white-space: nowrap;
-}
-
-@media (max-width: 26rem) {
-	.ajax-badge__label {
-		font-size: 0.62rem;
-	}
 }
 
 .footer__col h4 {
