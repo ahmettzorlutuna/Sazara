@@ -14,6 +14,10 @@
 .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:clamp(1.5rem,1rem + 1.5vw,2.5rem)}
 .nav__brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;font-size:1.125rem;letter-spacing:-.025em;color:var(--ink)}
 .nav__brand-mark{display:grid;place-items:center;width:1.65rem;height:1.65rem;background:var(--ink);color:var(--paper);border-radius:7px;font-family:var(--font-mono);font-size:.78rem;font-weight:600}
+.nav__brand-group{display:inline-flex;align-items:center;gap:clamp(.7rem,.5rem + .6vw,1.1rem);padding-inline-end:1rem;min-width:0}
+.nav__partner{display:inline-flex;align-items:center;flex-shrink:0}
+.nav__partner::before{content:"";width:1px;height:clamp(1.1rem,.95rem + .5vw,1.5rem);margin-inline-end:clamp(.7rem,.5rem + .6vw,1.1rem);background:var(--rule)}
+.nav__partner-logo{height:clamp(1.2rem,1rem + .5vw,1.5rem);width:auto}
 
 .hero{position:relative;min-height:100svh;overflow:hidden;color:var(--paper);isolation:isolate;margin-top:-4.5rem}
 .hero__title{font-family:var(--font-sans);font-size:var(--text-display);font-weight:500;line-height:.96;letter-spacing:-.04em;max-width:14ch;text-wrap:balance;color:var(--paper)}

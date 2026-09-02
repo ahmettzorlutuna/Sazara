@@ -21,14 +21,29 @@ defined( 'ABSPATH' ) || exit;
 <nav class="nav" id="site-nav" aria-label="<?php esc_attr_e( 'Ana navigasyon', 'sazara' ); ?>">
 	<div class="wrap nav__inner">
 
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav__brand" aria-label="<?php esc_attr_e( 'Sazara — Anasayfa', 'sazara' ); ?>">
-			<span class="nav__brand-mark" aria-hidden="true">
-				<?php echo sazara_inline_svg( 'assets/brand/mark.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</span>
-			<span class="nav__brand-name" aria-hidden="true">
-				<?php echo sazara_inline_svg( 'assets/brand/wordmark.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</span>
-		</a>
+		<div class="nav__brand-group">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav__brand" aria-label="<?php esc_attr_e( 'Sazara — Anasayfa', 'sazara' ); ?>">
+				<span class="nav__brand-mark" aria-hidden="true">
+					<?php echo sazara_inline_svg( 'assets/brand/mark.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</span>
+				<span class="nav__brand-name" aria-hidden="true">
+					<?php echo sazara_inline_svg( 'assets/brand/wordmark.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</span>
+			</a>
+
+			<?php // Ajax Systems co-branding — resmi bayi listesi şartı olarak logo görünür. ?>
+			<a href="<?php echo esc_url( SAZARA_AJAX_OFFICIAL_URL ); ?>"
+			   class="nav__partner"
+			   rel="noopener"
+			   target="_blank"
+			   aria-label="<?php esc_attr_e( 'Ajax Systems resmi sitesi — Sazara yetkili PRO Installer', 'sazara' ); ?>">
+				<img src="<?php echo esc_url( sazara_ajax_logo_url() ); ?>"
+				     alt="Ajax Systems"
+				     class="nav__partner-logo"
+				     width="476" height="96"
+				     loading="eager" decoding="async">
+			</a>
+		</div>
 
 		<button type="button" class="nav__toggle" aria-controls="site-nav-menu" aria-expanded="false" aria-label="<?php esc_attr_e( 'Menüyü aç', 'sazara' ); ?>">
 			<span class="nav__toggle-bar"></span>
