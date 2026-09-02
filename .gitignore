@@ -6,6 +6,10 @@
 # Docker volumes / runtime
 db/dump.sql
 db/*.sql
+# wp_core volume yedekleri — 80MB+, wp-config.php (DB şifresi + salt) içerir.
+# make reset / make plugins zaten sıfırdan kurabiliyor, repoda işi yok.
+db/*.tar.gz
+db/*.tgz
 
 # uploads/: WP'nin otomatik ürettiği medya (2026/, wc-logs/, woocommerce_uploads/,
 # woocommerce-placeholder*.webp) ignore — ama tema-kritik asset klasörleri
