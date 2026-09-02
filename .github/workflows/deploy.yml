@@ -24,8 +24,14 @@ jobs:
             cd /opt/sazara/site
             echo "== Current commit =="
             git rev-parse --short HEAD
+            echo "== Git auth config (diagnostic) =="
+            git config --list --show-origin | grep -iE "credential|insteadof|extraheader|url\." || echo "(none)"
             echo "== Fetching =="
-            git fetch origin main
+            # Repo public: fetch needs no credentials. An inherited credential
+            # helper made git try to authenticate anyway, and with no TTY to
+            # prompt on it died with "could not read Username". Empty helper
+            # plus GIT_TERMINAL_PROMPT=0 keeps it anonymous and fails loudly.
+            GIT_TERMINAL_PROMPT=0 git -c credential.helper= fetch origin main
             echo "== Resetting to origin/main =="
             git reset --hard origin/main
             echo "== New commit =="
