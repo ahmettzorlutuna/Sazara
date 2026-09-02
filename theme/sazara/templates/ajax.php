@@ -40,6 +40,7 @@ get_header();
 					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 				</a>
 			</div>
+			<?php echo sazara_ajax_partner_badge( 'hero', false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 	</section>
 

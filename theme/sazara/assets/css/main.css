@@ -1317,6 +1317,51 @@ html {
 	color: var(--ink-mute);
 }
 
+/* ─── Ajax partner rozeti (Ajax Systems resmi bayi şartı) ─── */
+.ajax-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2xs, 0.5rem);
+	padding: 0.5rem 0.9rem;
+	border: 1px solid var(--rule);
+	border-radius: var(--radius-pill);
+	background: var(--paper);
+	text-decoration: none;
+	transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ajax-badge:hover {
+	border-color: var(--ink-mute);
+	transform: translateY(-1px);
+}
+
+.ajax-badge__logo {
+	height: 16px;
+	width: auto;
+	display: block;
+}
+
+.ajax-badge__label {
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+	white-space: nowrap;
+}
+
+.ajax-badge--hero {
+	margin-top: var(--space-sm);
+}
+
+.ajax-badge--footer {
+	margin-top: 1rem;
+}
+
+.ajax-badge--home {
+	margin-top: var(--space-md, 1.5rem);
+}
+
 .footer__col h4 {
 	font-family: var(--font-mono);
 	font-size: 0.7rem;

@@ -41,6 +41,7 @@ defined( 'ABSPATH' ) || exit;
 				</a>
 				<p class="footer__brand-tagline"><?php esc_html_e( 'Donanım, ağ ve yazılımı tek mühendisliğe çeviren teknoloji şirketi.', 'sazara' ); ?></p>
 				<p class="footer__brand-loc"><?php esc_html_e( 'Aykosan Sanayi Sitesi · İkitelli, İstanbul', 'sazara' ); ?></p>
+				<?php echo sazara_ajax_partner_badge( 'footer' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 
 			<div class="footer__col">

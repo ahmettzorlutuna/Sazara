@@ -51,6 +51,8 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<a href="<?php echo esc_url( home_url( '/iletisim/' ) ); ?>" class="btn btn--ghost"><?php esc_html_e( 'Teklif al', 'sazara' ); ?></a>
 			</div>
 
+			<?php echo sazara_ajax_partner_badge( 'home' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+
 			<dl class="hero__meta">
 				<div><dt class="hero__meta-num">12+</dt><dd class="hero__meta-label"><?php esc_html_e( 'Yıl saha tecrübesi', 'sazara' ); ?></dd></div>
 				<div><dt class="hero__meta-num">40+</dt><dd class="hero__meta-label"><?php esc_html_e( 'Tesis &amp; şube', 'sazara' ); ?></dd></div>

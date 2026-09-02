@@ -91,6 +91,32 @@ function sazara_resolve_upload_logo( $logo ) {
 }
 
 /**
+ * Ajax Systems resmi partner rozeti — logo + "PRO Installer" etiketi.
+ *
+ * Ajax'ın "nereden alınır" bayi listesine girme şartı olarak resmi logonun
+ * sitede görünür olması isteniyor. Bu rozet /ajax/ sayfası, anasayfa ve
+ * footer'da tekrar kullanılır — tek kaynak burada.
+ *
+ * @param string $context CSS'te ayrım için ek class (örn. 'hero', 'footer').
+ * @param bool   $linked  /ajax/ sayfasına link versin mi. /ajax/ sayfasının
+ *                        kendi hero'sunda false geçilir (kendine link olmasın).
+ * @return string HTML markup.
+ */
+function sazara_ajax_partner_badge( $context = '', $linked = true ) {
+	$logo_url = get_theme_file_uri( 'assets/logos/partners/ajax-official.png' );
+	$classes  = trim( 'ajax-badge ' . ( $context ? 'ajax-badge--' . sanitize_html_class( $context ) : '' ) );
+
+	$inner  = '<img src="' . esc_url( $logo_url ) . '" alt="Ajax Systems" class="ajax-badge__logo" loading="lazy" width="120" height="26">';
+	$inner .= '<span class="ajax-badge__label">' . esc_html__( 'Yetkili PRO Installer', 'sazara' ) . '</span>';
+
+	if ( $linked ) {
+		return '<a href="' . esc_url( home_url( '/ajax/' ) ) . '" class="' . esc_attr( $classes ) . '">' . $inner . '</a>';
+	}
+
+	return '<span class="' . esc_attr( $classes ) . '">' . $inner . '</span>';
+}
+
+/**
  * Hero görseli olan sayfalarda body'e `has-hero-image` class'ı ekle.
  *
  * SAZARA_TRANSPARENT_NAV_ON_HERO = true  → hero üzerinde nav transparent + beyaz text
