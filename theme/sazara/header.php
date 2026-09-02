@@ -32,9 +32,11 @@ defined( 'ABSPATH' ) || exit;
 			</a>
 
 			<?php // Ajax Systems co-branding — resmi bayi listesi şartı olarak logo görünür. ?>
-			<a href="<?php echo esc_url( home_url( '/ajax/' ) ); ?>"
+			<a href="<?php echo esc_url( SAZARA_AJAX_OFFICIAL_URL ); ?>"
 			   class="nav__partner"
-			   aria-label="<?php esc_attr_e( 'Ajax Systems — Yetkili PRO Installer', 'sazara' ); ?>">
+			   rel="noopener"
+			   target="_blank"
+			   aria-label="<?php esc_attr_e( 'Ajax Systems resmi sitesi — Sazara yetkili PRO Installer', 'sazara' ); ?>">
 				<img src="<?php echo esc_url( get_theme_file_uri( 'assets/logos/partners/ajax-official.png' ) ); ?>"
 				     alt="Ajax Systems"
 				     class="nav__partner-logo"

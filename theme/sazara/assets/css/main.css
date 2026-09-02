@@ -189,7 +189,6 @@ html {
 	display: inline-flex;
 	align-items: center;
 	flex-shrink: 0;
-	opacity: 0.75;
 	transition: opacity var(--dur) var(--ease);
 }
 
@@ -203,11 +202,13 @@ html {
 }
 
 .nav__partner:hover {
-	opacity: 1;
+	opacity: 0.65;
 }
 
+/* SAZARA wordmark'ı (clamp 1.1–1.35rem) kalın bir SVG; Ajax markası daha
+   ince çizgili, aynı yükseklikte sönük kalıyordu — bir tık büyük veriliyor. */
 .nav__partner-logo {
-	height: clamp(0.95rem, 0.85rem + 0.35vw, 1.2rem);
+	height: clamp(1.2rem, 1rem + 0.5vw, 1.5rem);
 	width: auto;
 	display: block;
 }

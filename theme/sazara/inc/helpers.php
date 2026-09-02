@@ -91,6 +91,12 @@ function sazara_resolve_upload_logo( $logo ) {
 }
 
 /**
+ * Ajax Systems resmi sitesi — logolar buraya link verir (nav + footer).
+ * Tek kaynak: değişirse iki yer birden güncellenir.
+ */
+const SAZARA_AJAX_OFFICIAL_URL = 'https://ajax.systems/tr/';
+
+/**
  * Ajax Systems resmi partner rozeti — logo + "PRO Installer" etiketi.
  *
  * Ajax'ın "nereden alınır" bayi listesine girme şartı olarak resmi logonun
@@ -107,7 +113,10 @@ function sazara_ajax_partner_badge( $context = '' ) {
 	$inner  = '<img src="' . esc_url( $logo_url ) . '" alt="Ajax Systems" class="ajax-badge__logo" loading="lazy" width="476" height="96">';
 	$inner .= '<span class="ajax-badge__label">' . esc_html__( 'Yetkili PRO Installer', 'sazara' ) . '</span>';
 
-	return '<a href="' . esc_url( home_url( '/ajax/' ) ) . '" class="' . esc_attr( $classes ) . '">' . $inner . '</a>';
+	return '<a href="' . esc_url( SAZARA_AJAX_OFFICIAL_URL ) . '"'
+		. ' class="' . esc_attr( $classes ) . '"'
+		. ' rel="noopener" target="_blank">'
+		. $inner . '</a>';
 }
 
 /**
