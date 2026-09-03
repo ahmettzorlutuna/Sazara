@@ -141,7 +141,7 @@ return [
 		'title'     => 'Ajax Kablosuz Alarm',
 		'tagline'   => 'Algılayan, uyaran, raporlayan alarm.',
 		'lead'      => 'Yetkili Ajax Bayisi olarak; Hub 2 / Hub 2 Plus, sensör ailesi ve mobil uygulama ile tam entegre alarm sistemleri. Kablosuz, 7 yıl pil ömrü, jamming koruması.',
-		'hero_image' => '/wp-content/uploads/photos/photo-1558002038-1055907df827.jpg',
+		'hero_image' => '/wp-content/uploads/photos/ajax-iot-market-hero.jpg',
 
 		'intro_paragraphs' => [
 			'Geleneksel kablolu alarm sistemleri kurulum maliyeti, görsel kirlilik ve genişleme sıkıntıları nedeniyle artık tek opsiyon değil. Ajax\'ın kablosuz mimarisi her noktayı kabloya bağlamadan, ama kabloluya yakın güvenirlikte koruyor.',

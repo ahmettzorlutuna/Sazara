@@ -168,7 +168,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<li class="service-card reveal">
 					<a href="<?php echo esc_url( home_url( '/hizmetler/ajax-kablosuz-alarm/' ) ); ?>" class="service-card__media">
 						<span class="service-card__tag">Kablosuz · 7 yıl pil</span>
-						<img src="/wp-content/uploads/photos/photo-1558002038-1055907df827.jpg" alt="<?php esc_attr_e( 'Ajax kablosuz alarm — modern smart kontrol paneli', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
+						<img src="/wp-content/uploads/photos/ajax-iot-market-kart.jpg" alt="<?php esc_attr_e( 'Ajax kablosuz alarm — modern smart kontrol paneli', 'sazara' ); ?>" width="920" height="533" loading="lazy" decoding="async">
 					</a>
 					<div class="service-card__body">
 						<span class="service-card__num">03 / Alarm</span>
