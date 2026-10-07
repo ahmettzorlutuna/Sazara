@@ -13,11 +13,10 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-// Hero görseli — uploads'tan ya da fallback Unsplash.
+// Hero zemini — varsayılan: düz koyu (--ink) + çok hafif gradient.
+// Customizer'dan görsel seçilirse o kullanılır.
 $hero_img_id  = get_theme_mod( 'sazara_hero_image' );
-$hero_img_src = $hero_img_id
-	? wp_get_attachment_image_url( $hero_img_id, 'sazara-hero' )
-	: '/wp-content/uploads/photos/photo-1558494949-ef010cbdcc31.jpg';
+$hero_img_src = $hero_img_id ? wp_get_attachment_image_url( $hero_img_id, 'sazara-hero' ) : '';
 
 // Hizmet verdiğimiz firmalar — anasayfa logo marquee (sosyal kanıt).
 // Ürün markaları (Hikvision vb.) Referanslar sayfasında; bu ayrı liste.
@@ -28,8 +27,10 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 
 	<!-- ════════ HERO ════════ -->
 	<section class="hero">
-		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_img_src ); ?>" alt="" loading="eager" fetchpriority="high">
+		<div class="hero__media<?php echo $hero_img_src ? '' : ' hero__media--flat'; ?>">
+			<?php if ( $hero_img_src ) : ?>
+				<img src="<?php echo esc_url( $hero_img_src ); ?>" alt="" loading="eager" fetchpriority="high">
+			<?php endif; ?>
 		</div>
 
 		<div class="wrap hero__content">
@@ -81,19 +82,17 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 
 			<header class="pdks__head reveal">
 				<span class="pdks__eyebrow">
-					<span class="pdks__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
 					<?php esc_html_e( 'Flagship ürün · B2B SaaS', 'sazara' ); ?>
+					<span class="pdks__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
 				</span>
-				<h2 class="pdks__title" id="pdks-title"><?php echo wp_kses_post( __( 'Sazara PDKS: <em>Hatasız hakediş hesabı için tasarlandı</em> — Yapay Zeka ile Personel ve Hakediş Yönetimi', 'sazara' ) ); ?></h2>
+				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Sazara PDKS: Yapay Zeka ile Personel ve Hakediş Yönetimi', 'sazara' ); ?></h2>
+				<p class="pdks__tagline"><?php esc_html_e( 'Hatasız hakediş hesabı için tasarlandı.', 'sazara' ); ?></p>
 				<p class="pdks__lead"><?php esc_html_e( 'Vardiya, fazla mesai, izin ve bordro kuralları legacy PDKS yazılımlarında elle girilen formüllere ve tablolara bağlıdır; her istisna yeni bir hata kaynağıdır. Sazara PDKS, karmaşık mesai ve hakediş hesaplamalarını Claude AI motoruyla yürütür: iş kurallarınızı anlar, her puantaj kaydını çalışma düzeniniz ve yasal çerçeveye göre değerlendirir, tutarsızlıkları bordroya yansımadan işaretler.', 'sazara' ); ?></p>
 			</header>
 
 			<div class="pdks__stage reveal">
 				<div class="pdks__frame">
-					<div class="pdks__frame-bar" aria-hidden="true">
-						<span></span><span></span><span></span>
-						<em>pdks.sazara.com.tr</em>
-					</div>
+					<div class="pdks__frame-bar" aria-hidden="true">pdks.sazara.com.tr</div>
 					<?php if ( $pdks_has_img ) : ?>
 						<img class="pdks__shot"
 						     src="<?php echo esc_url( SAZARA_URI . '/' . $pdks_img_rel ); ?>"
@@ -102,7 +101,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<?php else : ?>
 						<?php // Görsel eklenene kadar placeholder: assets/images/pdks-dashboard.webp ?>
 						<div class="pdks__shot pdks__shot--placeholder" role="img" aria-label="<?php esc_attr_e( 'Sazara PDKS yönetim paneli önizlemesi', 'sazara' ); ?>">
-							<span><?php esc_html_e( 'Dashboard görseli', 'sazara' ); ?></span>
+							<span><?php esc_html_e( 'Sazara PDKS paneli', 'sazara' ); ?></span>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -113,7 +112,6 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span class="pdks__card-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
 					</span>
-					<span class="pdks__card-num">01</span>
 					<h3 class="pdks__card-title"><?php esc_html_e( 'AI-Powered Engine', 'sazara' ); ?></h3>
 					<p class="pdks__card-desc"><?php esc_html_e( 'Claude ile karmaşık mesai, vardiya ve hakediş hesaplamaları; kural istisnalarını anlayan, açıklanabilir sonuçlar üreten motor.', 'sazara' ); ?></p>
 				</li>
@@ -121,7 +119,6 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span class="pdks__card-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.98"/><path d="M12 12v8M9 17l3 3 3-3"/></svg>
 					</span>
-					<span class="pdks__card-num">02</span>
 					<h3 class="pdks__card-title"><?php esc_html_e( 'B2B SaaS Mimari', 'sazara' ); ?></h3>
 					<p class="pdks__card-desc"><?php esc_html_e( 'Çoklu şube ve bulut altyapısı; her firma kendi yetki ve veri sınırında, tek panelden yönetilen şirket yapısı.', 'sazara' ); ?></p>
 				</li>
@@ -129,7 +126,6 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span class="pdks__card-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7M9 9h2"/></svg>
 					</span>
-					<span class="pdks__card-num">03</span>
 					<h3 class="pdks__card-title"><?php esc_html_e( 'Gelişmiş Dokümantasyon', 'sazara' ); ?></h3>
 					<p class="pdks__card-desc"><?php esc_html_e( 'Otomatik oluşturulan kurumsal kılavuzlar; hesaplama kuralları ve süreçler her zaman güncel, denetime hazır.', 'sazara' ); ?></p>
 				</li>
