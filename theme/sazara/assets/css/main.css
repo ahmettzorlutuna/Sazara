@@ -5208,7 +5208,9 @@ body { padding-top: 0; }
 .pdks {
 	padding-block: var(--space-section);
 	border-top: 1px solid oklch(99% 0 0 / 0.08);
-	background: linear-gradient(180deg, var(--ink) 0%, oklch(16% 0.012 260) 100%);
+	background:
+		radial-gradient(ellipse 70% 45% at 85% 0%, oklch(52% 0.22 260 / 0.16), transparent 70%),
+		linear-gradient(180deg, var(--ink) 0%, oklch(17% 0.014 260) 100%);
 	color: var(--paper);
 	scroll-margin-top: 4.5rem;
 }
@@ -5308,16 +5310,18 @@ body { padding-top: 0; }
 	flex-direction: column;
 	gap: 0.85rem;
 	padding: clamp(1.5rem, 1rem + 1vw, 2rem);
-	background: var(--paper);
-	color: var(--ink);
-	border: 1px solid var(--rule);
+	background: oklch(99% 0 0 / 0.05);
+	color: var(--paper);
+	border: 1px solid oklch(99% 0 0 / 0.1);
 	border-radius: var(--radius-lg);
-	transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+	-webkit-backdrop-filter: blur(14px);
+	backdrop-filter: blur(14px);
+	transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
 }
 .pdks__card:hover {
 	transform: translateY(-4px);
-	border-color: var(--ink-2);
-	box-shadow: 0 20px 48px oklch(13% 0 0 / 0.08), 0 4px 12px oklch(13% 0 0 / 0.04);
+	background: oklch(99% 0 0 / 0.08);
+	border-color: oklch(78% 0.14 235 / 0.45);
 }
 .pdks__card-icon {
 	display: grid;
@@ -5325,8 +5329,8 @@ body { padding-top: 0; }
 	width: 2.5rem;
 	height: 2.5rem;
 	border-radius: var(--radius-md);
-	background: var(--accent-tint);
-	color: var(--accent);
+	background: oklch(52% 0.22 260 / 0.22);
+	color: oklch(82% 0.12 225);
 }
 .pdks__card-title {
 	margin: 0;
@@ -5334,12 +5338,13 @@ body { padding-top: 0; }
 	font-weight: 500;
 	line-height: 1.15;
 	letter-spacing: -0.025em;
+	color: var(--paper);
 }
 .pdks__card-desc {
 	margin: 0;
 	font-size: var(--text-body);
 	line-height: 1.55;
-	color: var(--ink-soft);
+	color: oklch(99% 0 0 / 0.68);
 }
 
 .pdks__cta {
@@ -5363,13 +5368,6 @@ body { padding-top: 0; }
 
 @media (prefers-reduced-motion: reduce) {
 	.hero__product { opacity: 1; animation: none; }
-}
-
-/* Hero — düz koyu zemin (görselsiz) */
-.hero__media--flat {
-	background:
-		radial-gradient(ellipse at 20% 85%, oklch(52% 0.22 260 / 0.14), transparent 55%),
-		linear-gradient(170deg, oklch(18% 0.012 260) 0%, var(--ink) 65%);
 }
 
 /* ═══════════════════ NAV — hizalama düzeltmeleri ═══════════════════
@@ -5448,4 +5446,43 @@ body { padding-top: 0; }
 	letter-spacing: 0.04em;
 	color: oklch(99% 0 0 / 0.85);
 	background: oklch(52% 0.22 260 / 0.12);
+}
+
+
+/* ═══════════════════ Hero — fotoğraf üstü okunabilirlik + açık vurgu ═══════════════════ */
+.hero__media::after {
+	background:
+		linear-gradient(90deg, oklch(13% 0.01 260 / 0.82) 0%, oklch(13% 0.01 260 / 0.5) 45%, oklch(13% 0.01 260 / 0.15) 100%),
+		linear-gradient(to bottom,
+			oklch(13% 0 0 / 0.25) 0%,
+			oklch(13% 0 0 / 0.35) 40%,
+			oklch(13% 0 0 / 0.75) 70%,
+			oklch(13% 0 0 / 0.95) 100%);
+}
+
+.hero__title em {
+	background: linear-gradient(120deg, oklch(80% 0.13 240), oklch(88% 0.12 200));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: none;
+}
+
+/* ═══════════════════ Nav — dikey ortalama (rozet + noktalar) ═══════════════════ */
+.nav__list a {
+	min-height: 2rem;
+}
+.nav__badge {
+	align-self: center;
+	margin-inline-start: 0.45rem;
+	padding: 0.2rem 0.5rem;
+	line-height: 1;
+	vertical-align: middle;
+	transform: none;
+}
+.nav__link--ajax::after,
+.nav__link--paketler::after {
+	top: 50%;
+	transform: translateY(-50%);
+	right: -0.7rem;
 }

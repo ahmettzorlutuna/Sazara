@@ -13,10 +13,12 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-// Hero zemini — varsayılan: düz koyu (--ink) + çok hafif gradient.
-// Customizer'dan görsel seçilirse o kullanılır.
+// Hero zemini — Customizer'dan seçilmişse o, yoksa tema içindeki gece ofis cephesi fotoğrafı
+// (Unsplash, ücretsiz lisans — Li Zhang; 1920x1080 WebP).
 $hero_img_id  = get_theme_mod( 'sazara_hero_image' );
-$hero_img_src = $hero_img_id ? wp_get_attachment_image_url( $hero_img_id, 'sazara-hero' ) : '';
+$hero_img_src = $hero_img_id
+	? wp_get_attachment_image_url( $hero_img_id, 'sazara-hero' )
+	: SAZARA_URI . '/assets/images/hero-office.webp';
 
 // Hizmet verdiğimiz firmalar — anasayfa logo marquee (sosyal kanıt).
 // Ürün markaları (Hikvision vb.) Referanslar sayfasında; bu ayrı liste.
@@ -27,10 +29,8 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 
 	<!-- ════════ HERO ════════ -->
 	<section class="hero">
-		<div class="hero__media<?php echo $hero_img_src ? '' : ' hero__media--flat'; ?>">
-			<?php if ( $hero_img_src ) : ?>
-				<img src="<?php echo esc_url( $hero_img_src ); ?>" alt="" loading="eager" fetchpriority="high">
-			<?php endif; ?>
+		<div class="hero__media">
+			<img src="<?php echo esc_url( $hero_img_src ); ?>" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
 		</div>
 
 		<div class="wrap hero__content">
