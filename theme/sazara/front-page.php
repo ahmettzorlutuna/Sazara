@@ -34,14 +34,20 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 
 		<div class="wrap hero__content">
 			<p class="hero__eyebrow"><?php esc_html_e( 'Aykosan · İkitelli · İstanbul', 'sazara' ); ?></p>
-			<h1 class="hero__title"><?php
+			<h1 class="hero__title hero__title--wide"><?php
 				printf(
 					/* translators: %s: vurgulu kısım */
-					wp_kses_post( __( 'İşletmenizin teknolojisi <em>%s</em>', 'sazara' ) ),
-					esc_html__( 'tek elden.', 'sazara' )
+					wp_kses_post( __( '%s ve <em>Yapay Zeka Destekli Yazılım Çözümleri</em>', 'sazara' ) ),
+					esc_html__( 'Kurumsal Bilişim Altyapısı', 'sazara' )
 				);
 			?></h1>
-			<p class="hero__lead"><?php esc_html_e( 'Kamera kurulumundan ağ altyapısına, kablosuz alarmdan ihtiyaca özel yazılıma — donanım, ağ ve yazılımı tek mühendislikte birleştiriyoruz.', 'sazara' ); ?></p>
+			<p class="hero__lead"><?php esc_html_e( 'Kendi yapay zeka destekli SaaS ürünlerimizi geliştiriyor, aynı mühendislikle kamera, ağ ve kablosuz alarm altyapılarını kuruyoruz — yazılım ve donanım tek çatı altında.', 'sazara' ); ?></p>
+
+			<a href="#sazara-pdks" class="hero__product">
+				<span class="hero__product-badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
+				<span class="hero__product-text"><?php esc_html_e( 'Yeni Ürünümüz Sazara PDKS\'yi İnceleyin', 'sazara' ); ?></span>
+				<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+			</a>
 
 			<div class="hero__cta-row">
 				<a href="<?php echo esc_url( home_url( '/hizmetler/' ) ); ?>" class="btn btn--primary">
@@ -62,6 +68,81 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 		<div class="hero__scroll" aria-hidden="true">
 			<span><?php esc_html_e( 'Kaydır', 'sazara' ); ?></span>
 			<span class="hero__scroll-line"></span>
+		</div>
+	</section>
+
+	<!-- ════════ FLAGSHIP ÜRÜN: SAZARA PDKS ════════ -->
+	<?php
+	$pdks_img_rel = 'assets/images/pdks-dashboard.webp';
+	$pdks_has_img = file_exists( SAZARA_DIR . '/' . $pdks_img_rel );
+	?>
+	<section class="pdks" id="sazara-pdks" aria-labelledby="pdks-title">
+		<div class="wrap">
+
+			<header class="pdks__head reveal">
+				<span class="pdks__eyebrow">
+					<span class="pdks__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
+					<?php esc_html_e( 'Flagship ürün · B2B SaaS', 'sazara' ); ?>
+				</span>
+				<h2 class="pdks__title" id="pdks-title"><?php echo wp_kses_post( __( 'Sazara PDKS: <em>Hatasız hakediş hesabı için tasarlandı</em> — Yapay Zeka ile Personel ve Hakediş Yönetimi', 'sazara' ) ); ?></h2>
+				<p class="pdks__lead"><?php esc_html_e( 'Vardiya, fazla mesai, izin ve bordro kuralları legacy PDKS yazılımlarında elle girilen formüllere ve tablolara bağlıdır; her istisna yeni bir hata kaynağıdır. Sazara PDKS, karmaşık mesai ve hakediş hesaplamalarını Claude AI motoruyla yürütür: iş kurallarınızı anlar, her puantaj kaydını çalışma düzeniniz ve yasal çerçeveye göre değerlendirir, tutarsızlıkları bordroya yansımadan işaretler.', 'sazara' ); ?></p>
+			</header>
+
+			<div class="pdks__stage reveal">
+				<div class="pdks__frame">
+					<div class="pdks__frame-bar" aria-hidden="true">
+						<span></span><span></span><span></span>
+						<em>pdks.sazara.com.tr</em>
+					</div>
+					<?php if ( $pdks_has_img ) : ?>
+						<img class="pdks__shot"
+						     src="<?php echo esc_url( SAZARA_URI . '/' . $pdks_img_rel ); ?>"
+						     alt="<?php esc_attr_e( 'Sazara PDKS yönetim paneli — puantaj, mesai ve hakediş özeti', 'sazara' ); ?>"
+						     width="1600" height="1000" loading="lazy" decoding="async">
+					<?php else : ?>
+						<?php // Görsel eklenene kadar placeholder: assets/images/pdks-dashboard.webp ?>
+						<div class="pdks__shot pdks__shot--placeholder" role="img" aria-label="<?php esc_attr_e( 'Sazara PDKS yönetim paneli önizlemesi', 'sazara' ); ?>">
+							<span><?php esc_html_e( 'Dashboard görseli', 'sazara' ); ?></span>
+						</div>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<ul class="pdks__features" role="list">
+				<li class="pdks__card reveal">
+					<span class="pdks__card-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+					</span>
+					<span class="pdks__card-num">01</span>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'AI-Powered Engine', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Claude ile karmaşık mesai, vardiya ve hakediş hesaplamaları; kural istisnalarını anlayan, açıklanabilir sonuçlar üreten motor.', 'sazara' ); ?></p>
+				</li>
+				<li class="pdks__card reveal">
+					<span class="pdks__card-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.98"/><path d="M12 12v8M9 17l3 3 3-3"/></svg>
+					</span>
+					<span class="pdks__card-num">02</span>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'B2B SaaS Mimari', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Çoklu şube ve bulut altyapısı; her firma kendi yetki ve veri sınırında, tek panelden yönetilen şirket yapısı.', 'sazara' ); ?></p>
+				</li>
+				<li class="pdks__card reveal">
+					<span class="pdks__card-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7M9 9h2"/></svg>
+					</span>
+					<span class="pdks__card-num">03</span>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'Gelişmiş Dokümantasyon', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Otomatik oluşturulan kurumsal kılavuzlar; hesaplama kuralları ve süreçler her zaman güncel, denetime hazır.', 'sazara' ); ?></p>
+				</li>
+			</ul>
+
+			<div class="pdks__cta reveal">
+				<a href="<?php echo esc_url( SAZARA_PDKS_URL ); ?>" class="btn btn--accent" target="_blank" rel="noopener">
+					<span><?php esc_html_e( 'Platforma Git (pdks.sazara.com.tr)', 'sazara' ); ?></span>
+					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+				</a>
+				<span class="pdks__cta-note"><?php esc_html_e( 'Claude altyapılı · Çoklu şube · Bulut tabanlı', 'sazara' ); ?></span>
+			</div>
+
 		</div>
 	</section>
 
@@ -145,6 +226,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 						<ul class="service-card__specs">
 							<li>4K · IR</li><li>WDR</li><li>AI tespit</li><li>Çoklu lokasyon</li>
 						</ul>
+						<p class="service-card__soft"><span>&lt;/&gt; Yazılım katmanı</span> <?php esc_html_e( 'Merkezi izleme paneli · AI olay analitiği · mobil bildirim', 'sazara' ); ?></p>
 						<a href="<?php echo esc_url( home_url( '/hizmetler/kamera-sistemleri/' ) ); ?>" class="service-card__cta"><?php esc_html_e( 'İncele', 'sazara' ); ?></a>
 					</div>
 				</li>
@@ -161,6 +243,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 						<ul class="service-card__specs">
 							<li>Wi-Fi 6/6E</li><li>POE+</li><li>VPN</li><li>Site-to-site</li>
 						</ul>
+						<p class="service-card__soft"><span>&lt;/&gt; Yazılım katmanı</span> <?php esc_html_e( 'Ağ izleme dashboard\'u · otomatik alarm ve raporlama', 'sazara' ); ?></p>
 						<a href="<?php echo esc_url( home_url( '/hizmetler/network-it-altyapi/' ) ); ?>" class="service-card__cta"><?php esc_html_e( 'İncele', 'sazara' ); ?></a>
 					</div>
 				</li>
@@ -177,6 +260,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 						<ul class="service-card__specs">
 							<li>Hub 2</li><li>iOS · Android</li><li>7/24 izleme</li>
 						</ul>
+						<p class="service-card__soft"><span>&lt;/&gt; Yazılım katmanı</span> <?php esc_html_e( 'Olay entegrasyonu · özel API ve raporlama katmanı', 'sazara' ); ?></p>
 						<a href="<?php echo esc_url( home_url( '/hizmetler/ajax-kablosuz-alarm/' ) ); ?>" class="service-card__cta"><?php esc_html_e( 'İncele', 'sazara' ); ?></a>
 					</div>
 				</li>
@@ -227,6 +311,12 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<path class="line" d="M 760 90 Q 620 90 542 130" marker-end="url(#diagram-arrow)"/>
 					<path class="line" d="M 760 230 Q 620 230 542 190" marker-end="url(#diagram-arrow)"/>
 				</svg>
+				<ul class="diagram__caps" role="list" aria-label="<?php esc_attr_e( 'Yazılım yeteneklerimiz', 'sazara' ); ?>">
+					<li><?php esc_html_e( 'Web &amp; mobil paneller', 'sazara' ); ?></li>
+					<li><?php esc_html_e( 'API &amp; saha entegrasyonu', 'sazara' ); ?></li>
+					<li><?php esc_html_e( 'AI olay analitiği', 'sazara' ); ?></li>
+					<li><?php esc_html_e( 'B2B SaaS · Sazara PDKS', 'sazara' ); ?></li>
+				</ul>
 			</div>
 		</div>
 	</section>

@@ -5143,3 +5143,330 @@ body { padding-top: 0; }
 	line-height: 1.35;
 }
 
+
+
+/* ═══════════════════ HERO — ürün rozeti + geniş başlık ═══════════════════ */
+
+.hero__title--wide {
+	font-size: clamp(2.5rem, 1.3rem + 4.6vw, 5.5rem);
+	line-height: 1;
+	max-width: 17ch;
+}
+
+.hero__product {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.7rem;
+	align-self: flex-start;
+	margin-top: 2rem;
+	padding: 0.45rem 1.1rem 0.45rem 0.45rem;
+	border-radius: var(--radius-pill);
+	border: 1px solid oklch(72% 0.22 230 / 0.45);
+	background: oklch(13% 0.02 260 / 0.55);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	color: var(--paper);
+	font-size: var(--text-sm);
+	font-weight: 500;
+	box-shadow: 0 0 0 0 oklch(52% 0.22 260 / 0.5);
+	opacity: 0;
+	animation: fade-up 0.9s var(--ease) 1s forwards;
+	transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.hero__product:hover {
+	border-color: oklch(72% 0.22 230 / 0.9);
+	background: oklch(52% 0.22 260 / 0.35);
+	transform: translateY(-2px);
+}
+.hero__product svg { transition: transform var(--dur) var(--ease); }
+.hero__product:hover svg { transform: translateX(3px); }
+
+.hero__product-badge,
+.nav__badge,
+.pdks__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.18rem 0.55rem;
+	border-radius: var(--radius-pill);
+	background: var(--accent);
+	color: var(--paper);
+	font-family: var(--font-mono);
+	font-size: 0.625rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	line-height: 1.4;
+}
+
+.nav__badge { margin-inline-start: 0.4rem; vertical-align: 0.1em; }
+
+.hero__cta-row { animation-delay: 1.2s; }
+
+/* ═══════════════════ SAZARA PDKS — flagship ürün bölümü ═══════════════════ */
+
+.pdks {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	padding-block: var(--space-section);
+	background: oklch(13% 0.012 260);
+	color: var(--paper);
+	scroll-margin-top: 4.5rem;
+}
+.pdks::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background:
+		radial-gradient(ellipse 60% 50% at 80% 0%, oklch(52% 0.22 260 / 0.35), transparent 70%),
+		radial-gradient(ellipse 45% 40% at 5% 95%, oklch(72% 0.22 230 / 0.14), transparent 70%),
+		linear-gradient(oklch(99% 0 0 / 0.035) 1px, transparent 1px) 0 0 / 56px 56px,
+		linear-gradient(90deg, oklch(99% 0 0 / 0.035) 1px, transparent 1px) 0 0 / 56px 56px;
+	-webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+	mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+.pdks__head { max-width: 56rem; }
+
+.pdks__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 1.5rem;
+	font-family: var(--font-mono);
+	font-size: var(--text-xs);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: oklch(99% 0 0 / 0.65);
+}
+
+.pdks__title {
+	margin: 0;
+	font-size: var(--text-h2);
+	font-weight: 500;
+	line-height: 1.04;
+	letter-spacing: -0.035em;
+	text-wrap: balance;
+}
+.pdks__title em {
+	font-style: normal;
+	background: linear-gradient(120deg, oklch(68% 0.2 260), oklch(78% 0.17 215));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.pdks__lead {
+	margin: 1.5rem 0 0;
+	max-width: 62ch;
+	font-size: var(--text-lead);
+	line-height: 1.6;
+	color: oklch(99% 0 0 / 0.72);
+}
+
+.pdks__stage { margin-top: var(--space-lg); }
+
+.pdks__frame {
+	position: relative;
+	border-radius: var(--radius-lg);
+	border: 1px solid oklch(99% 0 0 / 0.14);
+	background: oklch(18% 0.012 260);
+	overflow: hidden;
+	box-shadow:
+		0 40px 90px -30px oklch(52% 0.22 260 / 0.55),
+		0 0 0 1px oklch(0% 0 0 / 0.4);
+}
+.pdks__frame-bar {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.7rem 1rem;
+	border-bottom: 1px solid oklch(99% 0 0 / 0.08);
+}
+.pdks__frame-bar span {
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: oklch(99% 0 0 / 0.2);
+}
+.pdks__frame-bar em {
+	margin-inline-start: 0.75rem;
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	font-style: normal;
+	color: oklch(99% 0 0 / 0.45);
+}
+
+.pdks__shot {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	object-position: top;
+}
+.pdks__shot--placeholder {
+	display: grid;
+	place-items: center;
+	background:
+		linear-gradient(oklch(99% 0 0 / 0.04) 1px, transparent 1px) 0 0 / 32px 32px,
+		linear-gradient(90deg, oklch(99% 0 0 / 0.04) 1px, transparent 1px) 0 0 / 32px 32px,
+		oklch(18% 0.012 260);
+	font-family: var(--font-mono);
+	font-size: var(--text-sm);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: oklch(99% 0 0 / 0.4);
+}
+
+.pdks__features {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-sm);
+	margin-top: var(--space-md);
+}
+
+.pdks__card {
+	position: relative;
+	padding: var(--space-md);
+	border-radius: var(--radius-md);
+	border: 1px solid oklch(99% 0 0 / 0.1);
+	background: linear-gradient(160deg, oklch(99% 0 0 / 0.06), oklch(99% 0 0 / 0.015));
+	transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.pdks__card:hover {
+	border-color: oklch(68% 0.2 260 / 0.7);
+	background: linear-gradient(160deg, oklch(52% 0.22 260 / 0.18), oklch(99% 0 0 / 0.02));
+	transform: translateY(-4px);
+}
+.pdks__card-icon {
+	display: grid;
+	place-items: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: var(--radius-sm);
+	background: oklch(52% 0.22 260 / 0.22);
+	color: oklch(80% 0.14 230);
+}
+.pdks__card-num {
+	position: absolute;
+	top: var(--space-md);
+	right: var(--space-md);
+	font-family: var(--font-mono);
+	font-size: var(--text-xs);
+	color: oklch(99% 0 0 / 0.35);
+}
+.pdks__card-title {
+	margin: 1.25rem 0 0.5rem;
+	font-size: var(--text-h4);
+	font-weight: 500;
+	letter-spacing: -0.02em;
+}
+.pdks__card-desc {
+	margin: 0;
+	font-size: var(--text-sm);
+	line-height: 1.6;
+	color: oklch(99% 0 0 / 0.68);
+}
+
+.pdks__cta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem 1.5rem;
+	margin-top: var(--space-lg);
+}
+.pdks__cta-note {
+	font-family: var(--font-mono);
+	font-size: var(--text-xs);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: oklch(99% 0 0 / 0.5);
+}
+
+@media (min-width: 860px) {
+	.pdks__features { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero__product { opacity: 1; animation: none; }
+}
+
+
+/* ═══════════════════ NAV — hizalama düzeltmeleri ═══════════════════
+   Menüye 7. öğe (Sazara PDKS + rozet) eklenince flex satırı daralıp metinler
+   alt alta kırılıyor, nav yüksekliği ve "Teklif al" butonu şişiyordu.
+   Çözüm: kırılmayı kapat, aksiyon grubunu sıkıştırma, mid-genişlikte boşlukları kıs. */
+.nav__menu { min-width: 0; }
+
+.nav__list {
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.nav__list li { display: flex; align-items: center; }
+
+.nav__list a {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+	line-height: 1.2;
+}
+
+.nav__badge { margin-inline-start: 0.4rem; vertical-align: baseline; }
+
+.nav__actions { flex-shrink: 0; }
+
+.nav__cta {
+	flex-shrink: 0;
+	align-self: center;
+	height: 2.5rem;
+	padding: 0 1.1rem;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+@media (min-width: 60.01rem) and (max-width: 80rem) {
+	.nav__inner { gap: 1rem; }
+	.nav__list { gap: 1rem; }
+	.nav__brand-group { padding-inline-end: 0; }
+}
+
+/* ═══════════════════ Yazılım katmanı eklemeleri ═══════════════════ */
+.service-card__soft {
+	margin: 0.75rem 0 0;
+	font-size: var(--text-sm);
+	color: var(--ink-soft);
+	line-height: 1.45;
+}
+.service-card__soft span {
+	display: inline-block;
+	margin-inline-end: 0.35rem;
+	padding: 0.1rem 0.45rem;
+	border-radius: var(--radius-sm);
+	background: var(--accent-tint);
+	color: var(--accent-deep);
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+.diagram__caps {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: var(--space-sm);
+	position: relative;
+}
+.diagram__caps li {
+	padding: 0.35rem 0.8rem;
+	border: 1px solid oklch(52% 0.22 260 / 0.5);
+	border-radius: var(--radius-pill);
+	font-family: var(--font-mono);
+	font-size: var(--text-xs);
+	letter-spacing: 0.04em;
+	color: oklch(99% 0 0 / 0.85);
+	background: oklch(52% 0.22 260 / 0.12);
+}

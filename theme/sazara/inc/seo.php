@@ -15,7 +15,7 @@ add_action(
 
         $desc = '';
         if ( is_front_page() || is_home() ) {
-            $desc = 'Sazara Teknoloji — İstanbul İkitelli Aykosan merkezli güvenlik kamerası (CCTV), network altyapısı, Ajax kablosuz alarm ve B2B yazılım çözümleri.';
+            $desc = 'Sazara Teknoloji — kurumsal bilişim altyapısı (CCTV, ağ, Ajax kablosuz alarm) kuran ve Claude destekli B2B SaaS ürünü Sazara PDKS’i geliştiren İstanbul merkezli teknoloji şirketi.';
         } elseif ( is_singular() ) {
             $desc = wp_strip_all_tags( get_the_excerpt() );
             if ( empty( $desc ) ) {

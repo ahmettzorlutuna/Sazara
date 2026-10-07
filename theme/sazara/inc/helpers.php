@@ -97,6 +97,33 @@ function sazara_resolve_upload_logo( $logo ) {
 const SAZARA_AJAX_OFFICIAL_URL = 'https://ajax.systems/tr/';
 
 /**
+ * Sazara PDKS (SaaS ürünü) — nav, hero ve ürün bölümü aynı adresi kullanır.
+ */
+const SAZARA_PDKS_URL = 'https://pdks.sazara.com.tr';
+
+/**
+ * Ana menüye "Sazara PDKS" + "Yeni" rozetini ekler.
+ * Menü admin'den atanmış olsa da (primary) fallback listesi de aynı öğeyi kullanır.
+ */
+function sazara_pdks_nav_item(): string {
+	return '<li class="menu-item menu-item--pdks"><a href="' . esc_url( home_url( '/#sazara-pdks' ) ) . '" class="nav__link--pdks">'
+		. esc_html__( 'Sazara PDKS', 'sazara' )
+		. '<span class="nav__badge">' . esc_html__( 'Yeni', 'sazara' ) . '</span></a></li>';
+}
+
+add_filter(
+	'wp_nav_menu_items',
+	static function ( string $items, $args ): string {
+		if ( 'primary' !== ( $args->theme_location ?? '' ) || str_contains( $items, 'nav__link--pdks' ) ) {
+			return $items;
+		}
+		return sazara_pdks_nav_item() . $items;
+	},
+	10,
+	2
+);
+
+/**
  * Ajax logosunun URL'i — dosya değişimi başına cache-bust'lı.
  *
  * CSS/JS filemtime ile versiyonlanıyor (bkz. inc/enqueue.php) ama <img>

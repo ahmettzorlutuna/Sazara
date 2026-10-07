@@ -67,6 +67,7 @@ defined( 'ABSPATH' ) || exit;
 				// Fallback when no menu has been assigned in admin.
 				?>
 				<ul class="nav__list">
+					<?php echo sazara_pdks_nav_item(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<li><a href="<?php echo esc_url( home_url( '/hizmetler/' ) ); ?>"><?php esc_html_e( 'Hizmetler', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/ajax/' ) ); ?>" class="nav__link--ajax"><?php esc_html_e( 'Ajax', 'sazara' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/paketler/' ) ); ?>" class="nav__link--paketler"><?php esc_html_e( 'Paketler', 'sazara' ); ?></a></li>
