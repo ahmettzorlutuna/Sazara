@@ -38,11 +38,11 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 			<h1 class="hero__title hero__title--wide"><?php
 				printf(
 					/* translators: %s: vurgulu kısım */
-					wp_kses_post( __( '%s, <em>Yeni Nesil Personel ve Hakediş Yönetimi</em>', 'sazara' ) ),
+					wp_kses_post( __( '%s ve <em>Yapay Zeka ile Geliştirilen Yazılım Ürünleri</em>', 'sazara' ) ),
 					esc_html__( 'Kurumsal Bilişim Altyapısı', 'sazara' )
 				);
 			?></h1>
-			<p class="hero__lead"><?php esc_html_e( 'Kendi SaaS ürünlerimizi geliştiriyor, aynı mühendislikle kamera, ağ ve kablosuz alarm altyapılarını kuruyoruz — yazılım ve donanım tek çatı altında.', 'sazara' ); ?></p>
+			<p class="hero__lead"><?php esc_html_e( 'Claude AI ile geliştirdiğimiz kendi SaaS ürünlerimizin yanında, aynı mühendislikle kamera, ağ ve kablosuz alarm altyapılarını kuruyoruz — yazılım ve donanım tek çatı altında.', 'sazara' ); ?></p>
 
 			<a href="#sazara-pdks" class="hero__product">
 				<span class="hero__product-badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
@@ -85,9 +85,9 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<?php esc_html_e( 'Flagship ürün · B2B SaaS', 'sazara' ); ?>
 					<span class="pdks__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
 				</span>
-				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Sazara PDKS: Yeni Nesil Personel ve Hakediş Yönetimi', 'sazara' ); ?></h2>
-				<p class="pdks__tagline"><?php esc_html_e( 'Hatasız hakediş hesabı için tasarlandı.', 'sazara' ); ?></p>
-				<p class="pdks__lead"><?php esc_html_e( 'Vardiya, fazla mesai, izin ve bordro kuralları legacy PDKS yazılımlarında elle girilen formüllere ve tablolara bağlıdır; her istisna yeni bir hata kaynağıdır. Sazara PDKS, mesai ve hakediş hesaplamalarını açıklanabilir, kural tabanlı gelişmiş bir mühendislik altyapısıyla yürütür: aynı girdi her zaman aynı sonucu verir, her kalem hangi kurala dayandığını gösterir, tutarsızlıklar bordroya yansımadan işaretlenir.', 'sazara' ); ?></p>
+				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Sazara PDKS: Yapay Zeka ve Claude ile Geliştirilen Yeni Nesil Personel ve Hakediş Yönetimi', 'sazara' ); ?></h2>
+				<p class="pdks__tagline"><?php esc_html_e( 'Yapay zeka ile tasarlandı, kural tabanlı çalışır: hatasız hakediş hesabı için.', 'sazara' ); ?></p>
+				<p class="pdks__lead"><?php esc_html_e( 'Sistemin çekirdek mimarisi, karmaşık mesai ve hakediş algoritmaları ile kural motoru Claude AI kullanılarak tasarlanmış ve geliştirilmiştir. Çalışma zamanında ise açıklanabilir, kural tabanlı bir altyapı kullanır: aynı girdi her zaman aynı sonucu verir, her kalem hangi kurala dayandığını gösterir, tutarsızlıklar bordroya yansımadan işaretlenir.', 'sazara' ); ?></p>
 			</header>
 
 			<div class="pdks__stage reveal">
@@ -112,8 +112,8 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span class="pdks__card-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
 					</span>
-					<h3 class="pdks__card-title"><?php esc_html_e( 'Deterministik Hesaplama Motoru', 'sazara' ); ?></h3>
-					<p class="pdks__card-desc"><?php esc_html_e( 'Kural tabanlı, açıklanabilir hesaplama: aynı girdi her zaman aynı sonucu verir. Bilgi eksikse tutar uydurmaz, "hesaplanmadı" der.', 'sazara' ); ?></p>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'AI-Built Engine (Claude)', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Mesai ve hakediş algoritmaları ile kural motoru Claude AI ile tasarlandı ve geliştirildi. Hesaplama kural tabanlıdır: aynı girdi her zaman aynı, açıklanabilir sonucu verir.', 'sazara' ); ?></p>
 				</li>
 				<li class="pdks__card reveal">
 					<span class="pdks__card-icon" aria-hidden="true">
@@ -136,7 +136,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span><?php esc_html_e( 'Platforma Git (pdks.sazara.com.tr)', 'sazara' ); ?></span>
 					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
 				</a>
-				<span class="pdks__cta-note"><?php esc_html_e( 'Kural tabanlı · Çoklu şube · Bulut tabanlı', 'sazara' ); ?></span>
+				<span class="pdks__cta-note"><?php esc_html_e( 'Claude AI ile geliştirildi · Çoklu şube · Bulut tabanlı', 'sazara' ); ?></span>
 			</div>
 
 		</div>

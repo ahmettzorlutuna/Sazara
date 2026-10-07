@@ -5240,7 +5240,7 @@ body { padding-top: 0; }
 
 .pdks__title {
 	margin: 0;
-	max-width: 22ch;
+	max-width: 26ch;
 	font-size: var(--text-h2);
 	font-weight: 500;
 	line-height: 1.04;
