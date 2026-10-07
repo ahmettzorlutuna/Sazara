@@ -13,12 +13,12 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-// Hero zemini — Customizer'dan seçilmişse o, yoksa tema içindeki gece ofis cephesi fotoğrafı
-// (Unsplash, ücretsiz lisans — Li Zhang; 1920x1080 WebP).
+// Hero zemini — Customizer'dan seçilmişse o, yoksa tema içindeki kurumsal toplantı odası fotoğrafı
+// (Unsplash, ücretsiz lisans — wEi2LkDF8LY, kırpılmış; 1920x1080 WebP).
 $hero_img_id  = get_theme_mod( 'sazara_hero_image' );
 $hero_img_src = $hero_img_id
 	? wp_get_attachment_image_url( $hero_img_id, 'sazara-hero' )
-	: SAZARA_URI . '/assets/images/hero-office.webp';
+	: SAZARA_URI . '/assets/images/hero-boardroom.webp';
 
 // Hizmet verdiğimiz firmalar — anasayfa logo marquee (sosyal kanıt).
 // Ürün markaları (Hikvision vb.) Referanslar sayfasında; bu ayrı liste.
@@ -38,11 +38,11 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 			<h1 class="hero__title hero__title--wide"><?php
 				printf(
 					/* translators: %s: vurgulu kısım */
-					wp_kses_post( __( '%s ve <em>Yapay Zeka Destekli Yazılım Çözümleri</em>', 'sazara' ) ),
+					wp_kses_post( __( '%s, <em>Yeni Nesil Personel ve Hakediş Yönetimi</em>', 'sazara' ) ),
 					esc_html__( 'Kurumsal Bilişim Altyapısı', 'sazara' )
 				);
 			?></h1>
-			<p class="hero__lead"><?php esc_html_e( 'Kendi yapay zeka destekli SaaS ürünlerimizi geliştiriyor, aynı mühendislikle kamera, ağ ve kablosuz alarm altyapılarını kuruyoruz — yazılım ve donanım tek çatı altında.', 'sazara' ); ?></p>
+			<p class="hero__lead"><?php esc_html_e( 'Kendi SaaS ürünlerimizi geliştiriyor, aynı mühendislikle kamera, ağ ve kablosuz alarm altyapılarını kuruyoruz — yazılım ve donanım tek çatı altında.', 'sazara' ); ?></p>
 
 			<a href="#sazara-pdks" class="hero__product">
 				<span class="hero__product-badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
@@ -85,9 +85,9 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<?php esc_html_e( 'Flagship ürün · B2B SaaS', 'sazara' ); ?>
 					<span class="pdks__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
 				</span>
-				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Sazara PDKS: Yapay Zeka ile Personel ve Hakediş Yönetimi', 'sazara' ); ?></h2>
+				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Sazara PDKS: Yeni Nesil Personel ve Hakediş Yönetimi', 'sazara' ); ?></h2>
 				<p class="pdks__tagline"><?php esc_html_e( 'Hatasız hakediş hesabı için tasarlandı.', 'sazara' ); ?></p>
-				<p class="pdks__lead"><?php esc_html_e( 'Vardiya, fazla mesai, izin ve bordro kuralları legacy PDKS yazılımlarında elle girilen formüllere ve tablolara bağlıdır; her istisna yeni bir hata kaynağıdır. Sazara PDKS, karmaşık mesai ve hakediş hesaplamalarını Claude AI motoruyla yürütür: iş kurallarınızı anlar, her puantaj kaydını çalışma düzeniniz ve yasal çerçeveye göre değerlendirir, tutarsızlıkları bordroya yansımadan işaretler.', 'sazara' ); ?></p>
+				<p class="pdks__lead"><?php esc_html_e( 'Vardiya, fazla mesai, izin ve bordro kuralları legacy PDKS yazılımlarında elle girilen formüllere ve tablolara bağlıdır; her istisna yeni bir hata kaynağıdır. Sazara PDKS, mesai ve hakediş hesaplamalarını açıklanabilir, kural tabanlı gelişmiş bir mühendislik altyapısıyla yürütür: aynı girdi her zaman aynı sonucu verir, her kalem hangi kurala dayandığını gösterir, tutarsızlıklar bordroya yansımadan işaretlenir.', 'sazara' ); ?></p>
 			</header>
 
 			<div class="pdks__stage reveal">
@@ -96,8 +96,8 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<?php if ( $pdks_has_img ) : ?>
 						<img class="pdks__shot"
 						     src="<?php echo esc_url( SAZARA_URI . '/' . $pdks_img_rel ); ?>"
-						     alt="<?php esc_attr_e( 'Sazara PDKS yönetim paneli — puantaj, mesai ve hakediş özeti', 'sazara' ); ?>"
-						     width="1600" height="1000" loading="lazy" decoding="async">
+						     alt="<?php esc_attr_e( 'Sazara PDKS yönetim paneli — genel bakış, kim nerede ve cihaz durumu', 'sazara' ); ?>"
+						     width="1800" height="1014" loading="lazy" decoding="async">
 					<?php else : ?>
 						<?php // Görsel eklenene kadar placeholder: assets/images/pdks-dashboard.webp ?>
 						<div class="pdks__shot pdks__shot--placeholder" role="img" aria-label="<?php esc_attr_e( 'Sazara PDKS yönetim paneli önizlemesi', 'sazara' ); ?>">
@@ -112,8 +112,8 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span class="pdks__card-icon" aria-hidden="true">
 						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
 					</span>
-					<h3 class="pdks__card-title"><?php esc_html_e( 'AI-Powered Engine', 'sazara' ); ?></h3>
-					<p class="pdks__card-desc"><?php esc_html_e( 'Claude ile karmaşık mesai, vardiya ve hakediş hesaplamaları; kural istisnalarını anlayan, açıklanabilir sonuçlar üreten motor.', 'sazara' ); ?></p>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'Deterministik Hesaplama Motoru', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Kural tabanlı, açıklanabilir hesaplama: aynı girdi her zaman aynı sonucu verir. Bilgi eksikse tutar uydurmaz, "hesaplanmadı" der.', 'sazara' ); ?></p>
 				</li>
 				<li class="pdks__card reveal">
 					<span class="pdks__card-icon" aria-hidden="true">
@@ -136,9 +136,129 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<span><?php esc_html_e( 'Platforma Git (pdks.sazara.com.tr)', 'sazara' ); ?></span>
 					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
 				</a>
-				<span class="pdks__cta-note"><?php esc_html_e( 'Claude altyapılı · Çoklu şube · Bulut tabanlı', 'sazara' ); ?></span>
+				<span class="pdks__cta-note"><?php esc_html_e( 'Kural tabanlı · Çoklu şube · Bulut tabanlı', 'sazara' ); ?></span>
 			</div>
 
+		</div>
+	</section>
+
+	<!-- ════════ SAZARA PDKS — ÖZELLİK SATIRLARI ════════ -->
+	<?php
+	// Her satır: görsel dosyası theme/sazara/assets/images/ altına konunca otomatik görünür.
+	$pdks_rows = [
+		[
+			'tag'   => __( 'Cihaz entegrasyonu', 'sazara' ),
+			'title' => __( 'Cihaz kaydı kendisi gönderir.', 'sazara' ),
+			'desc'  => __( 'Terminaller her okutmayı internet üzerinden Sazara\'ya iletir. Port yönlendirme ya da sabit IP gerekmez; cihazın internete çıkabilmesi yeterli.', 'sazara' ),
+			'items' => [
+				__( 'Hikvision terminallerle sahada doğrulandı', 'sazara' ),
+				__( 'Eşleşmemiş kayıtlar kaybolmaz; numara bağlanınca geçmişe dönük çalışana işlenir', 'sazara' ),
+				__( 'Cihazın ne zamandan beri sessiz olduğu panelde görünür', 'sazara' ),
+				__( 'Cihaz kurulumu ve yazılım aynı ekipten', 'sazara' ),
+			],
+			'note'  => '',
+			'image' => 'pdks-cihazlar.webp',
+			'alt'   => __( 'Sazara PDKS cihazlar sayfası — bağlı terminaller ve durum göstergeleri', 'sazara' ),
+			'label' => __( 'Cihazlar', 'sazara' ),
+		],
+		[
+			'tag'   => __( 'Çalışma düzeni', 'sazara' ),
+			'title' => __( 'Çalışma saatlerini 1 dakikada kurun.', 'sazara' ),
+			'desc'  => __( 'Basit düzenler için sihirbaz, karmaşık düzenler için vardiya, plan ve atama. Her değişiklik bugünden itibaren geçerli olur, geçmiş bozulmaz.', 'sazara' ),
+			'items' => [
+				__( 'Sihirbazla ilk mesai düzeni dakikalar içinde hazır', 'sazara' ),
+				__( 'Ayarlar sürümlüdür: geçmiş günler o günkü düzenle hesaplanır', 'sazara' ),
+				__( 'Gece vardiyası, dünden süren kayıtla doğru gösterilir', 'sazara' ),
+				__( 'Tatil günleri ve izinler aynı takvimde', 'sazara' ),
+			],
+			'note'  => '',
+			'image' => 'pdks-calisma-duzeni.webp',
+			'alt'   => __( 'Sazara PDKS çalışma saatleri sihirbazı', 'sazara' ),
+			'label' => __( 'Çalışma saatleri', 'sazara' ),
+		],
+		[
+			'tag'   => __( 'Hakediş', 'sazara' ),
+			'title' => __( 'Kapanan aydan kalem kalem hakediş.', 'sazara' ),
+			'desc'  => __( 'Dönemi kapatın, taslağı hesaplayın, kişi kişi kontrol edin, kesinleştirin. Kesinleşen hakediş değişmez; yanlışsa gerekçeyle geri alınır.', 'sazara' ),
+			'items' => [
+				__( 'Normal ücret, fazla çalışma, tatil çalışması, gece zammı ve kesintiler ayrı kalemlerde', 'sazara' ),
+				__( 'Tutarlar kuruş hassasiyetiyle, ara adımda yuvarlama olmadan hesaplanır', 'sazara' ),
+				__( 'Excel, CSV ve Logo aktarım dosyası çıktısı', 'sazara' ),
+			],
+			'note'  => __( 'Pro pakette. Brüt hakediş ve puantaj üretir; bordro yerine geçmez.', 'sazara' ),
+			'image' => 'pdks-hakedis.webp',
+			'alt'   => __( 'Sazara PDKS hakediş ay sayfası — kişi bazında kalem kalem hakediş', 'sazara' ),
+			'label' => __( 'Raporlar › Hakediş', 'sazara' ),
+		],
+		[
+			'tag'   => __( 'Denetim', 'sazara' ),
+			'title' => __( 'Her kayıt kanıt değeri taşır.', 'sazara' ),
+			'desc'  => __( 'Cihazdan gelen kayıt hiçbir koşulda silinmez ya da değiştirilmez. Düzeltmeler ayrı kayıt olarak girer ve izi kalır.', 'sazara' ),
+			'items' => [
+				__( 'Elle düzeltme ayrı kayıttır; gerekçesi yazılır, geri alınabilir', 'sazara' ),
+				__( 'Silmek yerine iptal: kim, ne zaman, neden bilgisi saklanır', 'sazara' ),
+				__( 'Kapatılan döneme yazılamaz', 'sazara' ),
+				__( 'Panelde yapılan her işlem silinemez işlem geçmişine yazılır', 'sazara' ),
+			],
+			'note'  => '',
+			'image' => 'pdks-islem-gecmisi.webp',
+			'alt'   => __( 'Sazara PDKS işlem geçmişi — kim, ne zaman, ne yaptı', 'sazara' ),
+			'label' => __( 'Ayarlar › İşlem geçmişi', 'sazara' ),
+		],
+		[
+			'tag'   => __( 'Uyum', 'sazara' ),
+			'title' => __( 'Biyometrik veri saklamaz.', 'sazara' ),
+			'desc'  => __( 'Sazara PDKS parmak izi ya da yüz şablonu ve görüntü saklamaz. Cihazlarda doğrulama modunun yalnızca kart olması önerilir.', 'sazara' ),
+			'items' => [
+				__( 'Biyometriyi kabul edecek şekilde ayarlı cihaz, kurulum kutusunda uyarıyla işaretlenir', 'sazara' ),
+				__( 'Çalışanlar panele girmez; kayıtları yalnızca firmanın yönetici kullanıcıları yönetir', 'sazara' ),
+				__( 'Uyum raporu ile eksik ve riskli kayıtlar görünür', 'sazara' ),
+			],
+			'note'  => __( 'Bu bir hukuki görüş değildir; kararınızdan önce hukuk müşavirinize danışın.', 'sazara' ),
+			'image' => 'pdks-uyum.webp',
+			'alt'   => __( 'Sazara PDKS uyum raporu', 'sazara' ),
+			'label' => __( 'Raporlar › Uyum raporu', 'sazara' ),
+		],
+	];
+	?>
+	<section class="section pdks-rows" id="pdks-ozellikler" aria-label="<?php esc_attr_e( 'Sazara PDKS özellikleri', 'sazara' ); ?>">
+		<div class="wrap">
+			<?php foreach ( $pdks_rows as $i => $row ) : ?>
+				<?php
+				$row_img_rel = 'assets/images/' . $row['image'];
+				$row_has_img = file_exists( SAZARA_DIR . '/' . $row_img_rel );
+				?>
+				<article class="pdks-row<?php echo 0 === $i % 2 ? '' : ' pdks-row--flip'; ?> reveal">
+					<div class="pdks-row__copy">
+						<span class="pdks-row__tag"><?php echo esc_html( sprintf( '%02d — %s', $i + 1, $row['tag'] ) ); ?></span>
+						<h3 class="pdks-row__title"><?php echo esc_html( $row['title'] ); ?></h3>
+						<p class="pdks-row__desc"><?php echo esc_html( $row['desc'] ); ?></p>
+						<ul class="pdks-row__list" role="list">
+							<?php foreach ( $row['items'] as $item ) : ?>
+								<li><?php echo esc_html( $item ); ?></li>
+							<?php endforeach; ?>
+						</ul>
+						<?php if ( '' !== $row['note'] ) : ?>
+							<p class="pdks-row__note"><?php echo esc_html( $row['note'] ); ?></p>
+						<?php endif; ?>
+					</div>
+					<div class="pdks-row__media">
+						<div class="pdks__frame">
+							<div class="pdks__frame-bar" aria-hidden="true"><?php echo esc_html( $row['label'] ); ?></div>
+							<?php if ( $row_has_img ) : ?>
+								<img class="pdks__shot"
+								     src="<?php echo esc_url( SAZARA_URI . '/' . $row_img_rel ); ?>"
+								     alt="<?php echo esc_attr( $row['alt'] ); ?>"
+								     loading="lazy" decoding="async">
+							<?php else : ?>
+								<div class="pdks__shot pdks__shot--placeholder pdks__shot--row" role="img" aria-label="<?php echo esc_attr( $row['alt'] ); ?>">
+									<span><?php echo esc_html( $row['label'] ); ?></span>
+								</div>
+							<?php endif; ?>
+						</div>
+					</div>
+				</article>
+			<?php endforeach; ?>
 		</div>
 	</section>
 
@@ -222,7 +342,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 						<ul class="service-card__specs">
 							<li>4K · IR</li><li>WDR</li><li>AI tespit</li><li>Çoklu lokasyon</li>
 						</ul>
-						<p class="service-card__soft"><span>&lt;/&gt; Yazılım katmanı</span> <?php esc_html_e( 'Merkezi izleme paneli · AI olay analitiği · mobil bildirim', 'sazara' ); ?></p>
+						<p class="service-card__soft"><span>&lt;/&gt; Yazılım katmanı</span> <?php esc_html_e( 'Merkezi izleme paneli · olay raporlama · mobil bildirim', 'sazara' ); ?></p>
 						<a href="<?php echo esc_url( home_url( '/hizmetler/kamera-sistemleri/' ) ); ?>" class="service-card__cta"><?php esc_html_e( 'İncele', 'sazara' ); ?></a>
 					</div>
 				</li>
@@ -271,7 +391,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 						<h3 class="service-card__title"><?php esc_html_e( 'Yazılım Geliştirme', 'sazara' ); ?></h3>
 						<p class="service-card__desc"><?php esc_html_e( 'Müşteri portalından çoklu lokasyon yönetim panellerine, plaka tanımadan saha entegrasyonuna — ihtiyaca özel web ve mobil yazılım.', 'sazara' ); ?></p>
 						<ul class="service-card__specs">
-							<li>Web · mobil</li><li>API</li><li>AI · analitik</li>
+							<li>Web · mobil</li><li>API</li><li>Analitik</li>
 						</ul>
 						<a href="<?php echo esc_url( home_url( '/hizmetler/yazilim-gelistirme/' ) ); ?>" class="service-card__cta"><?php esc_html_e( 'İncele', 'sazara' ); ?></a>
 					</div>
@@ -310,7 +430,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<ul class="diagram__caps" role="list" aria-label="<?php esc_attr_e( 'Yazılım yeteneklerimiz', 'sazara' ); ?>">
 					<li><?php esc_html_e( 'Web &amp; mobil paneller', 'sazara' ); ?></li>
 					<li><?php esc_html_e( 'API &amp; saha entegrasyonu', 'sazara' ); ?></li>
-					<li><?php esc_html_e( 'AI olay analitiği', 'sazara' ); ?></li>
+					<li><?php esc_html_e( 'Olay raporlama &amp; analitik', 'sazara' ); ?></li>
 					<li><?php esc_html_e( 'B2B SaaS · Sazara PDKS', 'sazara' ); ?></li>
 				</ul>
 			</div>

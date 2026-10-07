@@ -15,7 +15,7 @@ add_action(
 
         $desc = '';
         if ( is_front_page() || is_home() ) {
-            $desc = 'Sazara Teknoloji — kurumsal bilişim altyapısı (CCTV, ağ, Ajax kablosuz alarm) kuran ve Claude destekli B2B SaaS ürünü Sazara PDKS’i geliştiren İstanbul merkezli teknoloji şirketi.';
+            $desc = 'Sazara Teknoloji — kurumsal bilişim altyapısı (CCTV, ağ, Ajax kablosuz alarm) kuran ve B2B SaaS ürünü Sazara PDKS’i (personel devam ve hakediş yönetimi) geliştiren İstanbul merkezli teknoloji şirketi.';
         } elseif ( is_singular() ) {
             $desc = wp_strip_all_tags( get_the_excerpt() );
             if ( empty( $desc ) ) {

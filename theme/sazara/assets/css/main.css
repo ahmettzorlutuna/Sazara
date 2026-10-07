@@ -5203,15 +5203,12 @@ body { padding-top: 0; }
 .hero__cta-row { animation-delay: 1.2s; }
 
 /* ═══════════════════ SAZARA PDKS — flagship ürün bölümü ═══════════════════
-   Koyu (--ink) düz zemin; kartlar servis kartlarıyla aynı dilde (paper + rule + radius-lg). */
+   Sitenin diğer bölümleriyle aynı açık dil: canvas zemin, paper kartlar, --rule kenarlık. */
 
 .pdks {
 	padding-block: var(--space-section);
-	border-top: 1px solid oklch(99% 0 0 / 0.08);
-	background:
-		radial-gradient(ellipse 70% 45% at 85% 0%, oklch(52% 0.22 260 / 0.16), transparent 70%),
-		linear-gradient(180deg, var(--ink) 0%, oklch(17% 0.014 260) 100%);
-	color: var(--paper);
+	background: var(--canvas);
+	color: var(--ink);
 	scroll-margin-top: 4.5rem;
 }
 
@@ -5222,7 +5219,6 @@ body { padding-top: 0; }
 	max-width: 56rem;
 	margin-bottom: var(--space-lg);
 }
-.pdks__lead { max-width: 62ch; }
 
 .pdks__eyebrow {
 	display: inline-flex;
@@ -5233,7 +5229,7 @@ body { padding-top: 0; }
 	font-weight: 500;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: oklch(72% 0.17 260);
+	color: var(--accent);
 }
 .pdks__eyebrow::before {
 	content: "";
@@ -5244,45 +5240,50 @@ body { padding-top: 0; }
 
 .pdks__title {
 	margin: 0;
+	max-width: 22ch;
 	font-size: var(--text-h2);
 	font-weight: 500;
 	line-height: 1.04;
 	letter-spacing: -0.03em;
 	text-wrap: balance;
 }
-.pdks__title { max-width: 22ch; }
+
 .pdks__tagline {
 	margin: 0.25rem 0 0;
 	font-size: var(--text-lead);
 	font-weight: 500;
 	letter-spacing: -0.01em;
-	color: oklch(72% 0.17 260);
+	color: var(--accent);
 }
 
 .pdks__lead {
 	margin: 0;
+	max-width: 62ch;
 	font-size: var(--text-lead);
 	line-height: 1.55;
-	color: oklch(99% 0 0 / 0.68);
+	color: var(--ink-soft);
 }
 
 .pdks__frame {
-	border: 1px solid oklch(99% 0 0 / 0.12);
+	border: 1px solid var(--rule);
 	border-radius: var(--radius-lg);
-	background: oklch(20% 0.01 260);
+	background: var(--paper);
 	overflow: hidden;
+	box-shadow: 0 20px 48px oklch(13% 0 0 / 0.08), 0 4px 12px oklch(13% 0 0 / 0.04);
 }
 .pdks__frame-bar {
 	padding: 0.7rem 1.1rem;
-	border-bottom: 1px solid oklch(99% 0 0 / 0.08);
+	border-bottom: 1px solid var(--rule);
+	background: var(--canvas);
 	font-family: var(--font-mono);
 	font-size: 0.7rem;
 	letter-spacing: 0.06em;
-	color: oklch(99% 0 0 / 0.4);
+	color: var(--ink-mute);
 }
 .pdks__shot {
 	display: block;
 	width: 100%;
+	height: auto;
 	aspect-ratio: 16 / 9;
 	object-fit: cover;
 	object-position: top;
@@ -5295,7 +5296,7 @@ body { padding-top: 0; }
 	font-size: 0.72rem;
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
-	color: oklch(99% 0 0 / 0.3);
+	color: var(--ink-mute);
 }
 
 .pdks__features {
@@ -5310,18 +5311,16 @@ body { padding-top: 0; }
 	flex-direction: column;
 	gap: 0.85rem;
 	padding: clamp(1.5rem, 1rem + 1vw, 2rem);
-	background: oklch(99% 0 0 / 0.05);
-	color: var(--paper);
-	border: 1px solid oklch(99% 0 0 / 0.1);
+	background: var(--paper);
+	color: var(--ink);
+	border: 1px solid var(--rule);
 	border-radius: var(--radius-lg);
-	-webkit-backdrop-filter: blur(14px);
-	backdrop-filter: blur(14px);
-	transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+	transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 .pdks__card:hover {
 	transform: translateY(-4px);
-	background: oklch(99% 0 0 / 0.08);
-	border-color: oklch(78% 0.14 235 / 0.45);
+	border-color: var(--ink-2);
+	box-shadow: 0 20px 48px oklch(13% 0 0 / 0.08), 0 4px 12px oklch(13% 0 0 / 0.04);
 }
 .pdks__card-icon {
 	display: grid;
@@ -5329,8 +5328,8 @@ body { padding-top: 0; }
 	width: 2.5rem;
 	height: 2.5rem;
 	border-radius: var(--radius-md);
-	background: oklch(52% 0.22 260 / 0.22);
-	color: oklch(82% 0.12 225);
+	background: var(--accent-tint);
+	color: var(--accent);
 }
 .pdks__card-title {
 	margin: 0;
@@ -5338,13 +5337,12 @@ body { padding-top: 0; }
 	font-weight: 500;
 	line-height: 1.15;
 	letter-spacing: -0.025em;
-	color: var(--paper);
 }
 .pdks__card-desc {
 	margin: 0;
 	font-size: var(--text-body);
 	line-height: 1.55;
-	color: oklch(99% 0 0 / 0.68);
+	color: var(--ink-soft);
 }
 
 .pdks__cta {
@@ -5359,7 +5357,7 @@ body { padding-top: 0; }
 	font-size: 0.72rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: oklch(99% 0 0 / 0.5);
+	color: var(--ink-mute);
 }
 
 @media (min-width: 60rem) {
@@ -5452,7 +5450,7 @@ body { padding-top: 0; }
 /* ═══════════════════ Hero — fotoğraf üstü okunabilirlik + açık vurgu ═══════════════════ */
 .hero__media::after {
 	background:
-		linear-gradient(90deg, oklch(13% 0.01 260 / 0.82) 0%, oklch(13% 0.01 260 / 0.5) 45%, oklch(13% 0.01 260 / 0.15) 100%),
+		linear-gradient(90deg, oklch(13% 0.01 260 / 0.7) 0%, oklch(13% 0.01 260 / 0.4) 45%, oklch(13% 0.01 260 / 0.1) 100%),
 		linear-gradient(to bottom,
 			oklch(13% 0 0 / 0.25) 0%,
 			oklch(13% 0 0 / 0.35) 40%,
@@ -5485,4 +5483,105 @@ body { padding-top: 0; }
 	top: 50%;
 	transform: translateY(-50%);
 	right: -0.7rem;
+}
+
+
+/* ═══════════════════ SAZARA PDKS — özellik satırları (zikzak) ═══════════════════ */
+.pdks-rows { background: var(--paper); }
+
+.pdks-row {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-md);
+	align-items: center;
+}
+.pdks-row + .pdks-row { margin-top: var(--space-xl); }
+
+.pdks-row__copy {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+	max-width: 34rem;
+}
+
+.pdks-row__tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-family: var(--font-mono);
+	font-size: 0.78rem;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+.pdks-row__tag::before {
+	content: "";
+	width: 1.75rem;
+	height: 1px;
+	background: var(--accent);
+}
+
+.pdks-row__title {
+	margin: 0;
+	font-size: var(--text-h3);
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: -0.025em;
+	text-wrap: balance;
+}
+
+.pdks-row__desc {
+	margin: 0;
+	font-size: var(--text-body);
+	line-height: 1.55;
+	color: var(--ink-soft);
+}
+
+.pdks-row__list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	margin: 0.5rem 0 0;
+}
+.pdks-row__list li {
+	position: relative;
+	padding-inline-start: 1.5rem;
+	font-size: var(--text-sm);
+	line-height: 1.5;
+	color: var(--ink-2);
+}
+.pdks-row__list li::before {
+	content: "";
+	position: absolute;
+	inset-inline-start: 0;
+	top: 0.35em;
+	width: 0.7rem;
+	height: 0.4rem;
+	border-left: 1.5px solid var(--accent);
+	border-bottom: 1.5px solid var(--accent);
+	transform: rotate(-45deg);
+}
+
+.pdks-row__note {
+	margin: 0.5rem 0 0;
+	padding-top: 0.85rem;
+	border-top: 1px solid var(--rule);
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.04em;
+	line-height: 1.5;
+	color: var(--ink-mute);
+}
+
+.pdks__shot--row { aspect-ratio: 16 / 10; }
+
+@media (min-width: 60rem) {
+	.pdks-row {
+		grid-template-columns: 5fr 7fr;
+		gap: var(--space-xl);
+	}
+	.pdks-row--flip { grid-template-columns: 7fr 5fr; }
+	.pdks-row--flip .pdks-row__copy { order: 2; }
+	.pdks-row--flip .pdks-row__media { order: 1; }
 }
