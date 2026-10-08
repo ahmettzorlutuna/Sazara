@@ -131,6 +131,18 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				</li>
 			</ul>
 
+			<aside class="pdks__roadmap reveal" aria-labelledby="pdks-roadmap-title">
+				<div class="pdks__roadmap-tag">
+					<span class="pdks__roadmap-badge"><?php esc_html_e( 'Yol haritası', 'sazara' ); ?></span>
+					<span class="pdks__roadmap-status"><?php esc_html_e( 'Geliştirme aşamasında', 'sazara' ); ?></span>
+				</div>
+				<div class="pdks__roadmap-body">
+					<h3 class="pdks__roadmap-title" id="pdks-roadmap-title"><?php esc_html_e( 'Gelecek vizyonumuz: AI destekli İK asistanı', 'sazara' ); ?></h3>
+					<p class="pdks__roadmap-desc"><?php esc_html_e( 'Claude API entegrasyonu ile yöneticilerin karmaşık vardiya kurallarını doğal dille sisteme tanımlayabileceği ve devamlılık verilerini analiz edebileceği bir asistan üzerinde çalışıyoruz.', 'sazara' ); ?></p>
+					<p class="pdks__roadmap-note"><?php esc_html_e( 'Bu özellik henüz canlı sistemde yoktur. Bugünkü hakediş hesabı %100 kural tabanlıdır (deterministik).', 'sazara' ); ?></p>
+				</div>
+			</aside>
+
 			<div class="pdks__cta reveal">
 				<a href="<?php echo esc_url( SAZARA_PDKS_URL ); ?>" class="btn btn--accent" target="_blank" rel="noopener">
 					<span><?php esc_html_e( 'Platforma Git (pdks.sazara.com.tr)', 'sazara' ); ?></span>

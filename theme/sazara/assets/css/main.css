@@ -5368,6 +5368,70 @@ body { padding-top: 0; }
 	.hero__product { opacity: 1; animation: none; }
 }
 
+/* PDKS — yol haritası kartı (henüz canlı olmayan vizyon; kesik çizgiyle ayrışır) */
+.pdks__roadmap {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-sm);
+	margin-top: var(--space-md);
+	padding: clamp(1.5rem, 1rem + 1vw, 2rem);
+	background: var(--accent-tint);
+	border: 1px dashed oklch(52% 0.22 260 / 0.5);
+	border-radius: var(--radius-lg);
+}
+.pdks__roadmap-tag {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.6rem;
+	align-self: start;
+}
+.pdks__roadmap-badge {
+	display: inline-flex;
+	padding: 0.2rem 0.55rem;
+	border-radius: var(--radius-pill);
+	background: var(--accent);
+	color: var(--paper);
+	font-family: var(--font-mono);
+	font-size: 0.625rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+.pdks__roadmap-status {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--accent-deep);
+}
+.pdks__roadmap-title {
+	margin: 0 0 0.5rem;
+	font-size: var(--text-h4);
+	font-weight: 500;
+	line-height: 1.15;
+	letter-spacing: -0.025em;
+}
+.pdks__roadmap-desc {
+	margin: 0;
+	max-width: 62ch;
+	font-size: var(--text-body);
+	line-height: 1.55;
+	color: var(--ink-2);
+}
+.pdks__roadmap-note {
+	margin: 0.75rem 0 0;
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.04em;
+	line-height: 1.5;
+	color: var(--ink-soft);
+}
+@media (min-width: 60rem) {
+	.pdks__roadmap { grid-template-columns: 12rem 1fr; gap: var(--space-md); align-items: start; }
+	.pdks__roadmap-tag { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+}
+
 /* ═══════════════════ NAV — hizalama düzeltmeleri ═══════════════════
    Menüye 7. öğe (Sazara PDKS + rozet) eklenince flex satırı daralıp metinler
    alt alta kırılıyor, nav yüksekliği ve "Teklif al" butonu şişiyordu.
