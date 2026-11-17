@@ -93,9 +93,9 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 			<figure class="pdks__video reveal">
 				<div class="pdks__frame">
 					<video class="pdks__video-player" controls playsinline preload="none" width="1920" height="1080"
-					       poster="<?php echo esc_url( SAZARA_URI . '/assets/video/sazara-pdks-tanitim-kapak.webp' ); ?>"
+					       poster="<?php echo esc_url( sazara_asset_url( 'assets/video/sazara-pdks-tanitim-kapak.webp' ) ); ?>"
 					       aria-label="<?php esc_attr_e( 'Sazara PDKS tanıtım videosu, 33 saniye', 'sazara' ); ?>">
-						<source src="<?php echo esc_url( SAZARA_URI . '/assets/video/sazara-pdks-tanitim.mp4' ); ?>" type="video/mp4">
+						<source src="<?php echo esc_url( sazara_asset_url( 'assets/video/sazara-pdks-tanitim.mp4' ) ); ?>" type="video/mp4">
 					</video>
 				</div>
 				<figcaption class="pdks__video-note"><?php esc_html_e( 'Sesli izleyin: 33 saniye.', 'sazara' ); ?></figcaption>
@@ -106,7 +106,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					<div class="pdks__frame-bar" aria-hidden="true">pdks.sazara.com.tr</div>
 					<?php if ( $pdks_has_img ) : ?>
 						<img class="pdks__shot"
-						     src="<?php echo esc_url( SAZARA_URI . '/' . $pdks_img_rel ); ?>"
+						     src="<?php echo esc_url( sazara_asset_url( $pdks_img_rel ) ); ?>"
 						     alt="<?php esc_attr_e( 'Sazara PDKS yönetim paneli — genel bakış, kim nerede ve cihaz durumu', 'sazara' ); ?>"
 						     width="1800" height="1014" loading="lazy" decoding="async">
 					<?php else : ?>
@@ -259,7 +259,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 							<div class="pdks__frame-bar" aria-hidden="true"><?php echo esc_html( $row['label'] ); ?></div>
 							<?php if ( $row_has_img ) : ?>
 								<img class="pdks__shot"
-								     src="<?php echo esc_url( SAZARA_URI . '/' . $row_img_rel ); ?>"
+								     src="<?php echo esc_url( sazara_asset_url( $row_img_rel ) ); ?>"
 								     alt="<?php echo esc_attr( $row['alt'] ); ?>"
 								     loading="lazy" decoding="async">
 							<?php else : ?>

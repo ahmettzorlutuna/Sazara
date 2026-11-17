@@ -124,21 +124,30 @@ add_filter(
 );
 
 /**
- * Ajax logosunun URL'i — dosya değişimi başına cache-bust'lı.
+ * Tema içi bir dosyanın URL'i — dosya değişimi başına cache-bust'lı (?v=filemtime).
  *
- * CSS/JS filemtime ile versiyonlanıyor (bkz. inc/enqueue.php) ama <img>
- * src'leri versiyonsuzdu: logo dosyası değişince tarayıcı — özellikle
- * mobil — eski kopyayı göstermeye devam ediyordu.
+ * CSS/JS filemtime ile versiyonlanıyor (bkz. inc/enqueue.php) ama <img>/<video>
+ * src'leri versiyonsuzdu: dosya aynı adla değişince Cloudflare ve tarayıcı
+ * (max-age 4 saat) eski kopyayı göstermeye devam ediyordu.
  *
+ * @param string $relative Tema köküne göre yol, örn. 'assets/images/pdks-uyum.webp'.
  * @return string
  */
-function sazara_ajax_logo_url() {
-	$relative = 'assets/logos/partners/ajax-official.png';
-	$version  = @filemtime( SAZARA_DIR . '/' . $relative );
+function sazara_asset_url( $relative ) {
+	$version = @filemtime( SAZARA_DIR . '/' . $relative );
 
 	$url = get_theme_file_uri( $relative );
 
 	return $version ? add_query_arg( 'v', $version, $url ) : $url;
+}
+
+/**
+ * Ajax logosunun URL'i — dosya değişimi başına cache-bust'lı.
+ *
+ * @return string
+ */
+function sazara_ajax_logo_url() {
+	return sazara_asset_url( 'assets/logos/partners/ajax-official.png' );
 }
 
 /**
