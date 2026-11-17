@@ -124,21 +124,60 @@ add_filter(
 );
 
 /**
- * Tema içi bir dosyanın URL'i — dosya değişimi başına cache-bust'lı (?v=filemtime).
+ * Sitedeki bir görsel/medya URL'ine dosya değişimi başına cache-bust ekler (?v=filemtime).
  *
  * CSS/JS filemtime ile versiyonlanıyor (bkz. inc/enqueue.php) ama <img>/<video>
  * src'leri versiyonsuzdu: dosya aynı adla değişince Cloudflare ve tarayıcı
  * (max-age 4 saat) eski kopyayı göstermeye devam ediyordu.
  *
+ * Kabul eder: kök-göreli ('/wp-content/uploads/photos/x.jpg') ya da bu sitenin
+ * tam URL'i (wp_get_attachment_image_url çıktısı). Yalnız uploads/ ve tema
+ * klasörü altındaki, diskte bulunan dosyalara ?v= eklenir. Harici URL, zaten
+ * query'si olan URL ya da bulunamayan dosya olduğu gibi döner — biçim (göreli/tam)
+ * korunur.
+ *
+ * @param string $url Görsel URL'i.
+ * @return string
+ */
+function sazara_versioned_url( $url ) {
+	if ( ! is_string( $url ) || '' === $url ) {
+		return '';
+	}
+
+	$parts = wp_parse_url( $url );
+	if ( empty( $parts['path'] ) || isset( $parts['query'] ) ) {
+		return $url;
+	}
+	if ( ! empty( $parts['host'] ) && wp_parse_url( home_url(), PHP_URL_HOST ) !== $parts['host'] ) {
+		return $url;
+	}
+
+	// URL yolu → diskteki kök. Sıra önemli değil; ikisi çakışmaz.
+	$roots = [
+		wp_parse_url( content_url( 'uploads' ), PHP_URL_PATH ) => WP_CONTENT_DIR . '/uploads',
+		wp_parse_url( SAZARA_URI, PHP_URL_PATH )                => SAZARA_DIR,
+	];
+
+	foreach ( $roots as $url_root => $dir ) {
+		$prefix = untrailingslashit( (string) $url_root ) . '/';
+		if ( 0 !== strpos( $parts['path'], $prefix ) ) {
+			continue;
+		}
+		$version = @filemtime( $dir . '/' . rawurldecode( substr( $parts['path'], strlen( $prefix ) ) ) );
+		return $version ? add_query_arg( 'v', $version, $url ) : $url;
+	}
+
+	return $url;
+}
+
+/**
+ * Tema içi bir dosyanın cache-bust'lı URL'i.
+ *
  * @param string $relative Tema köküne göre yol, örn. 'assets/images/pdks-uyum.webp'.
  * @return string
  */
 function sazara_asset_url( $relative ) {
-	$version = @filemtime( SAZARA_DIR . '/' . $relative );
-
-	$url = get_theme_file_uri( $relative );
-
-	return $version ? add_query_arg( 'v', $version, $url ) : $url;
+	return sazara_versioned_url( get_theme_file_uri( $relative ) );
 }
 
 /**

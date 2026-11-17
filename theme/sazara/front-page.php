@@ -30,7 +30,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 	<!-- ════════ HERO ════════ -->
 	<section class="hero">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_img_src ); ?>" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_img_src ) ); ?>" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
 		</div>
 
 		<div class="wrap hero__content">
@@ -316,7 +316,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 						<div class="logo-marquee__item"<?php echo 1 === $pass ? ' aria-hidden="true"' : ''; ?>
 						     title="<?php echo esc_attr( $customer['name'] ); ?>">
 							<?php if ( $customer_img ) : ?>
-								<img src="<?php echo esc_url( $customer_img ); ?>"
+								<img src="<?php echo esc_url( sazara_versioned_url( $customer_img ) ); ?>"
 								     alt="<?php echo esc_attr( $customer['name'] ); ?>"
 								     loading="lazy">
 							<?php else : ?>
@@ -345,7 +345,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<li class="service-card reveal">
 					<a href="<?php echo esc_url( home_url( '/hizmetler/kamera-sistemleri/' ) ); ?>" class="service-card__media">
 						<span class="service-card__tag">CCTV · 4K · IR</span>
-						<img src="<?php echo esc_url( home_url( '/wp-content/uploads/photos/photo-1557597774-9d273605dfa9.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Uniview 4MP turret IP kameralar — kırmızı tuğla cephe montajı', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
+						<img src="<?php echo esc_url( sazara_versioned_url( home_url( '/wp-content/uploads/photos/photo-1557597774-9d273605dfa9.jpg' ) ) ); ?>" alt="<?php esc_attr_e( 'Uniview 4MP turret IP kameralar — kırmızı tuğla cephe montajı', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
 					</a>
 					<div class="service-card__body">
 						<span class="service-card__num">01 / Kamera</span>
@@ -362,7 +362,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<li class="service-card reveal">
 					<a href="<?php echo esc_url( home_url( '/hizmetler/network-it-altyapi/' ) ); ?>" class="service-card__media">
 						<span class="service-card__tag">10G · POE+ · VLAN</span>
-						<img src="/wp-content/uploads/photos/photo-1544197150-b99a580bb7a8.jpg" alt="<?php esc_attr_e( 'Server rack ve network ekipmanları — POE+ switch ve fiber omurga', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
+						<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1544197150-b99a580bb7a8.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Server rack ve network ekipmanları — POE+ switch ve fiber omurga', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
 					</a>
 					<div class="service-card__body">
 						<span class="service-card__num">02 / Network</span>
@@ -379,7 +379,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<li class="service-card reveal">
 					<a href="<?php echo esc_url( home_url( '/hizmetler/ajax-kablosuz-alarm/' ) ); ?>" class="service-card__media">
 						<span class="service-card__tag">Kablosuz · 7 yıl pil</span>
-						<img src="/wp-content/uploads/photos/ajax-iot-market-kart.jpg" alt="<?php esc_attr_e( 'Ajax kablosuz alarm — modern smart kontrol paneli', 'sazara' ); ?>" width="920" height="533" loading="lazy" decoding="async">
+						<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/ajax-iot-market-kart.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Ajax kablosuz alarm — modern smart kontrol paneli', 'sazara' ); ?>" width="920" height="533" loading="lazy" decoding="async">
 					</a>
 					<div class="service-card__body">
 						<span class="service-card__num">03 / Alarm</span>
@@ -396,7 +396,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				<li class="service-card reveal">
 					<a href="<?php echo esc_url( home_url( '/hizmetler/yazilim-gelistirme/' ) ); ?>" class="service-card__media">
 						<span class="service-card__tag">Web · iOS · Android</span>
-						<img src="/wp-content/uploads/photos/photo-1555066931-4365d14bab8c.jpg" alt="<?php esc_attr_e( 'Yazılım geliştirme — çoklu monitör üzerinde kod editörü', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
+						<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1555066931-4365d14bab8c.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Yazılım geliştirme — çoklu monitör üzerinde kod editörü', 'sazara' ); ?>" width="1600" height="1000" loading="lazy" decoding="async">
 					</a>
 					<div class="service-card__body">
 						<span class="service-card__num">04 / Yazılım</span>
@@ -459,7 +459,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 			$atmo_url = '/wp-content/uploads/photos/photo-1497366216548-37526070297c.jpg';
 		}
 		?>
-		<img src="<?php echo esc_url( $atmo_url ); ?>" alt="" loading="lazy">
+		<img src="<?php echo esc_url( sazara_versioned_url( $atmo_url ) ); ?>" alt="" loading="lazy">
 		<div class="atmosphere__caption">
 			<span class="atmosphere__tag"><?php esc_html_e( 'Aykosan · İkitelli', 'sazara' ); ?></span>
 			<h2 class="atmosphere__title"><?php esc_html_e( 'Sahanın içinden, ekibimizle birlikte.', 'sazara' ); ?></h2>
@@ -478,7 +478,7 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 
 			<ul class="bento" role="list">
 				<li class="bento__tile reveal">
-					<img src="/wp-content/uploads/photos/photo-1504917595217-d4dc5ebe6122.jpg" alt="<?php esc_attr_e( 'Fabrika üretim hattı ve makine parkı', 'sazara' ); ?>" loading="lazy" decoding="async">
+					<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1504917595217-d4dc5ebe6122.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Fabrika üretim hattı ve makine parkı', 'sazara' ); ?>" loading="lazy" decoding="async">
 					<div class="bento__caption">
 						<span class="bento__tag"><?php esc_html_e( 'Üretim · Fabrika', 'sazara' ); ?></span>
 						<h3 class="bento__title"><?php esc_html_e( 'Fabrikalar', 'sazara' ); ?></h3>
@@ -486,28 +486,28 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 					</div>
 				</li>
 				<li class="bento__tile reveal">
-					<img src="/wp-content/uploads/photos/photo-1481437156560-3205f6a55735.jpg" alt="<?php esc_attr_e( 'Zincir mağaza iç mekan görüntüsü', 'sazara' ); ?>" loading="lazy" decoding="async">
+					<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1481437156560-3205f6a55735.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Zincir mağaza iç mekan görüntüsü', 'sazara' ); ?>" loading="lazy" decoding="async">
 					<div class="bento__caption">
 						<span class="bento__tag"><?php esc_html_e( 'Perakende', 'sazara' ); ?></span>
 						<h3 class="bento__title"><?php esc_html_e( 'Zincir Mağaza', 'sazara' ); ?></h3>
 					</div>
 				</li>
 				<li class="bento__tile reveal">
-					<img src="/wp-content/uploads/photos/photo-1486325212027-8081e485255e.jpg" alt="<?php esc_attr_e( 'AVM ortak alan ve plaza iç mimari', 'sazara' ); ?>" loading="lazy" decoding="async">
+					<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1486325212027-8081e485255e.jpg' ) ); ?>" alt="<?php esc_attr_e( 'AVM ortak alan ve plaza iç mimari', 'sazara' ); ?>" loading="lazy" decoding="async">
 					<div class="bento__caption">
 						<span class="bento__tag"><?php esc_html_e( 'Kurumsal', 'sazara' ); ?></span>
 						<h3 class="bento__title"><?php esc_html_e( 'AVM &amp; Plaza', 'sazara' ); ?></h3>
 					</div>
 				</li>
 				<li class="bento__tile reveal">
-					<img src="/wp-content/uploads/photos/photo-1604147495798-57beb5d6af73.jpg" alt="<?php esc_attr_e( 'Tek nokta butik dükkan iç görüntüsü', 'sazara' ); ?>" loading="lazy" decoding="async">
+					<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1604147495798-57beb5d6af73.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Tek nokta butik dükkan iç görüntüsü', 'sazara' ); ?>" loading="lazy" decoding="async">
 					<div class="bento__caption">
 						<span class="bento__tag"><?php esc_html_e( 'Tek Nokta', 'sazara' ); ?></span>
 						<h3 class="bento__title"><?php esc_html_e( 'Dükkan', 'sazara' ); ?></h3>
 					</div>
 				</li>
 				<li class="bento__tile reveal">
-					<img src="/wp-content/uploads/photos/photo-1530124566582-a618bc2615dc.jpg" alt="<?php esc_attr_e( 'Lojistik depo koridoru ve raf sistemi', 'sazara' ); ?>" loading="lazy" decoding="async">
+					<img src="<?php echo esc_url( sazara_versioned_url( '/wp-content/uploads/photos/photo-1530124566582-a618bc2615dc.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Lojistik depo koridoru ve raf sistemi', 'sazara' ); ?>" loading="lazy" decoding="async">
 					<div class="bento__caption">
 						<span class="bento__tag"><?php esc_html_e( 'Lojistik', 'sazara' ); ?></span>
 						<h3 class="bento__title"><?php esc_html_e( 'Depo &amp; Ardiye', 'sazara' ); ?></h3>

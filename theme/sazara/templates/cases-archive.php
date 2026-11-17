@@ -52,7 +52,7 @@ get_header();
 	<!-- ════════ HERO ════════ -->
 	<section class="hero hero--compact">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_image ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_image ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 		<div class="wrap hero__content hero__content--compact">
 			<p class="hero__eyebrow"><?php esc_html_e( 'Referanslar · İş listesi', 'sazara' ); ?></p>
@@ -111,13 +111,13 @@ get_header();
 						<div class="logo-marquee__item"<?php echo 1 === $pass ? ' aria-hidden="true"' : ''; ?>
 						     title="<?php echo esc_attr( $client['name'] ); ?>">
 							<?php if ( $brand_img_url ) : ?>
-								<img src="<?php echo esc_url( $brand_img_url ); ?>"
+								<img src="<?php echo esc_url( sazara_versioned_url( $brand_img_url ) ); ?>"
 								     alt="<?php echo esc_attr( $client['name'] ); ?>"
 								     loading="lazy">
 							<?php elseif ( $brand_svg ) : ?>
 								<?php echo $brand_svg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							<?php elseif ( ! empty( $client['logo_url'] ) ) : ?>
-								<img src="<?php echo esc_url( $client['logo_url'] ); ?>"
+								<img src="<?php echo esc_url( sazara_versioned_url( $client['logo_url'] ) ); ?>"
 								     alt="<?php echo esc_attr( $client['name'] ); ?>"
 								     loading="lazy">
 							<?php else : ?>
@@ -186,7 +186,7 @@ get_header();
 								<span class="case-card__example-badge"><?php esc_html_e( 'Örnek', 'sazara' ); ?></span>
 							<?php endif; ?>
 							<?php if ( ! empty( $case['hero_image'] ) ) : ?>
-								<img src="<?php echo esc_url( $case['hero_image'] ); ?>" alt="" loading="lazy">
+								<img src="<?php echo esc_url( sazara_versioned_url( $case['hero_image'] ) ); ?>" alt="" loading="lazy">
 							<?php endif; ?>
 						</a>
 						<div class="case-card__body">
@@ -298,7 +298,7 @@ get_header();
 						<div class="partner-card__head">
 							<span class="partner-card__logo">
 								<?php if ( $partner_logo_url ) : ?>
-									<img src="<?php echo esc_url( $partner_logo_url ); ?>"
+									<img src="<?php echo esc_url( sazara_versioned_url( $partner_logo_url ) ); ?>"
 									     alt="<?php echo esc_attr( $partner['name'] ); ?>"
 									     loading="lazy">
 								<?php elseif ( $partner_svg ) : ?>

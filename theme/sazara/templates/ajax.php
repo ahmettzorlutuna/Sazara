@@ -23,7 +23,7 @@ get_header();
 	<!-- ════════ HERO ════════ -->
 	<section class="hero hero--compact service-hero">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $ajax['hero']['image'] ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $ajax['hero']['image'] ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 		<div class="wrap hero__content hero__content--compact">
 			<p class="hero__eyebrow"><?php echo esc_html( $ajax['hero']['eyebrow'] ); ?></p>
@@ -98,7 +98,7 @@ get_header();
 						<div class="case-card__media">
 							<span class="case-card__sector"><?php echo esc_html( $p['tag'] ); ?></span>
 							<?php if ( ! empty( $p['image'] ) ) : ?>
-								<img src="<?php echo esc_url( $p['image'] ); ?>" alt="<?php echo esc_attr( $p['name'] ); ?>" loading="lazy">
+								<img src="<?php echo esc_url( sazara_versioned_url( $p['image'] ) ); ?>" alt="<?php echo esc_attr( $p['name'] ); ?>" loading="lazy">
 							<?php endif; ?>
 						</div>
 						<div class="case-card__body">
@@ -171,7 +171,7 @@ get_header();
 			<div class="ajax-app reveal">
 				<div class="ajax-app__media">
 					<?php if ( ! empty( $ajax['app']['image'] ) ) : ?>
-						<img src="<?php echo esc_url( $ajax['app']['image'] ); ?>" alt="<?php esc_attr_e( 'Ajax Security App arayüzü', 'sazara' ); ?>" loading="lazy">
+						<img src="<?php echo esc_url( sazara_versioned_url( $ajax['app']['image'] ) ); ?>" alt="<?php esc_attr_e( 'Ajax Security App arayüzü', 'sazara' ); ?>" loading="lazy">
 					<?php endif; ?>
 				</div>
 				<div class="ajax-app__body">

@@ -74,9 +74,9 @@ add_action(
 		$svg_url = get_template_directory_uri() . '/assets/brand/mark.svg';
 		$png_url = content_url( 'uploads/brand/sazara-mark-512.png' );
 
-		printf( '<link rel="icon" type="image/svg+xml" href="%s">' . "\n", esc_url( $svg_url ) );
-		printf( '<link rel="icon" type="image/png" sizes="512x512" href="%s">' . "\n", esc_url( $png_url ) );
-		printf( '<link rel="apple-touch-icon" sizes="512x512" href="%s">' . "\n", esc_url( $png_url ) );
+		printf( '<link rel="icon" type="image/svg+xml" href="%s">' . "\n", esc_url( sazara_versioned_url( $svg_url ) ) );
+		printf( '<link rel="icon" type="image/png" sizes="512x512" href="%s">' . "\n", esc_url( sazara_versioned_url( $png_url ) ) );
+		printf( '<link rel="apple-touch-icon" sizes="512x512" href="%s">' . "\n", esc_url( sazara_versioned_url( $png_url ) ) );
 	},
 	5
 );

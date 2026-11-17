@@ -22,7 +22,7 @@ get_header();
 	<!-- ════════ HERO ════════ -->
 	<section class="hero hero--compact">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_url ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_url ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 		<div class="wrap hero__content hero__content--compact">
 			<p class="hero__eyebrow"><?php esc_html_e( 'Hizmetler · Dört dikey, tek mühendislik', 'sazara' ); ?></p>
@@ -51,7 +51,7 @@ get_header();
 						<a href="<?php echo esc_url( home_url( '/hizmetler/' . $slug . '/' ) ); ?>" class="service-card__media">
 							<span class="service-card__tag"><?php echo esc_html( $svc['tag'] ); ?></span>
 							<?php if ( ! empty( $svc['hero_image'] ) ) : ?>
-								<img src="<?php echo esc_url( $svc['hero_image'] ); ?>" alt="" loading="lazy" decoding="async">
+								<img src="<?php echo esc_url( sazara_versioned_url( $svc['hero_image'] ) ); ?>" alt="" loading="lazy" decoding="async">
 							<?php endif; ?>
 						</a>
 						<div class="service-card__body">

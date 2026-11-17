@@ -23,7 +23,7 @@ get_header();
 	<!-- ════════ HERO ════════ -->
 	<section class="hero hero--compact">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_image ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_image ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 		<div class="wrap hero__content hero__content--compact">
 			<p class="hero__eyebrow"><?php esc_html_e( 'Ajax Paketleri · Şeffaf fiyat', 'sazara' ); ?></p>

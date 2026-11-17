@@ -35,7 +35,7 @@ get_header();
 	<section class="hero hero--compact service-hero">
 		<div class="hero__media">
 			<?php if ( ! empty( $svc['hero_image'] ) ) : ?>
-				<img src="<?php echo esc_url( $svc['hero_image'] ); ?>" alt="" loading="eager" fetchpriority="high">
+				<img src="<?php echo esc_url( sazara_versioned_url( $svc['hero_image'] ) ); ?>" alt="" loading="eager" fetchpriority="high">
 			<?php endif; ?>
 		</div>
 		<div class="wrap hero__content hero__content--compact">
@@ -180,7 +180,7 @@ get_header();
 						<a href="<?php echo esc_url( home_url( '/hizmetler/' . $rel_slug . '/' ) ); ?>" class="service-card__media">
 							<span class="service-card__tag"><?php echo esc_html( $rel['tag'] ); ?></span>
 							<?php if ( ! empty( $rel['hero_image'] ) ) : ?>
-								<img src="<?php echo esc_url( $rel['hero_image'] ); ?>" alt="" loading="lazy">
+								<img src="<?php echo esc_url( sazara_versioned_url( $rel['hero_image'] ) ); ?>" alt="" loading="lazy">
 							<?php endif; ?>
 						</a>
 						<div class="service-card__body">

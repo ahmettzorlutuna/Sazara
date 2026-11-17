@@ -38,7 +38,7 @@ get_header();
 	<!-- ════════ HERO (compact) ════════ -->
 	<section class="hero hero--compact">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_url ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_url ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 
 		<div class="wrap hero__content hero__content--compact">
@@ -175,7 +175,7 @@ get_header();
 				<ul class="gallery" role="list">
 					<?php foreach ( $gallery_images as $i => $img ) : ?>
 						<li class="gallery__item gallery__item--<?php echo esc_attr( $i % 4 ); ?> reveal">
-							<img src="<?php echo esc_url( $img['url'] ); ?>" alt="<?php echo esc_attr( $img['alt'] ?? '' ); ?>" loading="lazy" decoding="async">
+							<img src="<?php echo esc_url( sazara_versioned_url( $img['url'] ) ); ?>" alt="<?php echo esc_attr( $img['alt'] ?? '' ); ?>" loading="lazy" decoding="async">
 							<?php if ( ! empty( $img['caption'] ) ) : ?>
 								<figcaption class="gallery__caption"><?php echo esc_html( $img['caption'] ); ?></figcaption>
 							<?php endif; ?>

@@ -35,7 +35,7 @@ get_header();
 	<!-- ════════ HERO ════════ -->
 	<section class="hero hero--compact package-hero">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_image ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_image ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 		<div class="wrap hero__content hero__content--compact">
 			<p class="hero__eyebrow">
@@ -161,7 +161,7 @@ get_header();
 						<li class="package-devices__card reveal">
 							<div class="package-devices__image">
 								<?php if ( ! empty( $device['image'] ) ) : ?>
-									<img src="<?php echo esc_url( $device['image'] ); ?>"
+									<img src="<?php echo esc_url( sazara_versioned_url( $device['image'] ) ); ?>"
 									     alt="<?php echo esc_attr( $device['label'] ); ?>"
 									     loading="lazy" decoding="async">
 								<?php else : ?>

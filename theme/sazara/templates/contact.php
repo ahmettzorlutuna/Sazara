@@ -78,7 +78,7 @@ get_header();
 	<!-- ════════ HERO (compact) ════════ -->
 	<section class="hero hero--compact">
 		<div class="hero__media">
-			<img src="<?php echo esc_url( $hero_url ); ?>" alt="" loading="eager" fetchpriority="high">
+			<img src="<?php echo esc_url( sazara_versioned_url( $hero_url ) ); ?>" alt="" loading="eager" fetchpriority="high">
 		</div>
 
 		<div class="wrap hero__content hero__content--compact">
