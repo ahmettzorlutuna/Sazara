@@ -5352,12 +5352,52 @@ body { padding-top: 0; }
 	gap: 1rem 1.5rem;
 	margin-top: var(--space-lg);
 }
-.pdks__cta-note {
+.pdks__cta-note,
+.pdks__video-note {
 	font-family: var(--font-mono);
 	font-size: 0.72rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: var(--ink-mute);
+}
+.pdks__cta-note a {
+	color: var(--ink-soft);
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+	transition: color var(--dur) var(--ease);
+}
+.pdks__cta-note a:hover,
+.pdks__cta-note a:focus-visible { color: var(--accent); }
+
+/* İkincil, düğme olmayan bağlantı: mevcut müşteriler için giriş. */
+.pdks__cta-login {
+	font-size: var(--text-sm);
+	color: var(--ink-soft);
+	text-decoration: underline;
+	text-decoration-color: var(--rule);
+	text-underline-offset: 0.25em;
+	transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+}
+.pdks__cta-login:hover,
+.pdks__cta-login:focus-visible {
+	color: var(--accent);
+	text-decoration-color: currentColor;
+}
+
+/* Tanıtım videosu: pdks__frame kutusunda, kapsayıcı genişliğinde, 16:9. */
+.pdks__video {
+	margin: 0 0 var(--space-lg);
+}
+.pdks__video-player {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	background: var(--ink);
+}
+.pdks__video-note {
+	display: block;
+	margin-top: 0.85rem;
 }
 
 @media (min-width: 60rem) {

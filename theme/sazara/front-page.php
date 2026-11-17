@@ -82,13 +82,24 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 
 			<header class="pdks__head reveal">
 				<span class="pdks__eyebrow">
-					<?php esc_html_e( 'Flagship ürün · B2B SaaS', 'sazara' ); ?>
+					<?php esc_html_e( 'Sazara PDKS · Personel giriş çıkış takibi', 'sazara' ); ?>
 					<span class="pdks__badge"><?php esc_html_e( 'Yeni', 'sazara' ); ?></span>
 				</span>
-				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Sazara PDKS: Yeni Nesil Personel ve Hakediş Yönetimi', 'sazara' ); ?></h2>
-				<p class="pdks__tagline"><?php esc_html_e( 'Hatasız hakediş hesabı için tasarlandı.', 'sazara' ); ?></p>
-				<p class="pdks__lead"><?php esc_html_e( 'Vardiya, fazla mesai, izin ve bordro kuralları legacy PDKS yazılımlarında elle girilen formüllere ve tablolara bağlıdır; her istisna yeni bir hata kaynağıdır. Sazara PDKS, mesai ve hakediş hesaplamalarını açıklanabilir, kural tabanlı gelişmiş bir mühendislik altyapısıyla yürütür: aynı girdi her zaman aynı sonucu verir, her kalem hangi kurala dayandığını gösterir, tutarsızlıklar bordroya yansımadan işaretlenir.', 'sazara' ); ?></p>
+				<h2 class="pdks__title" id="pdks-title"><?php esc_html_e( 'Kim geldi, kim gelmedi, ay sonunda kime ne ödenecek.', 'sazara' ); ?></h2>
+				<p class="pdks__tagline"><?php esc_html_e( 'Küçük ve orta işletmeler için. Kurulum yok, tarayıcıdan açılır.', 'sazara' ); ?></p>
+				<p class="pdks__lead"><?php esc_html_e( 'Personel kapıdaki okuyucuya kartını okutur; kayıt internet üzerinden kendiliğinden gelir. Kim içeride, kim geç kaldı, kim gelmedi tek ekranda görünür. Ay sonunda puantaj Excel olarak hazırdır, muhasebecinize tek dosya gönderirsiniz. Okutma kaydı silinmez; düzeltmeler ayrıca yazılır.', 'sazara' ); ?></p>
 			</header>
+
+			<figure class="pdks__video reveal">
+				<div class="pdks__frame">
+					<video class="pdks__video-player" controls playsinline preload="none" width="1920" height="1080"
+					       poster="<?php echo esc_url( SAZARA_URI . '/assets/video/sazara-pdks-tanitim-kapak.webp' ); ?>"
+					       aria-label="<?php esc_attr_e( 'Sazara PDKS tanıtım videosu, 33 saniye', 'sazara' ); ?>">
+						<source src="<?php echo esc_url( SAZARA_URI . '/assets/video/sazara-pdks-tanitim.mp4' ); ?>" type="video/mp4">
+					</video>
+				</div>
+				<figcaption class="pdks__video-note"><?php esc_html_e( 'Sesli izleyin: 33 saniye.', 'sazara' ); ?></figcaption>
+			</figure>
 
 			<div class="pdks__stage reveal">
 				<div class="pdks__frame">
@@ -110,33 +121,34 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 			<ul class="pdks__features" role="list">
 				<li class="pdks__card reveal">
 					<span class="pdks__card-icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9.5 6.5h.01"/></svg>
 					</span>
-					<h3 class="pdks__card-title"><?php esc_html_e( 'Deterministik Hesaplama Motoru', 'sazara' ); ?></h3>
-					<p class="pdks__card-desc"><?php esc_html_e( 'Kural tabanlı, açıklanabilir hesaplama: aynı girdi her zaman aynı sonucu verir. Bilgi eksikse tutar uydurmaz, "hesaplanmadı" der.', 'sazara' ); ?></p>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'Kurulum yok', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Tarayıcıdan açılır, telefondan da. Okuyucu kayıtları kendisi gönderir; port açma ya da sabit IP gerekmez.', 'sazara' ); ?></p>
 				</li>
 				<li class="pdks__card reveal">
 					<span class="pdks__card-icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.4-8.98A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 7.98"/><path d="M12 12v8M9 17l3 3 3-3"/></svg>
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11M12 15v2"/></svg>
 					</span>
-					<h3 class="pdks__card-title"><?php esc_html_e( 'B2B SaaS Mimari', 'sazara' ); ?></h3>
-					<p class="pdks__card-desc"><?php esc_html_e( 'Çoklu şube ve bulut altyapısı; her firma kendi yetki ve veri sınırında, tek panelden yönetilen şirket yapısı.', 'sazara' ); ?></p>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'Kayıt silinmez', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Cihazdan gelen kayıt değiştirilmez. Her düzeltme ayrı kayıt olarak girer; kimin yaptığı yazılır ve geri alınabilir.', 'sazara' ); ?></p>
 				</li>
 				<li class="pdks__card reveal">
 					<span class="pdks__card-icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7M9 9h2"/></svg>
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"/></svg>
 					</span>
-					<h3 class="pdks__card-title"><?php esc_html_e( 'Gelişmiş Dokümantasyon', 'sazara' ); ?></h3>
-					<p class="pdks__card-desc"><?php esc_html_e( 'Otomatik oluşturulan kurumsal kılavuzlar; hesaplama kuralları ve süreçler her zaman güncel, denetime hazır.', 'sazara' ); ?></p>
+					<h3 class="pdks__card-title"><?php esc_html_e( 'İş mevzuatına göre hesap', 'sazara' ); ?></h3>
+					<p class="pdks__card-desc"><?php esc_html_e( 'Haftalık 45 saat, %50 fazla çalışma zammı, hafta tatili, bayram ve yıllık izin (14/20/26 gün) hazır gelir. Net maaş hesaplamaz; muhasebecinize puantaj ve hak ediş verir.', 'sazara' ); ?></p>
 				</li>
 			</ul>
 
 			<div class="pdks__cta reveal">
-				<a href="<?php echo esc_url( SAZARA_PDKS_URL ); ?>" class="btn btn--accent" target="_blank" rel="noopener">
-					<span><?php esc_html_e( 'Platforma Git (pdks.sazara.com.tr)', 'sazara' ); ?></span>
+				<a href="https://wa.me/905318503752" class="btn btn--accent" target="_blank" rel="noopener">
+					<span><?php esc_html_e( 'WhatsApp’tan yazın', 'sazara' ); ?></span>
 					<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
 				</a>
-				<span class="pdks__cta-note"><?php esc_html_e( 'Kural tabanlı · Çoklu şube · Bulut tabanlı', 'sazara' ); ?></span>
+				<span class="pdks__cta-note"><?php esc_html_e( 'Ya da arayın:', 'sazara' ); ?> <a href="tel:+905318503752">0531 850 37 52</a></span>
+				<a href="<?php echo esc_url( SAZARA_PDKS_URL ); ?>" class="pdks__cta-login" target="_blank" rel="noopener"><?php esc_html_e( 'Müşteri girişi: pdks.sazara.com.tr', 'sazara' ); ?></a>
 			</div>
 
 		</div>
@@ -163,18 +175,18 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 		],
 		[
 			'tag'   => __( 'Çalışma düzeni', 'sazara' ),
-			'title' => __( 'Çalışma saatlerini 1 dakikada kurun.', 'sazara' ),
+			'title' => __( 'Mesai düzenini bir kez kurun.', 'sazara' ),
 			'desc'  => __( 'Basit düzenler için sihirbaz, karmaşık düzenler için vardiya, plan ve atama. Her değişiklik bugünden itibaren geçerli olur, geçmiş bozulmaz.', 'sazara' ),
 			'items' => [
-				__( 'Sihirbazla ilk mesai düzeni dakikalar içinde hazır', 'sazara' ),
+				__( 'Basit mesai düzeni sihirbazla kurulur', 'sazara' ),
 				__( 'Ayarlar sürümlüdür: geçmiş günler o günkü düzenle hesaplanır', 'sazara' ),
 				__( 'Gece vardiyası, dünden süren kayıtla doğru gösterilir', 'sazara' ),
 				__( 'Tatil günleri ve izinler aynı takvimde', 'sazara' ),
 			],
 			'note'  => '',
 			'image' => 'pdks-calisma-duzeni.webp',
-			'alt'   => __( 'Sazara PDKS çalışma saatleri sihirbazı', 'sazara' ),
-			'label' => __( 'Çalışma saatleri', 'sazara' ),
+			'alt'   => __( 'Sazara PDKS vardiya çizelgesi: kim hangi gün hangi vardiyada', 'sazara' ),
+			'label' => __( 'Zaman ve devam › Vardiya çizelgesi', 'sazara' ),
 		],
 		[
 			'tag'   => __( 'Hakediş', 'sazara' ),
@@ -187,12 +199,12 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 			],
 			'note'  => __( 'Pro pakette. Brüt hakediş ve puantaj üretir; bordro yerine geçmez.', 'sazara' ),
 			'image' => 'pdks-hakedis.webp',
-			'alt'   => __( 'Sazara PDKS hakediş ay sayfası — kişi bazında kalem kalem hakediş', 'sazara' ),
+			'alt'   => __( 'Sazara PDKS hakediş: kapanan aylar, taslak ve kesinleşmiş dönemler', 'sazara' ),
 			'label' => __( 'Raporlar › Hakediş', 'sazara' ),
 		],
 		[
 			'tag'   => __( 'Denetim', 'sazara' ),
-			'title' => __( 'Her kayıt kanıt değeri taşır.', 'sazara' ),
+			'title' => __( 'Okutma kaydı silinmez.', 'sazara' ),
 			'desc'  => __( 'Cihazdan gelen kayıt hiçbir koşulda silinmez ya da değiştirilmez. Düzeltmeler ayrı kayıt olarak girer ve izi kalır.', 'sazara' ),
 			'items' => [
 				__( 'Elle düzeltme ayrı kayıttır; gerekçesi yazılır, geri alınabilir', 'sazara' ),
@@ -201,9 +213,9 @@ $homepage_customers = require SAZARA_DIR . '/inc/customers-data.php';
 				__( 'Panelde yapılan her işlem silinemez işlem geçmişine yazılır', 'sazara' ),
 			],
 			'note'  => '',
-			'image' => 'pdks-islem-gecmisi.webp',
-			'alt'   => __( 'Sazara PDKS işlem geçmişi — kim, ne zaman, ne yaptı', 'sazara' ),
-			'label' => __( 'Ayarlar › İşlem geçmişi', 'sazara' ),
+			'image' => 'pdks-hareket-gunlugu.webp',
+			'alt'   => __( 'Sazara PDKS hareket günlüğü: cihazlardan gelen her giriş çıkış kaydı, olduğu gibi', 'sazara' ),
+			'label' => __( 'Zaman ve devam › Hareket günlüğü', 'sazara' ),
 		],
 		[
 			'tag'   => __( 'Uyum', 'sazara' ),
